@@ -5,15 +5,22 @@
 //  Created by 이범준 on 2022/06/21.
 //
 import UIKit
+import MobileCoreServices
 
 var images = ["01.svg", "02.svg", "03.svg", "04.svg"]
 
-class ViewController: UIViewController {
+class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+    
+    let imagePicker: UIImagePickerController! = UIImagePickerController()
+    var captureImage: UIImage!
+    var flagImageSave = false
     
     let numOfTouchs = 2
 
     @IBOutlet var imgView: UIImageView!
     @IBOutlet var pageControl: UIPageControl!
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -91,6 +98,28 @@ class ViewController: UIViewController {
     @IBAction func pageChanged(_ sender: UIPageControl) {
         // print("page Changed")
         imgView.image = UIImage(named: images[pageControl.currentPage])
+    }
+    
+    @IBAction func btnOnCamera(_ sender: UIButton) {
+        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
+            flagImageSave = true
+            
+            imagePicker.delegate = self
+            imagePicker.sourceType = .camera
+            imagePicker.mediaTypes = [kUTTypeImage as String]
+            imagePicker.allowsEditing = false
+            
+            present(imagePicker, animated: true, completion: nil)
+        } else {
+            cameraAlert("Camera inaccessalbe", message: "Application can't access the camera.")
+        }
+    }
+    
+    func cameraAlert(_ title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
+        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
+        alert.addAction(action)
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
