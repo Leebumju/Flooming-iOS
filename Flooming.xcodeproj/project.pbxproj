@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D86E9F802864A8460054E535 /* DetailPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E9F7F2864A8460054E535 /* DetailPhotoViewController.swift */; };
 		D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870DE1D2861DAE30096CC57 /* AppDelegate.swift */; };
 		D870DE202861DAE30096CC57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870DE1F2861DAE30096CC57 /* SceneDelegate.swift */; };
 		D870DE222861DAE30096CC57 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870DE212861DAE30096CC57 /* ViewController.swift */; };
@@ -16,6 +17,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D86E9F7F2864A8460054E535 /* DetailPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailPhotoViewController.swift; sourceTree = "<group>"; };
 		D870DE1A2861DAE30096CC57 /* Flooming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flooming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D870DE1D2861DAE30096CC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D870DE1F2861DAE30096CC57 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -59,6 +61,7 @@
 				D870DE1D2861DAE30096CC57 /* AppDelegate.swift */,
 				D870DE1F2861DAE30096CC57 /* SceneDelegate.swift */,
 				D870DE212861DAE30096CC57 /* ViewController.swift */,
+				D86E9F7F2864A8460054E535 /* DetailPhotoViewController.swift */,
 				D870DE232861DAE30096CC57 /* Main.storyboard */,
 				D870DE262861DAE70096CC57 /* Assets.xcassets */,
 				D870DE282861DAE70096CC57 /* LaunchScreen.storyboard */,
@@ -140,6 +143,7 @@
 			files = (
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
+				D86E9F802864A8460054E535 /* DetailPhotoViewController.swift in Sources */,
 				D870DE202861DAE30096CC57 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

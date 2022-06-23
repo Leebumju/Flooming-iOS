@@ -9,18 +9,18 @@ import MobileCoreServices
 
 var images = ["01.svg", "02.svg", "03.svg", "04.svg"]
 
-class ViewController: UIViewController, UINavigationControllerDelegate, UIImagePickerControllerDelegate {
+class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    let imagePicker: UIImagePickerController! = UIImagePickerController()
-    var captureImage: UIImage!
-    var flagImageSave = false
-    
+    let imagePickerController = UIImagePickerController()
     let numOfTouchs = 2
-
+    var myImage: UIImage?
+    
+    //var a: String = "ㄴㄴ"
+    
+    
+    @IBOutlet var centerImage: UIImageView!
     @IBOutlet var imgView: UIImageView!
     @IBOutlet var pageControl: UIPageControl!
-    
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -54,6 +54,7 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         swipeRightMulti.numberOfTouchesRequired = numOfTouchs
         self.view.addGestureRecognizer(swipeRightMulti)
         
+     //   a = "yabal"
         
     }
     
@@ -100,27 +101,43 @@ class ViewController: UIViewController, UINavigationControllerDelegate, UIImageP
         imgView.image = UIImage(named: images[pageControl.currentPage])
     }
     
-    @IBAction func btnOnCamera(_ sender: UIButton) {
-        if (UIImagePickerController.isSourceTypeAvailable(.camera)) {
-            flagImageSave = true
-            
-            imagePicker.delegate = self
-            imagePicker.sourceType = .camera
-            imagePicker.mediaTypes = [kUTTypeImage as String]
-            imagePicker.allowsEditing = false
-            
-            present(imagePicker, animated: true, completion: nil)
-        } else {
-            cameraAlert("Camera inaccessalbe", message: "Application can't access the camera.")
-        }
+    @IBAction func clickPhoto(_ sender: UIButton) {
+        
+        self.imagePickerController.delegate = self
+        self.imagePickerController.sourceType = .camera
+        
+        present(self.imagePickerController, animated: true, completion: nil)
+    
     }
     
-    func cameraAlert(_ title: String, message: String) {
-        let alert = UIAlertController(title: title, message: message, preferredStyle: UIAlertController.Style.alert)
-        let action = UIAlertAction(title: "OK", style: UIAlertAction.Style.default, handler: nil)
-        alert.addAction(action)
-        self.present(alert, animated: true, completion: nil)
+    
+    
+    @IBAction func clickGallery(_ sender: UIButton) {
+        self.imagePickerController.delegate = self
+        self.imagePickerController.sourceType = .photoLibrary
+        present(self.imagePickerController, animated: true, completion: nil)
     }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        
+        if let image = info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
+            centerImage.image = image
+            myImage = image
+        }
+        
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
+        picker.dismiss(animated: true, completion: nil)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let viewController = segue.destination as! DetailPhotoViewController
+        viewController.photoImage = myImage
+        //viewController.label = a
+    }
+    
 }
 
 
