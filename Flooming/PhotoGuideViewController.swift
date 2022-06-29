@@ -7,21 +7,18 @@
 
 import UIKit
 
-class DetailPhotoViewController: UIViewController {
+class PhotoGuideViewController: UIViewController {
 
-    var photoImage: UIImage?
-    var label: String = ""
+    @IBOutlet weak var photoGuideView: UIView!
     
-    @IBOutlet weak var detailPhotoImage: UIImageView!
-    
-    @IBOutlet weak var detailPhotoLabel: UILabel!
-    
+    @IBOutlet weak var correctLabel: UILabel!
     override func viewDidLoad() {
         super.viewDidLoad()
-        detailPhotoImage.image = photoImage
-        detailPhotoLabel.text = label
-        dismiss(animated: true, completion: nil)
-        // Do any additional setup after loading the view.
+        photoGuideView.clipsToBounds = true
+        photoGuideView.layer.cornerRadius = 30
+        photoGuideView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        correctLabel.text = "이렇게 \n 찍어주세요"
+
     }
     
 
