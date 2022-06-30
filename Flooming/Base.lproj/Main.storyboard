@@ -25,8 +25,8 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-Ua-sGg">
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="마음에 드는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFs-Q3-uV7">
-                                        <rect key="frame" x="20" y="60" width="137" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOOMING은 마음에 드는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFs-Q3-uV7">
+                                        <rect key="frame" x="20" y="60" width="320.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -49,8 +49,8 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="으로!!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-kr-1HJ">
-                                        <rect key="frame" x="186" y="106" width="69" height="36"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="으로 만들어줘요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-kr-1HJ">
+                                        <rect key="frame" x="186" y="106" width="195.5" height="36"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="30"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -134,6 +134,9 @@
                                         <buttonConfiguration key="configuration" style="filled" title="예 이해했습니다!">
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="9gO-Me-JcQ" kind="show" id="1kv-41-v6d"/>
+                                        </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImage" translatesAutoresizingMaskIntoConstraints="NO" id="K7e-PG-uqw">
                                         <rect key="frame" x="20" y="190" width="150" height="150"/>
@@ -214,20 +217,90 @@
             </objects>
             <point key="canvasLocation" x="1713" y="116"/>
         </scene>
-        <!--View Controller-->
+        <!--사진 선택-->
         <scene sceneID="Vhb-bL-mgz">
             <objects>
-                <viewController id="9gO-Me-JcQ" sceneMemberID="viewController">
+                <viewController id="9gO-Me-JcQ" customClass="ChoicePhotoViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="fdU-Et-I3q">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPR-KI-D0D">
+                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImage" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-gh-pbl">
+                                        <rect key="frame" x="10" y="30" width="394" height="434"/>
+                                    </imageView>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-E6-saW">
+                                        <rect key="frame" x="10" y="474" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="oES-Wd-8jN"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="사진 찍기">
+                                            <color key="baseBackgroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="cameraButton:" destination="9gO-Me-JcQ" eventType="touchUpInside" id="oFn-Tw-Q67"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Woh-UJ-WGr">
+                                        <rect key="frame" x="218" y="474" width="170" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="170" id="7WN-xg-i1c"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="앨범에서 가져오기">
+                                            <color key="baseBackgroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
+                                        <connections>
+                                            <action selector="albumButton:" destination="9gO-Me-JcQ" eventType="touchUpInside" id="uBe-Km-eqE"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstItem="Woh-UJ-WGr" firstAttribute="top" secondItem="kPc-gh-pbl" secondAttribute="bottom" constant="10" id="2Bu-th-Yq9"/>
+                                    <constraint firstItem="l7N-E6-saW" firstAttribute="leading" secondItem="kPc-gh-pbl" secondAttribute="leading" id="3Pb-dR-FoI"/>
+                                    <constraint firstAttribute="bottom" secondItem="kPc-gh-pbl" secondAttribute="bottom" constant="300" id="9rM-1C-9pe"/>
+                                    <constraint firstItem="Woh-UJ-WGr" firstAttribute="top" secondItem="l7N-E6-saW" secondAttribute="top" id="Exr-vO-jJh"/>
+                                    <constraint firstItem="Woh-UJ-WGr" firstAttribute="trailing" secondItem="kPc-gh-pbl" secondAttribute="trailing" id="QxB-qo-veR"/>
+                                    <constraint firstItem="kPc-gh-pbl" firstAttribute="leading" secondItem="fPR-KI-D0D" secondAttribute="leading" constant="10" id="cQL-Na-xGg"/>
+                                    <constraint firstItem="l7N-E6-saW" firstAttribute="top" secondItem="kPc-gh-pbl" secondAttribute="bottom" constant="10" id="dht-jW-DEE"/>
+                                    <constraint firstAttribute="trailing" secondItem="kPc-gh-pbl" secondAttribute="trailing" constant="10" id="m6j-dW-E6w"/>
+                                    <constraint firstItem="kPc-gh-pbl" firstAttribute="top" secondItem="fPR-KI-D0D" secondAttribute="top" constant="30" id="poH-LQ-K97"/>
+                                    <constraint firstItem="Woh-UJ-WGr" firstAttribute="bottom" secondItem="l7N-E6-saW" secondAttribute="bottom" id="vJz-5B-X7S"/>
+                                </constraints>
+                            </view>
+                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG5-ZS-CPh">
+                                <rect key="frame" x="10" y="821" width="394" height="60"/>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="filled" title="사진 선택">
+                                    <color key="baseBackgroundColor" systemColor="labelColor"/>
+                                </buttonConfiguration>
+                            </button>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="laE-Cn-0Ba"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="laE-Cn-0Ba" firstAttribute="trailing" secondItem="DG5-ZS-CPh" secondAttribute="trailing" constant="10" id="KUw-PZ-l8a"/>
+                            <constraint firstItem="laE-Cn-0Ba" firstAttribute="bottom" secondItem="fPR-KI-D0D" secondAttribute="bottom" id="Q9G-81-r2c"/>
+                            <constraint firstItem="laE-Cn-0Ba" firstAttribute="bottom" secondItem="DG5-ZS-CPh" secondAttribute="bottom" constant="10" id="TGr-bD-Fxb"/>
+                            <constraint firstItem="fPR-KI-D0D" firstAttribute="leading" secondItem="laE-Cn-0Ba" secondAttribute="leading" id="feZ-gJ-vH8"/>
+                            <constraint firstItem="DG5-ZS-CPh" firstAttribute="leading" secondItem="laE-Cn-0Ba" secondAttribute="leading" constant="10" id="gvQ-Bs-RDY"/>
+                            <constraint firstAttribute="trailing" secondItem="fPR-KI-D0D" secondAttribute="trailing" id="kDw-cn-v87"/>
+                            <constraint firstItem="fPR-KI-D0D" firstAttribute="top" secondItem="laE-Cn-0Ba" secondAttribute="top" constant="10" id="rQO-G0-ogV"/>
+                        </constraints>
                     </view>
+                    <navigationItem key="navigationItem" title="사진 선택" id="0Er-rW-0Oj"/>
+                    <connections>
+                        <outlet property="choicePhoto" destination="kPc-gh-pbl" id="3ET-5Z-oWT"/>
+                        <outlet property="choicePhotoView" destination="fPR-KI-D0D" id="gkh-UM-EWH"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Yxs-1h-aC1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2383" y="116"/>
+            <point key="canvasLocation" x="2382.608695652174" y="115.84821428571428"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="7gD-HS-gvv">

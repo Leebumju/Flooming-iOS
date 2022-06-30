@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CB286D9C1100B4398D /* PhotoAuth.swift */; };
+		AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */; };
+		AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */; };
 		D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E9F7F2864A8460054E535 /* PhotoGuideViewController.swift */; };
 		D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870DE1D2861DAE30096CC57 /* AppDelegate.swift */; };
 		D870DE202861DAE30096CC57 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870DE1F2861DAE30096CC57 /* SceneDelegate.swift */; };
@@ -14,9 +17,16 @@
 		D870DE252861DAE30096CC57 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D870DE232861DAE30096CC57 /* Main.storyboard */; };
 		D870DE272861DAE70096CC57 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D870DE262861DAE70096CC57 /* Assets.xcassets */; };
 		D870DE2A2861DAE70096CC57 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D870DE282861DAE70096CC57 /* LaunchScreen.storyboard */; };
+		DD02C6A2F56F14C0B494567A /* Pods_Flooming.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 84C25C0C6867F726027F7F4D /* Pods_Flooming.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1113ED7655B9E54C709882DB /* Pods-Flooming.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flooming.debug.xcconfig"; path = "Target Support Files/Pods-Flooming/Pods-Flooming.debug.xcconfig"; sourceTree = "<group>"; };
+		84C25C0C6867F726027F7F4D /* Pods_Flooming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flooming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		8D7FFD3109C166CD6B90BEC0 /* Pods-Flooming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flooming.release.xcconfig"; path = "Target Support Files/Pods-Flooming/Pods-Flooming.release.xcconfig"; sourceTree = "<group>"; };
+		AD3501CB286D9C1100B4398D /* PhotoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAuth.swift; sourceTree = "<group>"; };
+		AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
+		AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePhotoViewController.swift; sourceTree = "<group>"; };
 		D86E9F7F2864A8460054E535 /* PhotoGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGuideViewController.swift; sourceTree = "<group>"; };
 		D870DE1A2861DAE30096CC57 /* Flooming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flooming.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D870DE1D2861DAE30096CC57 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -33,17 +43,38 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DD02C6A2F56F14C0B494567A /* Pods_Flooming.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		28D422F330856BD245635499 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				1113ED7655B9E54C709882DB /* Pods-Flooming.debug.xcconfig */,
+				8D7FFD3109C166CD6B90BEC0 /* Pods-Flooming.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		4A3518F116819FB040CE0141 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				84C25C0C6867F726027F7F4D /* Pods_Flooming.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		D870DE112861DAE30096CC57 = {
 			isa = PBXGroup;
 			children = (
 				D870DE1C2861DAE30096CC57 /* Flooming */,
 				D870DE1B2861DAE30096CC57 /* Products */,
+				28D422F330856BD245635499 /* Pods */,
+				4A3518F116819FB040CE0141 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -62,10 +93,13 @@
 				D870DE1F2861DAE30096CC57 /* SceneDelegate.swift */,
 				D870DE212861DAE30096CC57 /* ViewController.swift */,
 				D86E9F7F2864A8460054E535 /* PhotoGuideViewController.swift */,
+				AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */,
 				D870DE232861DAE30096CC57 /* Main.storyboard */,
 				D870DE262861DAE70096CC57 /* Assets.xcassets */,
 				D870DE282861DAE70096CC57 /* LaunchScreen.storyboard */,
 				D870DE2B2861DAE70096CC57 /* Info.plist */,
+				AD3501CB286D9C1100B4398D /* PhotoAuth.swift */,
+				AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */,
 			);
 			path = Flooming;
 			sourceTree = "<group>";
@@ -77,9 +111,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = D870DE2E2861DAE70096CC57 /* Build configuration list for PBXNativeTarget "Flooming" */;
 			buildPhases = (
+				DDD052192E87372F5CC6C89D /* [CP] Check Pods Manifest.lock */,
 				D870DE162861DAE30096CC57 /* Sources */,
 				D870DE172861DAE30096CC57 /* Frameworks */,
 				D870DE182861DAE30096CC57 /* Resources */,
+				E7A771DE0B69318997B979CB /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -136,6 +172,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		DDD052192E87372F5CC6C89D /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Flooming-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7A771DE0B69318997B979CB /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flooming/Pods-Flooming-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Flooming/Pods-Flooming-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Flooming/Pods-Flooming-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		D870DE162861DAE30096CC57 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -144,6 +222,9 @@
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
+				AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */,
+				AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */,
+				AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */,
 				D870DE202861DAE30096CC57 /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -286,6 +367,7 @@
 		};
 		D870DE2F2861DAE70096CC57 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1113ED7655B9E54C709882DB /* Pods-Flooming.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -315,6 +397,7 @@
 		};
 		D870DE302861DAE70096CC57 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 8D7FFD3109C166CD6B90BEC0 /* Pods-Flooming.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
