@@ -16,9 +16,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-    mainView.clipsToBounds = true
-    mainView.layer.cornerRadius = 30
-    mainView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        mainView.clipsToBounds = true
+        mainView.layer.cornerRadius = 30
+        mainView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        mainView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
     }
     
     

@@ -21,7 +21,7 @@ class ChoicePhotoViewController: UIViewController {
         choicePhotoView.clipsToBounds = true
         choicePhotoView.layer.cornerRadius = 30
         choicePhotoView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-
+        choicePhotoView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
         imagePickerController.delegate = self
     }
     
