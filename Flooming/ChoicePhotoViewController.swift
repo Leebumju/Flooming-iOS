@@ -8,6 +8,7 @@
 import UIKit
 import Photos
 import Mantis
+import Alamofire
 
 class ChoicePhotoViewController: UIViewController {
     

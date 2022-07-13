@@ -7,6 +7,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="LeferiBaseRegular.otf">
+            <string>LeferiBaseType-Regular</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -26,37 +31,37 @@
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOOMING은 마음에 드는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFs-Q3-uV7">
-                                        <rect key="frame" x="20" y="60" width="320.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <rect key="frame" x="20" y="60" width="357" height="45"/>
+                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <color key="textColor" red="0.96078431610000004" green="0.96862745289999996" blue="0.73333334920000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃사진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taM-Y8-cmI">
-                                        <rect key="frame" x="20" y="106" width="78" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <rect key="frame" x="20" y="115" width="87.5" height="45"/>
+                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <color key="textColor" red="0.96848052740097046" green="0.93420457329941387" blue="0.80477560223210887" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="을" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGG-4O-GGA">
-                                        <rect key="frame" x="98" y="106" width="26" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <rect key="frame" x="107.5" y="115" width="29.5" height="45"/>
+                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <color key="textColor" red="0.96848052740000001" green="0.93420457329999995" blue="0.8047756022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94J-Mn-eW7">
-                                        <rect key="frame" x="134" y="106" width="52" height="36"/>
-                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                        <color key="textColor" systemColor="systemYellowColor"/>
+                                        <rect key="frame" x="147" y="115" width="58.5" height="45"/>
+                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <color key="textColor" red="0.96848052740097046" green="0.94839592063063827" blue="0.73820755723011044" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="으로 만들어줘요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-kr-1HJ">
-                                        <rect key="frame" x="186" y="106" width="195.5" height="36"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                        <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
+                                        <rect key="frame" x="205.5" y="115" width="218.5" height="45"/>
+                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <color key="textColor" red="0.96848052740000001" green="0.93420457329999995" blue="0.8047756022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03" translatesAutoresizingMaskIntoConstraints="NO" id="cVe-BX-LS0">
-                                        <rect key="frame" x="10" y="192" width="180" height="180"/>
+                                        <rect key="frame" x="10" y="210" width="180" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="FBO-a6-8ru"/>
                                             <constraint firstAttribute="width" constant="180" id="snY-6A-qwl"/>
@@ -116,6 +121,37 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="115.84821428571428"/>
+        </scene>
+        <!--갤러리-->
+        <scene sceneID="Ywl-ex-561">
+            <objects>
+                <viewController id="DYM-CT-phu" customClass="GalleryViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="QW5-dw-BmQ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vr2-GT-P9H">
+                                <rect key="frame" x="20" y="108" width="374" height="254"/>
+                            </imageView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="xzb-vb-1kE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xzb-vb-1kE" firstAttribute="bottom" secondItem="Vr2-GT-P9H" secondAttribute="bottom" constant="500" id="EWl-Nd-wYa"/>
+                            <constraint firstItem="Vr2-GT-P9H" firstAttribute="top" secondItem="xzb-vb-1kE" secondAttribute="top" constant="20" id="NQJ-8d-fMf"/>
+                            <constraint firstItem="Vr2-GT-P9H" firstAttribute="leading" secondItem="xzb-vb-1kE" secondAttribute="leading" constant="20" id="rul-e0-9E3"/>
+                            <constraint firstItem="xzb-vb-1kE" firstAttribute="trailing" secondItem="Vr2-GT-P9H" secondAttribute="trailing" constant="20" id="tGR-Fy-9gn"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" title="갤러리" id="HFd-xL-DuJ"/>
+                    <connections>
+                        <outlet property="galleryImageView" destination="Vr2-GT-P9H" id="FfE-hc-BZE"/>
+                        <outlet property="galleryView" destination="QW5-dw-BmQ" id="GEC-7d-hMp"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EYs-bE-C0b" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3163.7681159420295" y="115.84821428571428"/>
         </scene>
         <!--사진 가이드-->
         <scene sceneID="Uan-Ud-6jm">
@@ -293,6 +329,9 @@
                                 <buttonConfiguration key="configuration" style="filled" title="사진 선택">
                                     <color key="baseBackgroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <segue destination="DYM-CT-phu" kind="show" id="kfB-F7-iNR"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="laE-Cn-0Ba"/>
@@ -346,14 +385,8 @@
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
-        <systemColor name="secondarySystemBackgroundColor">
-            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
