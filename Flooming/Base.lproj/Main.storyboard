@@ -5,11 +5,12 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="collection view cell content view" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <customFonts key="customFonts">
-        <array key="LeferiBaseRegular.otf">
-            <string>LeferiBaseType-Regular</string>
+        <array key="SimKyungha.otf">
+            <string>SimKyungha</string>
         </array>
     </customFonts>
     <scenes>
@@ -31,37 +32,37 @@
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOOMING은 마음에 드는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFs-Q3-uV7">
-                                        <rect key="frame" x="20" y="60" width="357" height="45"/>
-                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <rect key="frame" x="20" y="60" width="238" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
                                         <color key="textColor" red="0.96078431610000004" green="0.96862745289999996" blue="0.73333334920000004" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃사진" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="taM-Y8-cmI">
-                                        <rect key="frame" x="20" y="115" width="87.5" height="45"/>
-                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <rect key="frame" x="20" y="100" width="60" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
                                         <color key="textColor" red="0.96848052740097046" green="0.93420457329941387" blue="0.80477560223210887" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="을" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OGG-4O-GGA">
-                                        <rect key="frame" x="107.5" y="115" width="29.5" height="45"/>
-                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <rect key="frame" x="80" y="100" width="20.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
                                         <color key="textColor" red="0.96848052740000001" green="0.93420457329999995" blue="0.8047756022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그림" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="94J-Mn-eW7">
-                                        <rect key="frame" x="147" y="115" width="58.5" height="45"/>
-                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <rect key="frame" x="110.5" y="100" width="35.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
                                         <color key="textColor" red="0.96848052740097046" green="0.94839592063063827" blue="0.73820755723011044" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="으로 만들어줘요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s9J-kr-1HJ">
-                                        <rect key="frame" x="205.5" y="115" width="218.5" height="45"/>
-                                        <fontDescription key="fontDescription" name="LeferiBaseType-Regular" family="Leferi Base Type" pointSize="30"/>
+                                        <rect key="frame" x="146" y="100" width="142" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
                                         <color key="textColor" red="0.96848052740000001" green="0.93420457329999995" blue="0.8047756022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="03" translatesAutoresizingMaskIntoConstraints="NO" id="cVe-BX-LS0">
-                                        <rect key="frame" x="10" y="210" width="180" height="180"/>
+                                        <rect key="frame" x="10" y="180" width="180" height="180"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="180" id="FBO-a6-8ru"/>
                                             <constraint firstAttribute="width" constant="180" id="snY-6A-qwl"/>
@@ -71,7 +72,7 @@
                                         <rect key="frame" x="210" y="192" width="180" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-Re-QlL">
+                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-Re-QlL">
                                         <rect key="frame" x="10" y="696" width="394" height="60"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="지금 해보기">
@@ -122,6 +123,106 @@
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="115.84821428571428"/>
         </scene>
+        <!--Compare Photo View Controller-->
+        <scene sceneID="dKh-Lg-cva">
+            <objects>
+                <viewController id="Ea4-6V-D4F" customClass="ComparePhotoViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8YD-12-8EJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mtg-Py-m3f">
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mX5-8Z-gnd">
+                                        <rect key="frame" x="127.5" y="30" width="159.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
+                                        <color key="textColor" red="0.96848052740000001" green="0.93420457329999995" blue="0.8047756022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신이 찍은 꽃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PiI-Ir-1tq">
+                                        <rect key="frame" x="144.5" y="100" width="125.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
+                                        <color key="textColor" red="0.96848052740000001" green="0.93420457329999995" blue="0.8047756022" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImage" translatesAutoresizingMaskIntoConstraints="NO" id="Fth-NQ-NeQ">
+                                        <rect key="frame" x="107" y="150" width="200" height="200"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="200" id="Mh7-z7-pBE"/>
+                                            <constraint firstAttribute="width" secondItem="Fth-NQ-NeQ" secondAttribute="height" multiplier="1:1" id="UFv-gb-QFV"/>
+                                        </constraints>
+                                    </imageView>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bMc-Te-OTn">
+                                        <rect key="frame" x="0.0" y="400" width="414" height="162"/>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="qhS-cE-PnM">
+                                            <size key="itemSize" width="256" height="256"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells>
+                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" reuseIdentifier="selectFlowerCell" id="qqY-FQ-tbj" customClass="SelectFlowerCell" customModule="Flooming" customModuleProvider="target">
+                                                <rect key="frame" x="79" y="0.0" width="256" height="256"/>
+                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="MHV-zM-Wxh">
+                                                    <rect key="frame" x="0.0" y="0.0" width="256" height="256"/>
+                                                    <autoresizingMask key="autoresizingMask"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bHP-EA-lse">
+                                                            <rect key="frame" x="43" y="99" width="42" height="21"/>
+                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstItem="bHP-EA-lse" firstAttribute="centerY" secondItem="MHV-zM-Wxh" secondAttribute="centerY" id="85k-E1-oTC"/>
+                                                        <constraint firstItem="bHP-EA-lse" firstAttribute="centerX" secondItem="MHV-zM-Wxh" secondAttribute="centerX" id="dM7-Xu-V84"/>
+                                                    </constraints>
+                                                </collectionViewCellContentView>
+                                                <connections>
+                                                    <outlet property="flowerLabel" destination="bHP-EA-lse" id="Bu4-wS-DP7"/>
+                                                </connections>
+                                            </collectionViewCell>
+                                        </cells>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="linkColor"/>
+                                <constraints>
+                                    <constraint firstItem="Fth-NQ-NeQ" firstAttribute="centerX" secondItem="mtg-Py-m3f" secondAttribute="centerX" id="6Br-kR-fnF"/>
+                                    <constraint firstItem="bMc-Te-OTn" firstAttribute="leading" secondItem="mtg-Py-m3f" secondAttribute="leading" id="9Fn-xe-eKg"/>
+                                    <constraint firstAttribute="bottom" secondItem="bMc-Te-OTn" secondAttribute="bottom" constant="200" id="SIJ-3P-Z4o"/>
+                                    <constraint firstAttribute="trailing" secondItem="bMc-Te-OTn" secondAttribute="trailing" id="UPc-8m-b5Z"/>
+                                    <constraint firstItem="PiI-Ir-1tq" firstAttribute="top" secondItem="mX5-8Z-gnd" secondAttribute="bottom" constant="40" id="Vhy-0M-R5z"/>
+                                    <constraint firstItem="bMc-Te-OTn" firstAttribute="top" secondItem="Fth-NQ-NeQ" secondAttribute="bottom" constant="50" id="fel-fb-MyW"/>
+                                    <constraint firstItem="PiI-Ir-1tq" firstAttribute="centerX" secondItem="mtg-Py-m3f" secondAttribute="centerX" id="jG8-CX-TDQ"/>
+                                    <constraint firstItem="Fth-NQ-NeQ" firstAttribute="top" secondItem="PiI-Ir-1tq" secondAttribute="bottom" constant="20" id="kBy-J3-JhJ"/>
+                                    <constraint firstItem="mX5-8Z-gnd" firstAttribute="top" secondItem="mtg-Py-m3f" secondAttribute="top" constant="30" id="ttj-nz-AXI"/>
+                                    <constraint firstItem="mX5-8Z-gnd" firstAttribute="centerX" secondItem="mtg-Py-m3f" secondAttribute="centerX" id="zUR-pq-4qM"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="vty-9E-lVd"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="vty-9E-lVd" firstAttribute="trailing" secondItem="mtg-Py-m3f" secondAttribute="trailing" id="XdL-ZK-Q48"/>
+                            <constraint firstItem="vty-9E-lVd" firstAttribute="bottom" secondItem="mtg-Py-m3f" secondAttribute="bottom" id="eLQ-b5-6hp"/>
+                            <constraint firstItem="mtg-Py-m3f" firstAttribute="leading" secondItem="8YD-12-8EJ" secondAttribute="leading" id="qhX-Af-Q0d"/>
+                            <constraint firstItem="mtg-Py-m3f" firstAttribute="top" secondItem="8YD-12-8EJ" secondAttribute="top" constant="100" id="scH-Bd-o2d"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="sxv-Uy-rqz"/>
+                    <connections>
+                        <outlet property="collectionView" destination="bMc-Te-OTn" id="lZQ-8o-Do4"/>
+                        <outlet property="comparePhotoView" destination="mtg-Py-m3f" id="bq7-yP-Zd1"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MU7-UR-0Tl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1015.9420289855074" y="798.88392857142856"/>
+        </scene>
         <!--갤러리-->
         <scene sceneID="Ywl-ex-561">
             <objects>
@@ -131,7 +232,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Vr2-GT-P9H">
-                                <rect key="frame" x="20" y="108" width="374" height="254"/>
+                                <rect key="frame" x="20" y="64" width="374" height="298"/>
                             </imageView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="xzb-vb-1kE"/>
@@ -330,7 +431,7 @@
                                     <color key="baseBackgroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <segue destination="DYM-CT-phu" kind="show" id="kfB-F7-iNR"/>
+                                    <segue destination="Ea4-6V-D4F" kind="show" id="leT-hc-3FU"/>
                                 </connections>
                             </button>
                         </subviews>
