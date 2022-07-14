@@ -22,6 +22,8 @@
 		AD7E99912875837000B5CCEF /* SimKyungha.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99882875835500B5CCEF /* SimKyungha.otf */; };
 		AD7E99952876BDFF00B5CCEF /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */; };
 		AD7E99972876C74A00B5CCEF /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */; };
+		ADD54075287FE2ED009DF6D0 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */; };
+		ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */; };
 		ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */; };
 		D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D86E9F7F2864A8460054E535 /* PhotoGuideViewController.swift */; };
 		D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D870DE1D2861DAE30096CC57 /* AppDelegate.swift */; };
@@ -52,6 +54,8 @@
 		AD7E99882875835500B5CCEF /* SimKyungha.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimKyungha.otf; sourceTree = "<group>"; };
 		AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
+		ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
+		ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewController.swift; sourceTree = "<group>"; };
 		ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePhotoViewController.swift; sourceTree = "<group>"; };
 		D86E9F7F2864A8460054E535 /* PhotoGuideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoGuideViewController.swift; sourceTree = "<group>"; };
 		D870DE1A2861DAE30096CC57 /* Flooming.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Flooming.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -146,6 +150,8 @@
 				AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */,
 				AD607F042876D6D30054B60C /* AddActionEditService.swift */,
 				ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */,
+				ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */,
+				ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */,
 			);
 			path = Flooming;
 			sourceTree = "<group>";
@@ -278,6 +284,7 @@
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
+				ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */,
 				ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */,
 				AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */,
 				AD607F052876D6D30054B60C /* AddActionEditService.swift in Sources */,
@@ -285,6 +292,7 @@
 				AD7E99952876BDFF00B5CCEF /* GalleryViewController.swift in Sources */,
 				AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */,
 				D870DE202861DAE30096CC57 /* SceneDelegate.swift in Sources */,
+				ADD54075287FE2ED009DF6D0 /* PopupViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

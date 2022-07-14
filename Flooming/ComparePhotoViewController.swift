@@ -10,10 +10,9 @@ import UIKit
 class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
     var list = ["장미", "카네이션", "노루오줌"]
-    var imageList = ["01.png","02.svg","03.svg"]
+    var images = ["01", "02", "03"]
     
     @IBOutlet weak var comparePhotoView: UIView!
-    
     @IBOutlet var collectionView: UICollectionView!
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
@@ -26,6 +25,7 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
                 
         cell.backgroundColor = .clear
         cell.flowerLabel.text = list[indexPath.row]
+        cell.flowerImage.image = UIImage(named: images[indexPath.row])
         return cell
 
     }
@@ -44,21 +44,39 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
         comparePhotoView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
 
         // Do any additional setup after loading the view.
+        
+        self.comparePhotoView.isUserInteractionEnabled = true
+            //제쳐스 추가
+        self.comparePhotoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTapped)))
+        
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @objc func viewTapped(_ sender: UITapGestureRecognizer) {
+        alertPhotoChoice()
     }
-    */
-
+    
+    
+    func alertPhotoChoice() {
+        print("클릭 되었음.")
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let popupVC = storyBoard.instantiateViewController(withIdentifier: "PopupViewController")
+        popupVC.modalPresentationStyle = .overFullScreen
+        present(popupVC, animated: false, completion: nil)
+    }
+//        //1. 경고창 내용 만들기
+//        let alert = UIAlertController(title:"로그아웃 하시겠습니까?",message: "",preferredStyle: UIAlertController.Style.alert)
+//        let cancle = UIAlertAction(title: "취소", style: .default, handler: nil)
+//        //확인 버튼 만들기
+//        let ok = UIAlertAction(title: "확인", style: .destructive, handler: {
+//            action in
+//            //특정기능 수행
+//        })
+//        alert.addAction(cancle)
+//        //확인 버튼 경고창에 추가하기
+//        alert.addAction(ok)
+//        present(alert,animated: true,completion: nil)
+//    }
 }
-
 
 extension ComparePhotoViewController: UICollectionViewDelegateFlowLayout {
 
@@ -86,7 +104,7 @@ extension ComparePhotoViewController: UICollectionViewDelegateFlowLayout {
 }
 
 class SelectFlowerCell: UICollectionViewCell {
-    @IBOutlet weak var flowerImage: UIImageView!
+    @IBOutlet var flowerImage: UIImageView!
     @IBOutlet weak var flowerLabel: UILabel!
 
 }
