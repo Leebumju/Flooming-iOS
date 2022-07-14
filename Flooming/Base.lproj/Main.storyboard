@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvT-y9-V2Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="sP8-y3-WuH">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -304,20 +304,71 @@
             </objects>
             <point key="canvasLocation" x="1814.4927536231885" y="825"/>
         </scene>
-        <!--View Controller-->
+        <!--Gallery Table View Controller-->
         <scene sceneID="tqP-tL-2oh">
             <objects>
-                <viewController id="sP8-y3-WuH" sceneMemberID="viewController">
+                <viewController id="sP8-y3-WuH" customClass="GalleryTableViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5a-Po-itQ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xKy-1h-qlo">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="150" id="nzy-tB-qk4" customClass="GalleryCell" customModule="Flooming" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="44.5" width="414" height="150"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="nzy-tB-qk4" id="Rep-T4-zMx">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gtE-b8-ral">
+                                                    <rect key="frame" x="186" y="102" width="42" height="21"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="eu6-rp-YEX">
+                                                    <rect key="frame" x="354" y="89" width="45" height="45"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" constant="45" id="CS1-JC-5fC"/>
+                                                        <constraint firstAttribute="height" constant="45" id="Uoe-LW-e8B"/>
+                                                    </constraints>
+                                                </imageView>
+                                            </subviews>
+                                            <color key="backgroundColor" systemColor="linkColor"/>
+                                            <constraints>
+                                                <constraint firstItem="eu6-rp-YEX" firstAttribute="trailing" secondItem="Rep-T4-zMx" secondAttribute="trailingMargin" constant="5" id="984-T3-5x5"/>
+                                                <constraint firstItem="gtE-b8-ral" firstAttribute="centerX" secondItem="Rep-T4-zMx" secondAttribute="centerX" id="AHj-Re-7cN"/>
+                                                <constraint firstItem="gtE-b8-ral" firstAttribute="centerY" secondItem="Rep-T4-zMx" secondAttribute="centerY" id="Exj-eb-AW4"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="eu6-rp-YEX" secondAttribute="bottom" constant="5" id="aQr-iN-Cin"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="comment" destination="gtE-b8-ral" id="se8-49-Ztz"/>
+                                            <outlet property="downloadImage" destination="eu6-rp-YEX" id="8nQ-Xs-Qdh"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="zi0-Cd-y78"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="xKy-1h-qlo" firstAttribute="leading" secondItem="zi0-Cd-y78" secondAttribute="leading" id="1he-hD-FqJ"/>
+                            <constraint firstItem="zi0-Cd-y78" firstAttribute="trailing" secondItem="xKy-1h-qlo" secondAttribute="trailing" id="1rY-ox-7mw"/>
+                            <constraint firstItem="zi0-Cd-y78" firstAttribute="bottom" secondItem="xKy-1h-qlo" secondAttribute="bottom" id="2FY-oa-RhZ"/>
+                            <constraint firstItem="xKy-1h-qlo" firstAttribute="top" secondItem="zi0-Cd-y78" secondAttribute="top" id="a9J-cO-ei3"/>
+                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="galleryTableView" destination="xKy-1h-qlo" id="8eW-wN-aS2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyw-Wu-FHj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3164" y="825"/>
+            <point key="canvasLocation" x="3163.7681159420295" y="825"/>
         </scene>
         <!--갤러리-->
         <scene sceneID="Ywl-ex-561">
@@ -575,6 +626,7 @@
     <resources>
         <image name="01" width="936" height="671"/>
         <image name="03" width="842.42041015625" height="393.14031982421875"/>
+        <image name="download" width="512" height="512"/>
         <image name="logoImage" width="838" height="741"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
