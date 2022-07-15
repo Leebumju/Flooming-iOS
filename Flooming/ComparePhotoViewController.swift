@@ -9,7 +9,7 @@ import UIKit
 
 class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource {
     
-    var list = ["장미", "카네이션", "노루오줌"]
+    var list = ["장미(Rose)", "카네이션(hihi)", "노루오줌(pee)"]
     var images = ["01", "02", "03"]
     
     @IBOutlet weak var comparePhotoView: UIView!
@@ -37,6 +37,7 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
         self.collectionView.delegate = self
         self.collectionView.dataSource = self
         
+    
         collectionView.backgroundColor = .clear
         comparePhotoView.clipsToBounds = true
         comparePhotoView.layer.cornerRadius = 30
@@ -47,8 +48,8 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
         
         self.comparePhotoView.isUserInteractionEnabled = true
             //제쳐스 추가
-        self.comparePhotoView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTapped)))
-        
+        self.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTapped)))
+     
     }
     
     @objc func viewTapped(_ sender: UITapGestureRecognizer) {

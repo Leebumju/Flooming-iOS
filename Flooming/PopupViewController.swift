@@ -38,6 +38,10 @@ class PopupViewController: UIViewController {
     @IBAction func closeButtonTapped(_ sender: Any) {
         self.dismiss(animated: false, completion: nil)
     }
+    
+    @IBAction func openButtonTapped(_ sender: Any) {
+        
+    }
 }
     
 

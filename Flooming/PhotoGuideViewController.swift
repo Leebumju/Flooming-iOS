@@ -12,8 +12,7 @@ class PhotoGuideViewController: UIViewController {
     @IBOutlet weak var photoGuideView: UIView!
     @IBOutlet weak var correctPhotoImage: UIImageView!
     @IBOutlet weak var wrongPhotoImage: UIImageView!
-    @IBOutlet weak var correctLabel: UILabel!
-    @IBOutlet weak var wrongLabel: UILabel!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -22,8 +21,7 @@ class PhotoGuideViewController: UIViewController {
         photoGuideView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         photoGuideView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
         
-        correctLabel.numberOfLines = 0;
-        wrongLabel.numberOfLines = 0;
+       
         
         correctPhotoImage?.layer.borderWidth = 2
         correctPhotoImage?.layer.borderColor = UIColor.white.cgColor
@@ -31,8 +29,7 @@ class PhotoGuideViewController: UIViewController {
         wrongPhotoImage?.layer.borderWidth = 2
         wrongPhotoImage?.layer.borderColor = UIColor.white.cgColor
         
-        correctLabel.text = "이렇게 \n찍어주세요"
-        wrongLabel.text = "이렇게 \n찍지 말아주세요"
+      
     }
     
 

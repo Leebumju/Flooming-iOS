@@ -22,6 +22,8 @@
 		AD7E99912875837000B5CCEF /* SimKyungha.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99882875835500B5CCEF /* SimKyungha.otf */; };
 		AD7E99952876BDFF00B5CCEF /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */; };
 		AD7E99972876C74A00B5CCEF /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */; };
+		ADC90D9B28813F9600B55B6F /* ResultPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC90D9A28813F9600B55B6F /* ResultPhotoViewController.swift */; };
+		ADC90D9D28814B7B00B55B6F /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */; };
 		ADD54075287FE2ED009DF6D0 /* PopupViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */; };
 		ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */; };
 		ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */; };
@@ -54,6 +56,8 @@
 		AD7E99882875835500B5CCEF /* SimKyungha.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimKyungha.otf; sourceTree = "<group>"; };
 		AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
+		ADC90D9A28813F9600B55B6F /* ResultPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPhotoViewController.swift; sourceTree = "<group>"; };
+		ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
 		ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopupViewController.swift; sourceTree = "<group>"; };
 		ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryTableViewController.swift; sourceTree = "<group>"; };
 		ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComparePhotoViewController.swift; sourceTree = "<group>"; };
@@ -135,6 +139,7 @@
 		D870DE1C2861DAE30096CC57 /* Flooming */ = {
 			isa = PBXGroup;
 			children = (
+				ADC90D9A28813F9600B55B6F /* ResultPhotoViewController.swift */,
 				D870DE1D2861DAE30096CC57 /* AppDelegate.swift */,
 				D870DE1F2861DAE30096CC57 /* SceneDelegate.swift */,
 				D870DE212861DAE30096CC57 /* ViewController.swift */,
@@ -152,6 +157,7 @@
 				ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */,
 				ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */,
 				ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */,
+				ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */,
 			);
 			path = Flooming;
 			sourceTree = "<group>";
@@ -280,12 +286,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ADC90D9B28813F9600B55B6F /* ResultPhotoViewController.swift in Sources */,
 				AD7E99972876C74A00B5CCEF /* PhotoInfo.swift in Sources */,
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
 				ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */,
 				ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */,
+				ADC90D9D28814B7B00B55B6F /* ErrorViewController.swift in Sources */,
 				AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */,
 				AD607F052876D6D30054B60C /* AddActionEditService.swift in Sources */,
 				AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */,
