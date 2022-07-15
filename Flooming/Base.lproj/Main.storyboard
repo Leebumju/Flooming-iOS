@@ -245,7 +245,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MU7-UR-0Tl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1015.9420289855074" y="798.88392857142856"/>
+            <point key="canvasLocation" x="1029" y="842"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="jyO-qC-7tA">
@@ -302,7 +302,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fa8-UG-Fen" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1814.4927536231885" y="825"/>
+            <point key="canvasLocation" x="1829" y="825"/>
         </scene>
         <!--Gallery Table View Controller-->
         <scene sceneID="tqP-tL-2oh">
@@ -316,7 +316,7 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="Pcp-sP-Taa" customClass="MyCell" customModule="Flooming" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" id="Pcp-sP-Taa" customClass="MyCell" customModule="Flooming" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="44.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pcp-sP-Taa" id="ICq-Df-y7C">
@@ -336,7 +336,7 @@
                                             <outlet property="titleLabel" destination="qpc-d5-iwp" id="kMF-69-Tyd"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" id="HbM-0z-P1k" customClass="LoadingCell" customModule="Flooming" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LoadingCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="HbM-0z-P1k" customClass="LoadingCell" customModule="Flooming" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="88" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HbM-0z-P1k" id="5Cn-Y1-v7G">
@@ -355,8 +355,8 @@
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
-                                    <outlet property="dataSource" destination="m5a-Po-itQ" id="wbV-hX-m8d"/>
-                                    <outlet property="delegate" destination="m5a-Po-itQ" id="Pja-Vv-lwk"/>
+                                    <outlet property="dataSource" destination="sP8-y3-WuH" id="2hg-yv-ZFl"/>
+                                    <outlet property="delegate" destination="sP8-y3-WuH" id="NfC-FY-XYc"/>
                                 </connections>
                             </tableView>
                         </subviews>
@@ -370,6 +370,7 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="galleryView" destination="m5a-Po-itQ" id="F6p-WA-rvt"/>
                         <outlet property="tableView" destination="RFS-ru-Ea8" id="12v-cK-RbB"/>
                     </connections>
                 </viewController>

@@ -9,6 +9,7 @@ import UIKit
 
 class GalleryTableViewController: UIViewController {
     
+    @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
         
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
@@ -18,6 +19,11 @@ class GalleryTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        galleryView.clipsToBounds = true
+        galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+        galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
+        self.tableView.backgroundColor = UIColor.clear
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -80,7 +86,9 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
         
         return 0
     }
-    
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+            cell.backgroundColor = UIColor.clear
+    }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as? MyCell else {
@@ -89,12 +97,9 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             
             let data = cellDatas[indexPath.row]
             
-            let dateFormatter = DateFormatter()
-            dateFormatter.locale = .current
-            dateFormatter.timeZone = .current
-            dateFormatter.dateFormat = "yyyy. MM. dd"
-            
+           
             cell.titleLabel.text = data.title
+            // 테이블뷰 선택 색상없애기
             
             return cell
         } else {
