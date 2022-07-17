@@ -11,7 +11,9 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
     
     var list = ["장미(Rose)", "카네이션(hihi)", "노루오줌(pee)"]
     var images = ["01", "02", "03"]
+    var selectedImage: UIImage!
     
+    @IBOutlet weak var comparePhoto: UIImageView!
     @IBOutlet weak var comparePhotoView: UIView!
     @IBOutlet var collectionView: UICollectionView!
     
@@ -45,7 +47,7 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
         comparePhotoView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
 
         // Do any additional setup after loading the view.
-        
+        comparePhoto.image = selectedImage
         self.comparePhotoView.isUserInteractionEnabled = true
             //제쳐스 추가
         self.collectionView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(self.viewTapped)))
@@ -64,19 +66,7 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
         popupVC.modalPresentationStyle = .overFullScreen
         present(popupVC, animated: false, completion: nil)
     }
-//        //1. 경고창 내용 만들기
-//        let alert = UIAlertController(title:"로그아웃 하시겠습니까?",message: "",preferredStyle: UIAlertController.Style.alert)
-//        let cancle = UIAlertAction(title: "취소", style: .default, handler: nil)
-//        //확인 버튼 만들기
-//        let ok = UIAlertAction(title: "확인", style: .destructive, handler: {
-//            action in
-//            //특정기능 수행
-//        })
-//        alert.addAction(cancle)
-//        //확인 버튼 경고창에 추가하기
-//        alert.addAction(ok)
-//        present(alert,animated: true,completion: nil)
-//    }
+
 }
 
 extension ComparePhotoViewController: UICollectionViewDelegateFlowLayout {

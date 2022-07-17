@@ -6,14 +6,23 @@
 //
 
 import UIKit
+import Alamofire
 
 class GalleryTableViewController: UIViewController {
     
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
+    
+//    var result: Array<CellData> = []
+    
+    var result: Result?
+
+    
+    
+    var baseURL = "https://8a7b-117-17-163-58.jp.ngrok.io"
         
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
-      
+    
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
     
@@ -25,6 +34,27 @@ class GalleryTableViewController: UIViewController {
         galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
         self.tableView.backgroundColor = UIColor.clear
+        
+        AF.request(baseURL + "/gallery", method: .get, parameters: ["page":0], encoding: URLEncoding.default, headers: ["Content-Type":"application/json", "Accept":"application/json"])
+                    .validate(statusCode: 200..<300)
+                    .responseJSON { (response) in}
+        
+//        AF.request(baseURL + "/gallery", method: .get, parameters: ["page":0]).responseJSON { response in
+//            //여기서 가져온 데이터를 사용
+////            print("response: \(response)")
+////
+////              switch response.result {
+//        case .success(let value):
+//            print(String(data: value, encoding: .utf8)!)
+//            completion(try? SomeRequest(protobuf: value))
+//        case .failure(let error):
+//            print(error)
+//            completion(nil)
+//        }
+//
+//        }.resume()
+//
+        
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -38,8 +68,9 @@ class GalleryTableViewController: UIViewController {
             
             var datas: [CellData] = []
             
-            for i in index..<(index + 20) {
-                let data = CellData(title: "Title\(i)")
+            for i in index..<(index + 5) {
+                let data = CellData(comment: "Title\(i)")
+            
                 datas.append(data)
             }
             
@@ -54,6 +85,7 @@ class GalleryTableViewController: UIViewController {
         }
 }
 
+// /gallery?page
 class MyCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     //@IBOutlet weak var dateLabel: UILabel!
@@ -68,7 +100,9 @@ class LoadingCell: UITableViewCell {
 }
 
 struct CellData {
-    let title: String
+    //var photo_src: String
+    var comment: String
+    //var picture_src: String
 }
 
 
@@ -90,6 +124,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
             cell.backgroundColor = UIColor.clear
     }
+    
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if indexPath.section == 0 {
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "MyCell", for: indexPath) as? MyCell else {
@@ -99,7 +134,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             let data = cellDatas[indexPath.row]
             
            
-            cell.titleLabel.text = data.title
+            cell.titleLabel.text = "a"
             // 테이블뷰 선택 색상없애기
             
             return cell
@@ -142,4 +177,15 @@ extension GalleryTableViewController {
             self.paging()
         }
     }
+}
+
+
+struct Gallery: Codable {
+    var comment: String?
+    var photo_src: String?
+    var picture_src: String?
+}
+
+struct Result: Codable {
+    var Gallery: [Gallery]?
 }

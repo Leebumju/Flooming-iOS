@@ -43,13 +43,22 @@ class ChoicePhotoViewController: UIViewController {
         }
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        
+            //가고자 하는 VC가 맞는지 확인해줍니다.
+        guard let nextVC = destination as? ComparePhotoViewController else {
+            return
+        }
+        
+        nextVC.selectedImage = choicePhoto.image
+    }
 }
 
 extension ChoicePhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         if let image = info[.originalImage] as? UIImage {
-            
             dismiss(animated: true) {
                 self.openCropVC(image: image)
             }
@@ -62,7 +71,6 @@ extension ChoicePhotoViewController: CropViewControllerDelegate {
     func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation, cropInfo: CropInfo) {
             // 이미지 크롭 후 할 작업 추가
             choicePhoto.image = cropped
-        
             cropViewController.dismiss(animated: true, completion: nil)
         }
         
@@ -71,6 +79,8 @@ extension ChoicePhotoViewController: CropViewControllerDelegate {
             cropViewController.dismiss(animated: true, completion: nil)
         }
             
+    
+    
         private func openCropVC(image: UIImage) {
             
             let cropViewController = Mantis.cropViewController(image: image)

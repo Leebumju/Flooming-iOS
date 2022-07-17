@@ -11,6 +11,7 @@
 		AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */; };
 		AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */; };
 		AD607F052876D6D30054B60C /* AddActionEditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD607F042876D6D30054B60C /* AddActionEditService.swift */; };
+		AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */; };
 		AD7E99892875835F00B5CCEF /* LeferiBaseBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99842875835400B5CCEF /* LeferiBaseBold.otf */; };
 		AD7E998A2875836100B5CCEF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99872875835400B5CCEF /* LeferiBaseRegular.otf */; };
 		AD7E998B2875836300B5CCEF /* LeferiPointBlack.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99832875835400B5CCEF /* LeferiPointBlack.otf */; };
@@ -45,6 +46,7 @@
 		AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePhotoViewController.swift; sourceTree = "<group>"; };
 		AD607F042876D6D30054B60C /* AddActionEditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActionEditService.swift; sourceTree = "<group>"; };
+		AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorViewController.swift; sourceTree = "<group>"; };
 		AD7E99802875835400B5CCEF /* LeferiPointSpecial.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointSpecial.otf; sourceTree = "<group>"; };
 		AD7E99812875835400B5CCEF /* LeferiPointWhiteOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointWhiteOblique.otf; sourceTree = "<group>"; };
 		AD7E99822875835400B5CCEF /* LeferiPointSpecialItalic.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointSpecialItalic.otf; sourceTree = "<group>"; };
@@ -145,7 +147,7 @@
 				D870DE212861DAE30096CC57 /* ViewController.swift */,
 				D86E9F7F2864A8460054E535 /* PhotoGuideViewController.swift */,
 				AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */,
-				AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */,
+				ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */,
 				D870DE232861DAE30096CC57 /* Main.storyboard */,
 				D870DE262861DAE70096CC57 /* Assets.xcassets */,
 				D870DE282861DAE70096CC57 /* LaunchScreen.storyboard */,
@@ -154,10 +156,11 @@
 				AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */,
 				AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */,
 				AD607F042876D6D30054B60C /* AddActionEditService.swift */,
-				ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */,
 				ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */,
+				AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */,
 				ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */,
 				ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */,
+				AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */,
 			);
 			path = Flooming;
 			sourceTree = "<group>";
@@ -291,6 +294,7 @@
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
+				AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */,
 				ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */,
 				ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */,
 				ADC90D9D28814B7B00B55B6F /* ErrorViewController.swift in Sources */,

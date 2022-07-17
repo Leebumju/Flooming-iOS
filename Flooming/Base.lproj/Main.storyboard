@@ -196,7 +196,7 @@
                                                 <connections>
                                                     <outlet property="flowerImage" destination="81N-we-SHJ" id="fyk-Wg-gS9"/>
                                                     <outlet property="flowerLabel" destination="CmA-HT-cVj" id="G9w-lV-z7G"/>
-                                                    <segue destination="npE-F1-SWi" kind="replace" identifier="PopupViewController" splitViewControllerTargetIndex="1" id="djR-mZ-NHh"/>
+                                                    <segue destination="npE-F1-SWi" kind="push" identifier="PopupViewController" splitViewControllerTargetIndex="1" id="djR-mZ-NHh"/>
                                                 </connections>
                                             </collectionViewCell>
                                         </cells>
@@ -239,6 +239,7 @@
                     <navigationItem key="navigationItem" id="sxv-Uy-rqz"/>
                     <connections>
                         <outlet property="collectionView" destination="bMc-Te-OTn" id="lZQ-8o-Do4"/>
+                        <outlet property="comparePhoto" destination="Fth-NQ-NeQ" id="gIt-ws-7Ij"/>
                         <outlet property="comparePhotoView" destination="mtg-Py-m3f" id="bq7-yP-Zd1"/>
                     </connections>
                 </viewController>
@@ -295,12 +296,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pMA-5q-lJ6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1013" y="1589"/>
+            <point key="canvasLocation" x="1029" y="1513"/>
         </scene>
-        <!--View Controller-->
+        <!--Image Error View Controller-->
         <scene sceneID="59i-ms-Veb">
             <objects>
-                <viewController id="QfB-TR-nRl" sceneMemberID="viewController">
+                <viewController id="QfB-TR-nRl" customClass="ImageErrorViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="KLm-dB-S7L">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -308,37 +309,52 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zO1-z8-URO">
                                 <rect key="frame" x="0.0" y="44" width="414" height="818"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="꽃을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-wZ-Mtp">
-                                        <rect key="frame" x="139" y="188" width="122" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-wZ-Mtp">
+                                        <rect key="frame" x="146" y="100" width="122" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zeL-C4-JHq">
-                                        <rect key="frame" x="85" y="250" width="240" height="128"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zeL-C4-JHq">
+                                        <rect key="frame" x="82" y="161" width="250" height="250"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="zeL-C4-JHq" secondAttribute="height" multiplier="1:1" id="ACH-4V-w96"/>
+                                            <constraint firstAttribute="width" constant="250" id="Kuk-2w-rFc"/>
+                                        </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WK9-eg-qUG">
-                                        <rect key="frame" x="169" y="408" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신이 찍은 꽃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WK9-eg-qUG">
+                                        <rect key="frame" x="171.5" y="421" width="71.5" height="17"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="17"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scL-aL-UBr">
-                                        <rect key="frame" x="179" y="533" width="42" height="21"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                        <nil key="textColor"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="사진을 다시 선택해주세요." textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="scL-aL-UBr">
+                                        <rect key="frame" x="112" y="518" width="190" height="25"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
+                                        <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="KakaoTalk_Image_2022-07-15-16-17-7" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-WD-wa7">
-                                        <rect key="frame" x="34" y="491" width="131" height="85"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KakaoTalk_Image_2022-07-15-16-17-7" translatesAutoresizingMaskIntoConstraints="NO" id="WEp-WD-wa7">
+                                        <rect key="frame" x="87" y="520.5" width="20" height="20"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="WEp-WD-wa7" secondAttribute="height" multiplier="1:1" id="LVN-bi-cB0"/>
+                                            <constraint firstAttribute="width" constant="20" id="T8M-OF-N2x"/>
+                                        </constraints>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemGray2Color"/>
+                                <constraints>
+                                    <constraint firstItem="ey7-wZ-Mtp" firstAttribute="top" secondItem="zO1-z8-URO" secondAttribute="top" constant="100" id="7pU-23-atY"/>
+                                    <constraint firstItem="scL-aL-UBr" firstAttribute="leading" secondItem="WEp-WD-wa7" secondAttribute="trailing" constant="5" id="Ftg-zG-A2Q"/>
+                                    <constraint firstItem="WK9-eg-qUG" firstAttribute="centerX" secondItem="zeL-C4-JHq" secondAttribute="centerX" id="aos-2D-2pw"/>
+                                    <constraint firstItem="WK9-eg-qUG" firstAttribute="top" secondItem="zeL-C4-JHq" secondAttribute="bottom" constant="10" id="cNH-Fu-Tcs"/>
+                                    <constraint firstItem="WEp-WD-wa7" firstAttribute="centerY" secondItem="scL-aL-UBr" secondAttribute="centerY" id="dKd-fG-K1N"/>
+                                    <constraint firstItem="zeL-C4-JHq" firstAttribute="top" secondItem="ey7-wZ-Mtp" secondAttribute="bottom" constant="40" id="l97-aB-fvF"/>
+                                    <constraint firstItem="scL-aL-UBr" firstAttribute="top" secondItem="WK9-eg-qUG" secondAttribute="bottom" constant="80" id="nrt-4d-bPZ"/>
+                                    <constraint firstItem="zeL-C4-JHq" firstAttribute="centerX" secondItem="ey7-wZ-Mtp" secondAttribute="centerX" id="pdN-JS-duH"/>
+                                    <constraint firstItem="ey7-wZ-Mtp" firstAttribute="centerX" secondItem="zO1-z8-URO" secondAttribute="centerX" id="vmk-fs-643"/>
+                                    <constraint firstItem="scL-aL-UBr" firstAttribute="centerX" secondItem="zeL-C4-JHq" secondAttribute="centerX" id="xKX-7E-bQx"/>
+                                </constraints>
                             </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="fHs-UI-I45"/>
@@ -353,24 +369,24 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e0K-Tf-JLD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1766.6666666666667" y="1559.5982142857142"/>
+            <point key="canvasLocation" x="1829" y="1513"/>
         </scene>
         <!--Popup View Controller-->
         <scene sceneID="jyO-qC-7tA">
             <objects>
                 <viewController storyboardIdentifier="PopupViewController" id="npE-F1-SWi" customClass="PopupViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cez-vH-eBj" colorLabel="IBBuiltInLabel-Orange">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOh-pv-3Ay">
-                                <rect key="frame" x="64.5" y="261.5" width="285" height="285"/>
+                                <rect key="frame" x="64.5" y="323.5" width="285" height="303"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="sIe-JP-IGJ">
-                                        <rect key="frame" x="0.0" y="0.0" width="285" height="205"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="285" height="223"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cHo-oU-7do">
-                                        <rect key="frame" x="20" y="234" width="37" height="31"/>
+                                        <rect key="frame" x="20" y="252" width="37" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="예"/>
                                         <connections>
@@ -378,7 +394,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hJK-Lv-nm8">
-                                        <rect key="frame" x="204" y="234" width="61" height="31"/>
+                                        <rect key="frame" x="204" y="252" width="61" height="31"/>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="plain" title="아니오"/>
                                         <connections>
@@ -386,7 +402,7 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="그림을 그려볼까요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kxd-Mh-9lM">
-                                        <rect key="frame" x="77.5" y="213" width="130.5" height="21"/>
+                                        <rect key="frame" x="77.5" y="231" width="130.5" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
@@ -522,7 +538,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyw-Wu-FHj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3557" y="865"/>
+            <point key="canvasLocation" x="3372" y="842"/>
         </scene>
         <!--갤러리-->
         <scene sceneID="Ywl-ex-561">
@@ -768,11 +784,11 @@
             <objects>
                 <viewController id="FRz-7C-4ax" customClass="ResultPhotoViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="42R-w8-nve">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="t4J-4b-lIi">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="862"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="당신이 찍은 꽃" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OTT-dz-poC">
                                         <rect key="frame" x="144.5" y="50" width="125.5" height="30"/>
@@ -805,7 +821,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="x06-pY-sIC">
-                                        <rect key="frame" x="10" y="648" width="394" height="60"/>
+                                        <rect key="frame" x="10" y="702" width="394" height="60"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="394" id="Vfn-2T-WHc"/>
                                             <constraint firstAttribute="height" constant="60" id="mj9-oI-Cq7"/>
@@ -849,7 +865,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftk-j9-BJS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2609" y="825"/>
+            <point key="canvasLocation" x="2522" y="825"/>
         </scene>
     </scenes>
     <resources>
