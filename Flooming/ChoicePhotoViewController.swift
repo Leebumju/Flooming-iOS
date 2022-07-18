@@ -47,7 +47,7 @@ class ChoicePhotoViewController: UIViewController {
         let destination = segue.destination
         
             //가고자 하는 VC가 맞는지 확인해줍니다.
-        guard let nextVC = destination as? ComparePhotoViewController else {
+        guard let nextVC = destination as? ResultPhotoViewController else {
             return
         }
         

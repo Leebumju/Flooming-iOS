@@ -9,6 +9,9 @@ import UIKit
 
 class PopupViewController: UIViewController {
 
+    var popupImage: UIImage!
+    
+    @IBOutlet weak var popupImageView: UIImageView!
     @IBOutlet weak var infoView: UIView!
         
     override func viewDidLoad() {
@@ -20,7 +23,7 @@ class PopupViewController: UIViewController {
         infoView.layer.shadowOffset = CGSize(width: 1, height: 4)
         infoView.layer.shadowRadius = 10
         infoView.layer.shadowOpacity = 1
-        
+        popupImageView.image = popupImage
 //            
 //        // infoView 모서리 둥글게 만들기
 //        infoView.layer.cornerRadius = 25

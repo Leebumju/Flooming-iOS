@@ -67,6 +67,16 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
         present(popupVC, animated: false, completion: nil)
     }
 
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        
+            //가고자 하는 VC가 맞는지 확인해줍니다.
+        guard let nextVC = destination as? PopupViewController else {
+            return
+        }
+        
+        nextVC.popupImage = comparePhoto.image
+    }
 }
 
 extension ComparePhotoViewController: UICollectionViewDelegateFlowLayout {
