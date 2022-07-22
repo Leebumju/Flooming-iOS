@@ -8,6 +8,8 @@
 import UIKit
 import Alamofire
 import simd
+import SwiftyJSON
+import Foundation
 
 
 class ResultPhotoViewController: UIViewController {
@@ -24,17 +26,7 @@ class ResultPhotoViewController: UIViewController {
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
-//    "photo_id": db_photo.photo_id,
-//            "probability": result["probability"],
-//            "kor_name": flower.kor_name,
-//            "eng_name": flower.eng_name,
-//            "flower_language": flower.flower_language
-
-    var photo_id: String = ""
-    var probability: String = ""
-    var kor_name: String = ""
-    var eng_name: String = ""
-    var flower_language: String = ""
+ 
     
     
     override func viewDidLoad() {
@@ -42,18 +34,13 @@ class ResultPhotoViewController: UIViewController {
         super.viewDidLoad()
         switchOn = selectedImage
         
-        let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         
-        let url = URL(string: "http://flooming.link/flower/test")
-            do
-            {
-                let data = try Data(contentsOf: url!)
-                kindOfFlowerImage.image = UIImage(data: data)
-            }
-            catch
-            {
-
-            }
+        
+        let urlString = "https://b645-121-136-173-243.jp.ngrok.io/flower/장미"
+        let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+        
+        updateUI(encodedStr)
+            
 
         resultPhotoView.clipsToBounds = true
         resultPhotoView.layer.cornerRadius = 30
@@ -63,6 +50,10 @@ class ResultPhotoViewController: UIViewController {
         
         resultPhotoImage.image = selectedImage
         
+        
+        let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
+        
+        
         AF.upload(multipartFormData: { multipartFormData in
             print("오로로로로롤ㄹ")
             // png이미지로 한번 변화해서 해보기
@@ -70,17 +61,24 @@ class ResultPhotoViewController: UIViewController {
             if let image = self.switchOn!.pngData() {
                 multipartFormData.append(image, withName: "file", fileName: "02.png", mimeType: "image/png")
             }
-        }, to: "https://b645-121-136-173-243.jp.ngrok.io/photo", usingThreshold: UInt64.init(), method: .post, headers: header).response { response in
-           
-            guard let statusCode = response.response?.statusCode,
-                  statusCode == 200
-                  
-            else { return }
+        }, to: "https://b645-121-136-173-243.jp.ngrok.io/photo", usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { response in
+        
+            print("이ㅏ어ㅑ더야어디ㅑ러이ㅑ러디요요")
+            switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                let result = json["eng_name"]
+                    print(result)
+                    print("안녕하세요요요요요요요요")
+                default:
+                    return
+            }
             
-            //completion(.success(statusCode))
         }
     }
-    
+
+                
+
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination
@@ -92,6 +90,33 @@ class ResultPhotoViewController: UIViewController {
         
         nextVC.selectedImage = kindOfFlowerImage.image
     }
+    
+    
+    //url로 이미지 가져오기
+    func updateUI(_ url : String){
+        
+        var tempImg : UIImage?
+             
+        DispatchQueue.global().async {
+            if let ImageData = try? Data(contentsOf: URL(string: url)!) {
+                tempImg = UIImage(data: ImageData)!
+            } else {
+                tempImg = UIImage(named: "01.svg")!
+            }
+     
+            DispatchQueue.main.async {
+                self.kindOfFlowerImage.image = tempImg
+            }
+        }
+     
+    }
 }
 
+struct Flower: Codable {
+    let photo_id: String
+    let probability: String
+    let kor_name: String
+    let eng_name: String
+    let flower_language: String
+}
 

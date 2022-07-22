@@ -15,7 +15,7 @@ class GalleryTableViewController: UIViewController {
     
 //    var result: Array<CellData> = []
     
-    var result: Result?
+//    var result: Result?
 
     
     
@@ -186,6 +186,4 @@ struct Gallery: Codable {
     var picture_src: String?
 }
 
-struct Result: Codable {
-    var Gallery: [Gallery]?
-}
+
