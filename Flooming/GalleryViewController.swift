@@ -13,7 +13,7 @@ import simd
 class GalleryViewController: UIViewController {
 
     var tapCount: Int = 0
-    var switchOn: UIImage = UIImage(named: "01.svg")!
+    var switchOn: UIImage = UIImage(named: "08.svg")!
     var switchOff: UIImage = UIImage(named: "03.svg")!
     
     @IBOutlet var galleryView: UIView!
@@ -49,7 +49,7 @@ class GalleryViewController: UIViewController {
                     if let image = self.switchOn.pngData() {
                         multipartFormData.append(image, withName: "file", fileName: "01.png", mimeType: "image/png")
                     }
-                }, to: "https://6f01-183-99-247-44.jp.ngrok.io/photo", usingThreshold: UInt64.init(), method: .post, headers: header).response { response in
+                }, to: "https://b645-121-136-173-243.jp.ngrok.io/photo", usingThreshold: UInt64.init(), method: .post, headers: header).response { response in
                     guard let statusCode = response.response?.statusCode,
                           statusCode == 200
                     else { return }

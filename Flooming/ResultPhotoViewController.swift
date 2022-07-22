@@ -13,7 +13,8 @@ import simd
 class ResultPhotoViewController: UIViewController {
 
     var selectedImage: UIImage!
-    var switchOn: UIImage = UIImage(named: "01.svg")!
+    // 여기서 
+    var switchOn: UIImage?
     
     @IBOutlet weak var resultPhotoView: UIView!
     @IBOutlet weak var resultPhotoImage: UIImageView!
@@ -23,31 +24,37 @@ class ResultPhotoViewController: UIViewController {
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
+//    "photo_id": db_photo.photo_id,
+//            "probability": result["probability"],
+//            "kor_name": flower.kor_name,
+//            "eng_name": flower.eng_name,
+//            "flower_language": flower.flower_language
+
+    var photo_id: String = ""
+    var probability: String = ""
+    var kor_name: String = ""
+    var eng_name: String = ""
+    var flower_language: String = ""
     
     
     override func viewDidLoad() {
-//        AF.request("https://38e3-183-99-247-44.jp.ngrok.io/photo", method: .post, parameters: [:], encoding: URLEncoding.default, headers: ["Content-Type":"application/json", "Accept":"application/json"])
-//                    .validate(statusCode: 200..<300)
-//                    .responseJSON { (response) in}
-//
-//        var file: String
+        
+        super.viewDidLoad()
+        switchOn = selectedImage
         
         let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         
-        AF.upload(multipartFormData: { multipartFormData in
-            print("오로로로로롤ㄹ")
-            // png이미지로 한번 변화해서 해보기
-            if let image = self.switchOn.pngData() {
-                multipartFormData.append(image, withName: "file", fileName: "01.png", mimeType: "image/png")
+        let url = URL(string: "http://flooming.link/flower/test")
+            do
+            {
+                let data = try Data(contentsOf: url!)
+                kindOfFlowerImage.image = UIImage(data: data)
             }
-        }, to: "https://38e3-183-99-247-44.jp.ngrok.io/photo", usingThreshold: UInt64.init(), method: .post, headers: header).response { response in
-            guard let statusCode = response.response?.statusCode,
-                    statusCode == 200
-            else { return }
-            //completion(.success(statusCode))
-        }
-        
-        super.viewDidLoad()
+            catch
+            {
+
+            }
+
         resultPhotoView.clipsToBounds = true
         resultPhotoView.layer.cornerRadius = 30
         resultPhotoView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
@@ -55,6 +62,23 @@ class ResultPhotoViewController: UIViewController {
         // Do any additional setup after loading the view.
         
         resultPhotoImage.image = selectedImage
+        
+        AF.upload(multipartFormData: { multipartFormData in
+            print("오로로로로롤ㄹ")
+            // png이미지로 한번 변화해서 해보기
+    
+            if let image = self.switchOn!.pngData() {
+                multipartFormData.append(image, withName: "file", fileName: "02.png", mimeType: "image/png")
+            }
+        }, to: "https://b645-121-136-173-243.jp.ngrok.io/photo", usingThreshold: UInt64.init(), method: .post, headers: header).response { response in
+           
+            guard let statusCode = response.response?.statusCode,
+                  statusCode == 200
+                  
+            else { return }
+            
+            //completion(.success(statusCode))
+        }
     }
     
    
@@ -69,3 +93,5 @@ class ResultPhotoViewController: UIViewController {
         nextVC.selectedImage = kindOfFlowerImage.image
     }
 }
+
+
