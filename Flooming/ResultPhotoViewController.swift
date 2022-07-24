@@ -17,12 +17,15 @@ class ResultPhotoViewController: UIViewController {
     var selectedImage: UIImage!
     // 여기서 
     var switchOn: UIImage?
+    var urlFlowerName: String?
+    
+    let floomingUrl: String = "https://ed6e-119-194-11-234.jp.ngrok.io"
     
     @IBOutlet weak var resultPhotoView: UIView!
     @IBOutlet weak var resultPhotoImage: UIImageView!
     @IBOutlet weak var kindOfFlowerImage: UIImageView!
     
-    @IBOutlet weak var flowerName: UILabel!
+    @IBOutlet weak var flowerEnglishName: UILabel!
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
@@ -35,12 +38,6 @@ class ResultPhotoViewController: UIViewController {
         switchOn = selectedImage
         
         
-        
-        let urlString = "https://b645-121-136-173-243.jp.ngrok.io/flower/장미"
-        let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        
-        updateUI(encodedStr)
-            
 
         resultPhotoView.clipsToBounds = true
         resultPhotoView.layer.cornerRadius = 30
@@ -55,29 +52,46 @@ class ResultPhotoViewController: UIViewController {
         
         
         AF.upload(multipartFormData: { multipartFormData in
-            print("오로로로로롤ㄹ")
             // png이미지로 한번 변화해서 해보기
     
             if let image = self.switchOn!.pngData() {
                 multipartFormData.append(image, withName: "file", fileName: "02.png", mimeType: "image/png")
             }
-        }, to: "https://b645-121-136-173-243.jp.ngrok.io/photo", usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { response in
+        }, to: floomingUrl + "/photo", usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { response in
         
-            print("이ㅏ어ㅑ더야어디ㅑ러이ㅑ러디요요")
             switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                let result = json["eng_name"]
-                    print(result)
-                    print("안녕하세요요요요요요요요")
+                let kor_name = json["kor_name"]
+                let eng_name = json["eng_name"]
+                let probability = json["probability"]
+                let flower_language = json["flower_language"]
+                    print(kor_name)
+                self.urlFlowerName = kor_name.stringValue
+                let urlString = self.floomingUrl + "/flower/\(kor_name)"
+                let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                
+                let flowerKorName = kor_name.rawValue as! String
+                let flowerEngName = eng_name.rawValue as! String
+                let flowerProbability = probability.rawValue as! Int
+                let flowerLanguage = flower_language.rawValue as! String
+                
+                self.flowerEnglishName.text = flowerKorName + "\"" + flowerEngName + "\""
+                self.percent.text = String(flowerProbability)
+                self.flowerMeaning.text = flowerLanguage
+                
+                self.updateUI(encodedStr)
+                
                 default:
                     return
             }
             
         }
+        
+        
+       
+        
     }
-
-                
 
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
