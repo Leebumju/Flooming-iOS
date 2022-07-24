@@ -13,10 +13,13 @@ class GalleryTableViewController: UIViewController {
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-//    var result: Array<CellData> = []
     
-//    var result: Result?
-
+    
+// page control 관련 변수
+    let numOfTouchs = 2
+    
+    
+    
     
     
     var baseURL = "https://8a7b-117-17-163-58.jp.ngrok.io"
@@ -55,7 +58,58 @@ class GalleryTableViewController: UIViewController {
 //        }.resume()
 //
         
+        //페이지 컨트롤 관련
+        
+        
+        
     }
+    
+//    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer, cell: MyCell) {
+//            // 만일 제스쳐가 있다면
+//
+//            if let swipeGesture = gesture as? UISwipeGestureRecognizer{
+//
+//                // 발생한 이벤트가 각 방향의 스와이프 이벤트라면
+//                // pageControl이 가르키는 현재 페이지에 해당하는 이미지를 imageView에 할당
+//                switch swipeGesture.direction {
+//                    case UISwipeGestureRecognizer.Direction.left :
+//                    cell.pageControl.currentPage -= 1
+//                    cell.galleryImage.image = UIImage(named: images[(cell.pageControl.currentPage)])
+//                    case UISwipeGestureRecognizer.Direction.right :
+//                    cell.pageControl.currentPage += 1
+//                    cell.galleryImage.image = UIImage(named: images[(cell.pageControl.currentPage)])
+//                    default:
+//                      break
+//                }
+//
+//            }
+//
+//        }
+        
+//        // 두 손가락 스와이프 제스쳐를 행했을 때 실행할 액션 메서드
+//    @objc func respondToSwipeGestureMulti(_ gesture: UIGestureRecognizer, pageControl: UIPageControl) {
+//
+//            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
+//                switch swipeGesture.direction {
+//                   case UISwipeGestureRecognizer.Direction.left:
+//                    pageControl.currentPage -= 1
+//                    //cell.galleryImage.image = UIImage(named: "01.svg")
+////                                                        images[(cell.pageControl.currentPage)])
+//                   case UISwipeGestureRecognizer.Direction.right:
+//                    pageControl.currentPage += 1
+//                   // cell.galleryImage.image = UIImage(named: "01.svg")
+////                                                        images[(cell.pageControl.currentPage)])
+//                   default:
+//                       break
+//                }
+//            }
+//        }
+
+    @IBAction func pageChanged(_ sender: UIPageControl) {
+             print("page Changed")
+            //cell.galleryImage.image = UIImage(named: "01.svg")
+//                                                images[(cell.pageControl.currentPage)])
+        }
     
     override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
@@ -88,7 +142,9 @@ class GalleryTableViewController: UIViewController {
 // /gallery?page
 class MyCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var galleryImage: UIImageView!
     //@IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet var pageControl: UIPageControl!
 }
 
 class LoadingCell: UITableViewCell {
@@ -132,9 +188,36 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             let data = cellDatas[indexPath.row]
+            cell.pageControl.numberOfPages = images.count
+            cell.pageControl.currentPage = 0
+            // 페이지 표시 색상
+            cell.pageControl.pageIndicatorTintColor = UIColor.lightGray
+            // 현재 페이지 표시 색상
+            cell.pageControl.currentPageIndicatorTintColor = UIColor.black
+            // 한 손가락 스와이프 제스쳐 등록(좌, 우)
+//            let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(GalleryTableViewController.respondToSwipeGesture(_:cell:)))
+//            
+//            swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+//            self.view.addGestureRecognizer(swipeLeft)
+//
+//            let swipeRight = UISwipeGestureRecognizer(target: self, action: #selector(GalleryTableViewController.respondToSwipeGesture(_:cell:)))
+//            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+//            self.view.addGestureRecognizer(swipeRight)
+//            
+//            
+//            
+//            // 두 손가락 스와이프 제스쳐 등록(좌, 우)
+//            let swipeLeftMulti = UISwipeGestureRecognizer(target: self, action: #selector(GalleryTableViewController.respondToSwipeGestureMulti(_:cell:)))
+//            swipeLeftMulti.direction = UISwipeGestureRecognizer.Direction.left
+//            swipeLeftMulti.numberOfTouchesRequired = numOfTouchs
+//            self.view.addGestureRecognizer(swipeLeftMulti)
+//
+//            let swipeRightMulti = UISwipeGestureRecognizer(target: self, action: #selector(GalleryTableViewController.respondToSwipeGestureMulti(_:cell:)))
+//            swipeRightMulti.direction = UISwipeGestureRecognizer.Direction.right
+//            swipeRightMulti.numberOfTouchesRequired = numOfTouchs
+//            self.view.addGestureRecognizer(swipeRightMulti)
             
-           
-            cell.titleLabel.text = "a"
+            cell.titleLabel.text = String(cellDatas.count)
             // 테이블뷰 선택 색상없애기
             
             return cell
@@ -148,6 +231,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         }
     }
+    
 }
 
 
