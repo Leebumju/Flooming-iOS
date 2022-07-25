@@ -16,6 +16,9 @@ class GalleryTableViewController: UIViewController {
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
+    var pageNum = 0
+    
+    
     var photoIdArray: Array<Int> = []
     var pictureIdArray: Array<Int> = []
     var commentArray: Array<String> = []
@@ -23,7 +26,7 @@ class GalleryTableViewController: UIViewController {
 // page control 관련 변수
     let numOfTouchs = 2
     
-    var floomingUrl = "https://a32a-121-136-173-243.jp.ngrok.io/gallery?page=0"
+    var floomingUrl = "https://a32a-121-136-173-243.jp.ngrok.io/gallery?page="
    // let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
@@ -134,6 +137,7 @@ class GalleryTableViewController: UIViewController {
             super.viewDidAppear(animated)
             
             paging()
+            self.pageNum = self.pageNum + 1
         }
         
         func paging() {
@@ -141,6 +145,8 @@ class GalleryTableViewController: UIViewController {
             print("끼아아아ㅏ아아ㅏ아아아아아ㅏ아악")
             var datas: [CellData] = []
             
+            floomingUrl = ("\(floomingUrl)\(String(pageNum))")
+            print(floomingUrl)
             AF.request(
                         floomingUrl, // [주소]
                         method: .get, // [전송 타입]
@@ -159,19 +165,17 @@ class GalleryTableViewController: UIViewController {
                 //                let data = CellData(comment: "Title\(i)")
                                
                                 
-                                self.photoIdArray.append( result[pageNumber]["photo_id"].rawValue as! Int)
+//                                self.photoIdArray.append( result[pageNumber]["photo_id"].rawValue as! Int)
+//
+//                                self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
+//
+                               self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
+//
                                 
-                                self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
-                                
-                                self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
-                                
-                                
-                                print("result는 \(self.photoIdArray[pageNumber])")
-                                
-                                print("result는 \(self.photoIdArray[pageNumber])")
                                 let data = CellData(comment: "\(self.commentArray[pageNumber])")
                                 datas.append(data)
                             }
+                            
                         
                         default:
                             return
