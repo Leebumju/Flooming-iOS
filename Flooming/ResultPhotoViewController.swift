@@ -19,7 +19,10 @@ class ResultPhotoViewController: UIViewController {
     var switchOn: UIImage?
     var urlFlowerName: String?
     
-    let floomingUrl: String = "https://ed6e-119-194-11-234.jp.ngrok.io"
+    var sibalsofiejasoeifjapsoeif: Int?
+    
+    
+    let floomingUrl: String = "https://a32a-121-136-173-243.jp.ngrok.io"
     
     @IBOutlet weak var resultPhotoView: UIView!
     @IBOutlet weak var resultPhotoImage: UIImageView!
@@ -65,12 +68,15 @@ class ResultPhotoViewController: UIViewController {
                 let kor_name = json["kor_name"]
                 let eng_name = json["eng_name"]
                 let probability = json["probability"]
+                let tempPhotoId = json["photo_id"]
                 let flower_language = json["flower_language"]
                     print(kor_name)
                 self.urlFlowerName = kor_name.stringValue
                 let urlString = self.floomingUrl + "/flower/\(kor_name)"
                 let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 
+                let photo_id = tempPhotoId.rawValue as! Int
+                self.sibalsofiejasoeifjapsoeif = photo_id
                 let flowerKorName = kor_name.rawValue as! String
                 let flowerEngName = eng_name.rawValue as! String
                 let flowerProbability = probability.rawValue as! Int
@@ -102,7 +108,7 @@ class ResultPhotoViewController: UIViewController {
             return
         }
         
-        nextVC.selectedImage = kindOfFlowerImage.image
+        nextVC.photo_id = self.sibalsofiejasoeifjapsoeif
     }
     
     

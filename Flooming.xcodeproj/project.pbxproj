@@ -165,6 +165,7 @@
 				AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */,
 				ADC90D9A28813F9600B55B6F /* ResultPhotoViewController.swift */,
 				AD0E89552885501A004E90A2 /* FinalResultViewController.swift */,
+				ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */,
 				AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */,
 				D870DE1D2861DAE30096CC57 /* AppDelegate.swift */,
 				D870DE1F2861DAE30096CC57 /* SceneDelegate.swift */,
@@ -178,7 +179,6 @@
 				AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */,
 				AD607F042876D6D30054B60C /* AddActionEditService.swift */,
 				ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */,
-				ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */,
 				ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */,
 				AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */,
 			);

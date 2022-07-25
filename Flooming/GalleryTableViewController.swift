@@ -7,28 +7,33 @@
 
 import UIKit
 import Alamofire
+import simd
+import SwiftyJSON
+import Foundation
 
 class GalleryTableViewController: UIViewController {
     
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
-    
+    var photoIdArray: Array<Int> = []
+    var pictureIdArray: Array<Int> = []
+    var commentArray: Array<String> = []
     
 // page control 관련 변수
     let numOfTouchs = 2
     
-    
-    
-    
-    
-    var baseURL = "https://8a7b-117-17-163-58.jp.ngrok.io"
+    var floomingUrl = "https://a32a-121-136-173-243.jp.ngrok.io/gallery?page=0"
+   // let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
     
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
     
+    var gallery: Gallery?
+    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tableView.rowHeight = 350;
@@ -38,27 +43,41 @@ class GalleryTableViewController: UIViewController {
         galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
         self.tableView.backgroundColor = UIColor.clear
         
-        AF.request(baseURL + "/gallery", method: .get, parameters: ["page":0], encoding: URLEncoding.default, headers: ["Content-Type":"application/json", "Accept":"application/json"])
-                    .validate(statusCode: 200..<300)
-                    .responseJSON { (response) in}
-        
-//        AF.request(baseURL + "/gallery", method: .get, parameters: ["page":0]).responseJSON { response in
-//            //여기서 가져온 데이터를 사용
-////            print("response: \(response)")
-////
-////              switch response.result {
-//        case .success(let value):
-//            print(String(data: value, encoding: .utf8)!)
-//            completion(try? SomeRequest(protobuf: value))
-//        case .failure(let error):
-//            print(error)
-//            completion(nil)
-//        }
+//        AF.request(
+//                    floomingUrl, // [주소]
+//                    method: .get, // [전송 타입]
+//                    parameters: [:] // [전송 데이터]
+//                )
+//                .validate(statusCode: 200..<300)
+//                .responseData { response in
+//                    switch response.result {
+//                    case .success(let value):
+//                        let json = JSON(value)
+//                        let result = json["result"]
+//                        //gallery = result
 //
-//        }.resume()
 //
-        
-        //페이지 컨트롤 관련
+//                        for pageNumber in 0...4 {
+//
+//                            self.photoIdArray.append( result[pageNumber]["photo_id"].rawValue as! Int)
+//
+//                            self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
+//
+//                            self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
+//
+//
+//                            print("result는 \(self.photoIdArray[pageNumber])")
+//
+//
+//                        }
+//                        print(self.photoIdArray[2])
+//                        print(self.commentArray[2])
+//                        print(type(of: self.commentArray[2]))
+//
+//                    default:
+//                        return
+//                    }
+//                }
         
         
         
@@ -86,14 +105,14 @@ class GalleryTableViewController: UIViewController {
 //
 //        }
         
-//        // 두 손가락 스와이프 제스쳐를 행했을 때 실행할 액션 메서드
-//    @objc func respondToSwipeGestureMulti(_ gesture: UIGestureRecognizer, pageControl: UIPageControl) {
+        // 두 손가락 스와이프 제스쳐를 행했을 때 실행할 액션 메서드
+//    @objc func respondToSwipeGestureMulti(_ gesture: UIGestureRecognizer, galleryimage: UIImageView, pageControl: UIPageControl) {
 //
 //            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
 //                switch swipeGesture.direction {
 //                   case UISwipeGestureRecognizer.Direction.left:
 //                    pageControl.currentPage -= 1
-//                    //cell.galleryImage.image = UIImage(named: "01.svg")
+//                    galleryImage.image = UIImage(named: "01.svg")
 ////                                                        images[(cell.pageControl.currentPage)])
 //                   case UISwipeGestureRecognizer.Direction.right:
 //                    pageControl.currentPage += 1
@@ -119,14 +138,48 @@ class GalleryTableViewController: UIViewController {
         
         func paging() {
             let index = cellDatas.count
-            
+            print("끼아아아ㅏ아아ㅏ아아아아아ㅏ아악")
             var datas: [CellData] = []
             
-            for i in index..<(index + 5) {
-                let data = CellData(comment: "Title\(i)")
+            AF.request(
+                        floomingUrl, // [주소]
+                        method: .get, // [전송 타입]
+                        parameters: [:] // [전송 데이터]
+                    )
+                    .validate(statusCode: 200..<300)
+                    .responseData { response in
+                        switch response.result {
+                        case .success(let value):
+                            let json = JSON(value)
+                            let result = json["result"]
+                            //gallery = result
+                            
+                            
+                            for pageNumber in index..<(index + 5) {
+                //                let data = CellData(comment: "Title\(i)")
+                               
+                                
+                                self.photoIdArray.append( result[pageNumber]["photo_id"].rawValue as! Int)
+                                
+                                self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
+                                
+                                self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
+                                
+                                
+                                print("result는 \(self.photoIdArray[pageNumber])")
+                                
+                                print("result는 \(self.photoIdArray[pageNumber])")
+                                let data = CellData(comment: "\(self.commentArray[pageNumber])")
+                                datas.append(data)
+                            }
+                        
+                        default:
+                            return
+                        }
+                    }
             
-                datas.append(data)
-            }
+                
+
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.cellDatas.append(contentsOf: datas) // 데이터는 계속해서 append 시켜줌 (페이징의 핵심!)
@@ -188,6 +241,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             let data = cellDatas[indexPath.row]
+            print("끼아아아ㅏ아아ㅏ아아아아아ㅏ아악1")
             cell.pageControl.numberOfPages = images.count
             cell.pageControl.currentPage = 0
             // 페이지 표시 색상
@@ -196,7 +250,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             cell.pageControl.currentPageIndicatorTintColor = UIColor.black
             // 한 손가락 스와이프 제스쳐 등록(좌, 우)
 //            let swipeLeft = UISwipeGestureRecognizer(target: self, action: #selector(GalleryTableViewController.respondToSwipeGesture(_:cell:)))
-//            
+////            
 //            swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
 //            self.view.addGestureRecognizer(swipeLeft)
 //
@@ -217,7 +271,8 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
 //            swipeRightMulti.numberOfTouchesRequired = numOfTouchs
 //            self.view.addGestureRecognizer(swipeRightMulti)
             
-            cell.titleLabel.text = String(cellDatas.count)
+            cell.titleLabel.text = data.comment
+            
             // 테이블뷰 선택 색상없애기
             
             return cell
@@ -265,9 +320,9 @@ extension GalleryTableViewController {
 
 
 struct Gallery: Codable {
+    var photo_id: Int?
+    var picture_id: Int?
     var comment: String?
-    var photo_src: String?
-    var picture_src: String?
 }
 
 

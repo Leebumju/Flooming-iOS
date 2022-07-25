@@ -14,9 +14,9 @@ import Foundation
 class FinalResultViewController: UIViewController {
 
     var selectedImage: UIImage!
-    var photo_id = 1
-    let floomingUrl: String = "https://ed6e-119-194-11-234.jp.ngrok.io/picture"
-    let picutureImageUrl: String = "https://ed6e-119-194-11-234.jp.ngrok.io/picture/24"
+    var photo_id: Int?
+    let floomingUrl: String = "https://a32a-121-136-173-243.jp.ngrok.io/picture"
+    var picutureImageUrl: String?
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
     
     @IBOutlet weak var finalResultView: UIView!
@@ -28,7 +28,7 @@ class FinalResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print("포토 아이디는 \(photo_id)")
         finalResultView.clipsToBounds = true
         finalResultView.layer.cornerRadius = 30
         finalResultView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
@@ -38,7 +38,7 @@ class FinalResultViewController: UIViewController {
         AF.request(
                     floomingUrl, // [주소]
                     method: .post, // [전송 타입]
-                    parameters: ["photo_id":1], // [전송 데이터]
+                    parameters: ["photo_id":photo_id!], // [전송 데이터]
                     encoding: JSONEncoding.default, // [인코딩 스타일]
                     headers: header // [헤더 지정]
                 )
@@ -48,7 +48,12 @@ class FinalResultViewController: UIViewController {
                     case .success(let value):
                         let json = JSON(value)
                         let pictureId = json["picture_id"]
-                        print(pictureId)
+                        print("pictureid는 \(pictureId)")
+                        self.picutureImageUrl = "\(self.floomingUrl)/\(pictureId)"
+                        print("\(String(describing: self.picutureImageUrl))이요오오옹")
+                        let urlString = self.picutureImageUrl
+                        let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                        self.updateUI(encodedStr)
                         default:
                         return
                     }
@@ -71,10 +76,9 @@ class FinalResultViewController: UIViewController {
 //                return
 //            }
 //        }
-        let urlString = self.picutureImageUrl
-        let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-        self.updateUI(encodedStr)
-        //finalResultImageView.image = selectedImage
+    
+        
+             //finalResultImageView.image = selectedImage
     }
     
     func updateUI(_ url : String){
