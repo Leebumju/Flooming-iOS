@@ -33,7 +33,6 @@ class FinalResultViewController: UIViewController {
         finalResultView.layer.cornerRadius = 30
         finalResultView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         finalResultView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
-        // Do any additional setup after loading the view.
         
         AF.request(
                     floomingUrl, // [주소]
@@ -58,27 +57,6 @@ class FinalResultViewController: UIViewController {
                         return
                     }
                 }
-        
-//        AF.request(
-//            floomingUrl, // [주소]
-//            method: .get, // [전송 타입]
-//            parameters: [:], // [전송 데이터]
-//            encoding: JSONEncoding.default, // [인코딩 스타일]
-//            headers: header // [헤더 지정]
-//        )
-//        .validate(statusCode: 200..<300)
-//        .responseData { response in
-//            switch response.result {
-//            case .success(let value):
-//                let encodedStr = self.picutureImageUrl.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-//                self.updateUI(encodedStr)
-//                default:
-//                return
-//            }
-//        }
-    
-        
-             //finalResultImageView.image = selectedImage
     }
     
     func updateUI(_ url : String){
@@ -98,14 +76,5 @@ class FinalResultViewController: UIViewController {
         }
      
     }
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }
