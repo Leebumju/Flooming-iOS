@@ -26,15 +26,14 @@ class GalleryTableViewController: UIViewController {
 // page control 관련 변수
     let numOfTouchs = 2
     
-    var baseUrl = "https://e65d-121-136-173-243.jp.ngrok.io/gallery?page="
+    var baseUrl = "https://61de-218-155-163-123.jp.ngrok.io/gallery?page="
+    var pictureImageUrl: String?
    // let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
-    
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
     
-    var gallery: Gallery?
     
 
     override func viewDidLoad() {
@@ -45,42 +44,6 @@ class GalleryTableViewController: UIViewController {
         galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
         self.tableView.backgroundColor = UIColor.clear
-        
-//        AF.request(
-//                    floomingUrl, // [주소]
-//                    method: .get, // [전송 타입]
-//                    parameters: [:] // [전송 데이터]
-//                )
-//                .validate(statusCode: 200..<300)
-//                .responseData { response in
-//                    switch response.result {
-//                    case .success(let value):
-//                        let json = JSON(value)
-//                        let result = json["result"]
-//                        //gallery = result
-//
-//
-//                        for pageNumber in 0...4 {
-//
-//                            self.photoIdArray.append( result[pageNumber]["photo_id"].rawValue as! Int)
-//
-//                            self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
-//
-//                            self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
-//
-//
-//                            print("result는 \(self.photoIdArray[pageNumber])")
-//
-//
-//                        }
-//                        print(self.photoIdArray[2])
-//                        print(self.commentArray[2])
-//                        print(type(of: self.commentArray[2]))
-//
-//                    default:
-//                        return
-//                    }
-//                }
         
         
         
@@ -137,15 +100,17 @@ class GalleryTableViewController: UIViewController {
             super.viewDidAppear(animated)
             
             paging()
-            pageNum = pageNum + 1
+            
         }
-        
+    
+    
+    
         func paging() {
-            let index = cellDatas.count
             
             var datas: [CellData] = []
             
             let pageUrl = ("\(baseUrl)\(String(pageNum))")
+            
             print(pageUrl)
             
             AF.request(
@@ -160,19 +125,35 @@ class GalleryTableViewController: UIViewController {
                             let json = JSON(value)
                             let result = json["result"]
 
+                            print(result)
                             
-                            for pageNumber in index..<(index + 5) {
+                            for pageNumber in 0 ..< 5 {
                                 //let data = CellData(comment: "Title\(pageNumber)")
-                               
-                                print(pageNumber)
-//                                self.photoIdArray.append( result[pageNumber]["photo_id"].rawValue as! Int)
-//
-//                                self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
-////
-                               self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
+
+                                print("pageNumber: \(pageNumber)")
+//                                print(PhotoArray.photoIdArray.count)
+                                
+                                print("result[photo_id]: \(result[pageNumber]["photo_id"])")
+                                self.photoIdArray.append( result[pageNumber]["photo_id"].rawValue as! Int)
+
+                                print("result[picture_id]: \(result[pageNumber]["picture_id"])")
+                                self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
+                                
+//                                print("result[comment]: \(result[pageNumber]["comment"])")
+//                                self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
+                                
+                                
+                                
+                                self.pictureImageUrl = "\(self.baseUrl)/\(result[pageNumber]["picture_id"].rawValue as! Int)"
 
                                 
-                                let data = CellData(comment: "\(self.commentArray[pageNumber])")
+                                
+//                                let urlString = self.pictureImageUrl
+//                                let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+//                                self.updateUI(encodedStr)
+                                
+                                let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: self.pictureIdArray[pageNumber] )
+
                                 datas.append(data)
                             }
                             
@@ -183,12 +164,12 @@ class GalleryTableViewController: UIViewController {
                     }
             
                 
-
+            pageNum = pageNum + 1
             
             DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
                 self.cellDatas.append(contentsOf: datas) // 데이터는 계속해서 append 시켜줌 (페이징의 핵심!)
                 
-                self.hasNextPage = self.cellDatas.count > 300 ? false : true // 다음 페이지가 있는지 여부를 표시
+                self.hasNextPage = self.cellDatas.count > 35 ? false : true // 다음 페이지가 있는지 여부를 표시
                 self.isPaging = false // 페이징이 종료 되었음을 표시
                 
                 self.tableView.reloadData()
@@ -200,6 +181,8 @@ class GalleryTableViewController: UIViewController {
 class MyCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var galleryImage: UIImageView!
+    @IBOutlet weak var photoLabel: UILabel!
+    @IBOutlet weak var pictureLabel: UILabel!
     //@IBOutlet weak var dateLabel: UILabel!
     @IBOutlet var pageControl: UIPageControl!
 }
@@ -213,9 +196,9 @@ class LoadingCell: UITableViewCell {
 }
 
 struct CellData {
-    //var photo_src: String
+    var photoId: Int
     var comment: String
-    //var picture_src: String
+    var pictureId: Int
 }
 
 
@@ -245,7 +228,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             let data = cellDatas[indexPath.row]
-            print("끼아아아ㅏ아아ㅏ아아아아아ㅏ아악1")
+            
             cell.pageControl.numberOfPages = images.count
             cell.pageControl.currentPage = 0
             // 페이지 표시 색상
@@ -276,6 +259,8 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
 //            self.view.addGestureRecognizer(swipeRightMulti)
             
             cell.titleLabel.text = data.comment
+            cell.pictureLabel.text = String(data.pictureId)
+            cell.photoLabel.text = String(data.photoId)
             
             // 테이블뷰 선택 색상없애기
             
@@ -322,11 +307,5 @@ extension GalleryTableViewController {
     }
 }
 
-
-struct Gallery: Codable {
-    var photo_id: Int?
-    var picture_id: Int?
-    var comment: String?
-}
 
 

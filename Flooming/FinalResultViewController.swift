@@ -15,8 +15,8 @@ class FinalResultViewController: UIViewController {
 
     var selectedImage: UIImage!
     var photo_id: Int?
-    let floomingUrl: String = "https://a32a-121-136-173-243.jp.ngrok.io/picture"
-    var picutureImageUrl: String?
+    let floomingUrl: String = "https://61de-218-155-163-123.jp.ngrok.io/picture"
+    var pictureImageUrl: String?
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
     
     @IBOutlet weak var finalResultView: UIView!
@@ -48,9 +48,9 @@ class FinalResultViewController: UIViewController {
                         let json = JSON(value)
                         let pictureId = json["picture_id"]
                         print("pictureid는 \(pictureId)")
-                        self.picutureImageUrl = "\(self.floomingUrl)/\(pictureId)"
-                        print("\(String(describing: self.picutureImageUrl))이요오오옹")
-                        let urlString = self.picutureImageUrl
+                        self.pictureImageUrl = "\(self.floomingUrl)/\(pictureId)"
+                        print("\(String(describing: self.pictureImageUrl))")
+                        let urlString = self.pictureImageUrl
                         let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                         self.updateUI(encodedStr)
                         default:

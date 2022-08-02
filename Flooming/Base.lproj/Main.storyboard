@@ -484,6 +484,20 @@
                                                         <action selector="pageChanged:" destination="sP8-y3-WuH" eventType="valueChanged" id="fIH-vC-emZ"/>
                                                     </connections>
                                                 </pageControl>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rtq-ev-tyV">
+                                                    <rect key="frame" x="200" y="163" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2x4-Xr-jtt">
+                                                    <rect key="frame" x="223" y="124" width="42" height="21"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                    <nil key="textColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="J4Y-UR-X4m" firstAttribute="top" secondItem="od1-1b-waq" secondAttribute="bottom" constant="5" id="0qR-Dx-ezv"/>
@@ -502,6 +516,8 @@
                                         <connections>
                                             <outlet property="galleryImage" destination="od1-1b-waq" id="TTd-Ke-g1e"/>
                                             <outlet property="pageControl" destination="J4Y-UR-X4m" id="sho-8N-8ss"/>
+                                            <outlet property="photoLabel" destination="2x4-Xr-jtt" id="7vX-Ip-jpI"/>
+                                            <outlet property="pictureLabel" destination="Rtq-ev-tyV" id="2om-Nw-kge"/>
                                             <outlet property="titleLabel" destination="qpc-d5-iwp" id="kMF-69-Tyd"/>
                                         </connections>
                                     </tableViewCell>
