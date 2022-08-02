@@ -15,10 +15,12 @@ class FinalResultViewController: UIViewController {
 
     var selectedImage: UIImage!
     var photo_id: Int?
+    var nextpictureId: Int?
     let floomingUrl: String = "https://61de-218-155-163-123.jp.ngrok.io/picture"
     var pictureImageUrl: String?
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
     
+    @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var finalResultView: UIView!
     @IBOutlet weak var finalResultImageView: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
@@ -28,11 +30,20 @@ class FinalResultViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        commentTextField.backgroundColor = UIColor.clear
+        commentTextField.attributedPlaceholder = NSAttributedString(string: "남기시고 싶은 말이 있나요?", attributes: [.foregroundColor: UIColor.white])
+
+        
         print("포토 아이디는 \(photo_id)")
         finalResultView.clipsToBounds = true
         finalResultView.layer.cornerRadius = 30
         finalResultView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         finalResultView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
+        
+        
+        
+        
         
         AF.request(
                     floomingUrl, // [주소]
@@ -47,6 +58,7 @@ class FinalResultViewController: UIViewController {
                     case .success(let value):
                         let json = JSON(value)
                         let pictureId = json["picture_id"]
+                        self.nextpictureId = pictureId.rawValue as! Int
                         print("pictureid는 \(pictureId)")
                         self.pictureImageUrl = "\(self.floomingUrl)/\(pictureId)"
                         print("아아아아ㅏ아아아ㅏ아아ㅏ아\(String(describing: self.pictureImageUrl))")
@@ -81,11 +93,16 @@ class FinalResultViewController: UIViewController {
         let destination = segue.destination
         
             //가고자 하는 VC가 맞는지 확인해줍니다.
-        guard let nextVC = destination as? FinalResultViewController else {
+        guard let nextVC = destination as? GalleryTableViewController else {
             return
         }
         
         nextVC.photo_id = self.photo_id
+        nextVC.picture_id = self.nextpictureId
+        nextVC.comment = self.commentTextField.text
+        
+        print("남긴 말은:\(commentTextField.text)")
+//        nextVC.comment = self.comment
     }
 
 }
