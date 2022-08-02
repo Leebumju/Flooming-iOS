@@ -51,35 +51,52 @@ class GalleryTableViewController: UIViewController {
         galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
         self.tableView.backgroundColor = UIColor.clear
-//
-//        AF.request(
-//                    floomingUrl, // [주소]
-//                    method: .post, // [전송 타입]
-//                    parameters: ["photo_id":photo_id!,
-//                                 "picture_id":picture_id,
-//                                 "comment":comment], // [전송 데이터]
-//                    encoding: JSONEncoding.default, // [인코딩 스타일]
-//                    headers: header // [헤더 지정]
-//                )
-//                .validate(statusCode: 200..<300)
-//                .responseData { response in
-//                    switch response.result {
-//                    case .success(let value):
-//                        let json = JSON(value)
-//                        let pictureId = json["picture_id"]
-//                        let photoId = json["photo_id"]
-//                        let comment = json["comment"]
-//                        let data = CellData(photoId: result["photo_id"].rawValue as! Int, comment: "\(result["comment"].rawValue as! String)", pictureId: result["picture_id"].rawValue as! Int)
-//
-//                        datas.append(data)
-//                        default:
-//                        return
-//                    }
-//                }
-//
-        //첫번째 페이지 받아오기 해야됨
+        var datas: [CellData] = []
         
+        let pageUrl = ("\(baseUrl)\(String(pageNum))")
+        AF.request(
+                    "https://61de-218-155-163-123.jp.ngrok.io/gallery", // [주소]
+                    method: .post, // [전송 타입]
+                    parameters: ["photo_id":photo_id ?? 0,
+                                 "picture_id":picture_id ?? 0,
+                                 "comment":comment!], // [전송 데이터]
+                    encoding: JSONEncoding.default, // [인코딩 스타일]
+                    headers: header // [헤더 지정]
+                )
+                .validate(statusCode: 200..<300)
+                .responseData { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                        let result = json["result"]
+0
+                        print("result는 \(result)")
+                        
+                        for pageNumber in 0 ..< 5 {
+                            //let data = CellData(comment: "Title\(pageNumber)")
+
+                            print("pageNumber: \(pageNumber)")
+//                                print(PhotoArray.photoIdArray.count)
+                            
+                            print("result[photo_id]: \(result[pageNumber]["photo_id"])")
+                         
+                            print("result[picture_id]: \(result[pageNumber]["picture_id"])")
+                                   
+        
+                            let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int)
+
+                            datas.append(data)
+                        }
+                        
+                    
+                    default:
+                        return
+                    }
+                }
     }
+
+        
+    
     
 //    @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer, cell: MyCell) {
 //            // 만일 제스쳐가 있다면
