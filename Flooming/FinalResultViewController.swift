@@ -49,7 +49,7 @@ class FinalResultViewController: UIViewController {
                         let pictureId = json["picture_id"]
                         print("pictureid는 \(pictureId)")
                         self.pictureImageUrl = "\(self.floomingUrl)/\(pictureId)"
-                        print("\(String(describing: self.pictureImageUrl))")
+                        print("아아아아ㅏ아아아ㅏ아아ㅏ아\(String(describing: self.pictureImageUrl))")
                         let urlString = self.pictureImageUrl
                         let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                         self.updateUI(encodedStr)
@@ -75,6 +75,17 @@ class FinalResultViewController: UIViewController {
             }
         }
      
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        
+            //가고자 하는 VC가 맞는지 확인해줍니다.
+        guard let nextVC = destination as? FinalResultViewController else {
+            return
+        }
+        
+        nextVC.photo_id = self.photo_id
     }
 
 }

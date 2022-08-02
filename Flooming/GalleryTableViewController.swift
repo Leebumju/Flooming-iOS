@@ -13,6 +13,12 @@ import Foundation
 
 class GalleryTableViewController: UIViewController {
     
+    //finalResultViewController에서 받아오는 변수들
+    var photo_id: Int?
+    var comment: String?
+    var picture_id: Int?
+    
+    
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -27,6 +33,7 @@ class GalleryTableViewController: UIViewController {
     let numOfTouchs = 2
     
     var baseUrl = "https://61de-218-155-163-123.jp.ngrok.io/gallery?page="
+    let floomingUrl: String = "https://61de-218-155-163-123.jp.ngrok.io/picture"
     var pictureImageUrl: String?
    // let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
@@ -138,21 +145,9 @@ class GalleryTableViewController: UIViewController {
 
                                 print("result[picture_id]: \(result[pageNumber]["picture_id"])")
                                 self.pictureIdArray.append( result[pageNumber]["picture_id"].rawValue as! Int)
-                                
-//                                print("result[comment]: \(result[pageNumber]["comment"])")
-//                                self.commentArray.append( result[pageNumber]["comment"].rawValue as! String)
-                                
-                                
-                                
-                                self.pictureImageUrl = "\(self.baseUrl)/\(result[pageNumber]["picture_id"].rawValue as! Int)"
-
-                                
-                                
-//                                let urlString = self.pictureImageUrl
-//                                let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-//                                self.updateUI(encodedStr)
-                                
-                                let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: self.pictureIdArray[pageNumber] )
+                                                           
+            
+                                let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int)
 
                                 datas.append(data)
                             }
@@ -257,7 +252,26 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
 //            swipeRightMulti.direction = UISwipeGestureRecognizer.Direction.right
 //            swipeRightMulti.numberOfTouchesRequired = numOfTouchs
 //            self.view.addGestureRecognizer(swipeRightMulti)
+            self.pictureImageUrl = "\(self.floomingUrl)/\(data.pictureId)"
+            print("그림 이미지:\(String(describing: self.pictureImageUrl))")
+            let urlString = self.pictureImageUrl
+            let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+            var tempImg : UIImage?
+                 
+            DispatchQueue.global().async {
+                if let ImageData = try? Data(contentsOf: URL(string: encodedStr)!) {
+                    tempImg = UIImage(data: ImageData)!
+                } else {
+                    tempImg = UIImage(named: "03.svg")!
+                }
+         
+                DispatchQueue.main.async {
+                    cell.galleryImage.image = tempImg
+                }
+            }
             
+            
+//            cell.galleryImage.image = UIImage(named: "03.svg")
             cell.titleLabel.text = data.comment
             cell.pictureLabel.text = String(data.pictureId)
             cell.photoLabel.text = String(data.photoId)
@@ -274,6 +288,24 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             
             return cell
         }
+    }
+    
+    func updateUI(_ url : String, cell: MyCell){
+        
+        var tempImg : UIImage?
+             
+        DispatchQueue.global().async {
+            if let ImageData = try? Data(contentsOf: URL(string: url)!) {
+                tempImg = UIImage(data: ImageData)!
+            } else {
+                tempImg = UIImage(named: "03.svg")!
+            }
+     
+            DispatchQueue.main.async {
+                cell.galleryImage.image = tempImg
+            }
+        }
+     
     }
     
 }
