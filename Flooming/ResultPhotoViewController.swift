@@ -22,7 +22,7 @@ class ResultPhotoViewController: UIViewController {
     var photoId: Int?
     
     
-    let floomingUrl: String = "https://61de-218-155-163-123.jp.ngrok.io"
+    let floomingUrl: String = "http://flooming.link"
     
     @IBOutlet weak var resultPhotoView: UIView!
     @IBOutlet weak var resultPhotoImage: UIImageView!
@@ -74,6 +74,8 @@ class ResultPhotoViewController: UIViewController {
                 self.urlFlowerName = kor_name.stringValue
                 let urlString = self.floomingUrl + "/flower/\(kor_name)"
                 let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                
+                print(self.floomingUrl + "/photo")
                 
                 let photo_id = tempPhotoId.rawValue as! Int
                 self.photoId = photo_id

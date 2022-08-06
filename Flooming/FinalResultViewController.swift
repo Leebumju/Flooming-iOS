@@ -16,7 +16,7 @@ class FinalResultViewController: UIViewController {
     var selectedImage: UIImage!
     var photo_id: Int?
     var nextpictureId: Int?
-    let floomingUrl: String = "https://61de-218-155-163-123.jp.ngrok.io/picture"
+    let floomingUrl: String = "http://flooming.link/picture"
     var pictureImageUrl: String?
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
     
@@ -48,7 +48,7 @@ class FinalResultViewController: UIViewController {
         AF.request(
                     floomingUrl, // [주소]
                     method: .post, // [전송 타입]
-                    parameters: ["photo_id":photo_id!], // [전송 데이터]
+                    parameters: ["photo_id":photo_id], // [전송 데이터]
                     encoding: JSONEncoding.default, // [인코딩 스타일]
                     headers: header // [헤더 지정]
                 )
