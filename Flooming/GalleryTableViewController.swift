@@ -69,7 +69,6 @@ class GalleryTableViewController: UIViewController {
                     case .success(let value):
                         let json = JSON(value)
                         let result = json["result"]
-0
                         print("result는 \(result)")
                         
                         for pageNumber in 0 ..< 5 {
@@ -166,9 +165,6 @@ class GalleryTableViewController: UIViewController {
 class MyCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var galleryImage: UIImageView!
-    @IBOutlet weak var photoLabel: UILabel!
-    @IBOutlet weak var pictureLabel: UILabel!
-
     @IBOutlet weak var pageControl: UIPageControl!
     
     override func awakeFromNib() {
@@ -188,10 +184,11 @@ class MyCell: UITableViewCell {
           }
         
         func scrollViewDidScroll(_ scrollView: UIScrollView) {
+            
             let width = scrollView.bounds.size.width
             let x = scrollView.contentOffset.x + (width/2)
-            
             let newPage = Int(x/width)
+            
             if pageControl.currentPage != newPage {
                 pageControl.currentPage = newPage
             }
@@ -228,6 +225,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
         
         return 0
     }
+    
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
             cell.backgroundColor = UIColor.clear
     }
@@ -252,7 +250,6 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             let urlString = self.pictureImageUrl
             let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             var tempImg : UIImage?
-                 
             
             
             DispatchQueue.global().async {
@@ -266,16 +263,13 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
                     cell.galleryImage.image = tempImg
                 }
             }
-            
         
             cell.titleLabel.text = data.comment
-            cell.pictureLabel.text = String(data.pictureId)
-            cell.photoLabel.text = String(data.photoId)
-            
-            
-            
+        
             return cell
+            
         } else {
+            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as? LoadingCell else {
                 return UITableViewCell()
             }

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD0E89562885501A004E90A2 /* FinalResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0E89552885501A004E90A2 /* FinalResultViewController.swift */; };
+		AD1379F828A23F08002D68E9 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */; };
 		AD2177A428893D5300673B57 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A328893D5300673B57 /* NetworkResult.swift */; };
 		AD2177A628893D9400673B57 /* FlowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A528893D9400673B57 /* FlowerModel.swift */; };
 		AD2177A928893E1B00673B57 /* FlowerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A828893E1B00673B57 /* FlowerService.swift */; };
@@ -47,6 +48,7 @@
 		84C25C0C6867F726027F7F4D /* Pods_Flooming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flooming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7FFD3109C166CD6B90BEC0 /* Pods-Flooming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flooming.release.xcconfig"; path = "Target Support Files/Pods-Flooming/Pods-Flooming.release.xcconfig"; sourceTree = "<group>"; };
 		AD0E89552885501A004E90A2 /* FinalResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalResultViewController.swift; sourceTree = "<group>"; };
+		AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		AD2177A328893D5300673B57 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		AD2177A528893D9400673B57 /* FlowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerModel.swift; sourceTree = "<group>"; };
 		AD2177A828893E1B00673B57 /* FlowerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerService.swift; sourceTree = "<group>"; };
@@ -189,6 +191,7 @@
 				ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */,
 				ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */,
 				AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */,
+				AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */,
 			);
 			path = Flooming;
 			sourceTree = "<group>";
@@ -326,6 +329,7 @@
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
 				AD2177A628893D9400673B57 /* FlowerModel.swift in Sources */,
 				AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */,
+				AD1379F828A23F08002D68E9 /* OnBoardingViewController.swift in Sources */,
 				ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */,
 				ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */,
 				ADC90D9D28814B7B00B55B6F /* ErrorViewController.swift in Sources */,

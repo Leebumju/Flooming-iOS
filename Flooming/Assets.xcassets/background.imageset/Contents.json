@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "KakaoTalk_Photo_2022-07-04-16-52.jpg",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "background.jpeg",
       "idiom" : "universal",
       "scale" : "2x"
     },
