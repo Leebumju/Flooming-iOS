@@ -72,8 +72,12 @@
                                         <rect key="frame" x="210" y="192" width="180" height="180"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
-                                    <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-Re-QlL">
-                                        <rect key="frame" x="10" y="696" width="394" height="60"/>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-Re-QlL">
+                                        <rect key="frame" x="10" y="714" width="394" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="394" id="XDL-ob-eVy"/>
+                                            <constraint firstAttribute="width" secondItem="X4J-Re-QlL" secondAttribute="height" multiplier="394:40" id="mAg-O0-yRA"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="지금 해볼래요">
                                             <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
@@ -82,6 +86,18 @@
                                         <connections>
                                             <segue destination="t9n-xq-S0q" kind="show" id="34b-CK-TwG"/>
                                         </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-MR-7wQ">
+                                        <rect key="frame" x="10" y="664" width="394" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="SqK-MR-7wQ" secondAttribute="height" multiplier="394:40" id="hta-ED-emz"/>
+                                            <constraint firstAttribute="width" constant="394" id="z1i-SM-Ucl"/>
+                                        </constraints>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="관람할래요">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
+                                            <color key="baseBackgroundColor" systemColor="labelColor"/>
+                                        </buttonConfiguration>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="linkColor"/>
@@ -93,12 +109,16 @@
                                     <constraint firstItem="s9J-kr-1HJ" firstAttribute="leading" secondItem="94J-Mn-eW7" secondAttribute="trailing" id="6Ey-wR-SqT"/>
                                     <constraint firstItem="EFs-Q3-uV7" firstAttribute="leading" secondItem="kGe-Ua-sGg" secondAttribute="leading" constant="20" id="9uH-1e-5WG"/>
                                     <constraint firstItem="X4J-Re-QlL" firstAttribute="leading" secondItem="kGe-Ua-sGg" secondAttribute="leading" constant="10" id="HKb-jI-ECU"/>
+                                    <constraint firstItem="SqK-MR-7wQ" firstAttribute="leading" secondItem="kGe-Ua-sGg" secondAttribute="leading" constant="10" id="Op0-R6-duS"/>
+                                    <constraint firstItem="SqK-MR-7wQ" firstAttribute="centerX" secondItem="kGe-Ua-sGg" secondAttribute="centerX" id="Y48-qe-PoT"/>
                                     <constraint firstItem="94J-Mn-eW7" firstAttribute="top" secondItem="EFs-Q3-uV7" secondAttribute="bottom" constant="10" id="YYk-tV-knT"/>
                                     <constraint firstItem="OGG-4O-GGA" firstAttribute="top" secondItem="EFs-Q3-uV7" secondAttribute="bottom" constant="10" id="YtV-1E-oCC"/>
                                     <constraint firstItem="taM-Y8-cmI" firstAttribute="top" secondItem="EFs-Q3-uV7" secondAttribute="bottom" constant="10" id="bIb-VZ-VRH"/>
                                     <constraint firstItem="cVe-BX-LS0" firstAttribute="top" secondItem="taM-Y8-cmI" secondAttribute="bottom" constant="50" id="faC-L3-cdZ"/>
                                     <constraint firstAttribute="trailing" secondItem="X4J-Re-QlL" secondAttribute="trailing" constant="10" id="gu6-yj-IqL"/>
                                     <constraint firstItem="OGG-4O-GGA" firstAttribute="leading" secondItem="taM-Y8-cmI" secondAttribute="trailing" id="kxl-l0-xxr"/>
+                                    <constraint firstAttribute="trailing" secondItem="SqK-MR-7wQ" secondAttribute="trailing" constant="10" id="lyR-IE-L9W"/>
+                                    <constraint firstItem="X4J-Re-QlL" firstAttribute="top" secondItem="SqK-MR-7wQ" secondAttribute="bottom" constant="10" id="mIp-Y1-QO5"/>
                                     <constraint firstItem="s9J-kr-1HJ" firstAttribute="firstBaseline" secondItem="94J-Mn-eW7" secondAttribute="firstBaseline" id="oyo-Li-BYL"/>
                                     <constraint firstAttribute="bottom" secondItem="X4J-Re-QlL" secondAttribute="bottom" constant="10" id="uW5-5y-Rir"/>
                                 </constraints>
@@ -118,6 +138,8 @@
                     <navigationItem key="navigationItem" id="BId-Jo-5qt"/>
                     <connections>
                         <outlet property="mainView" destination="kGe-Ua-sGg" id="fT2-pF-saU"/>
+                        <outlet property="photoImage" destination="cVe-BX-LS0" id="DR1-aJ-Zhu"/>
+                        <outlet property="pictureImage" destination="JBz-Ef-Yo0" id="QBT-Hr-KDp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -673,8 +695,8 @@
                                             <constraint firstAttribute="width" constant="20" id="tqe-Ge-49w"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이렇게 찍지 마세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GJ-nr-aG1">
-                                        <rect key="frame" x="252" y="350" width="134" height="25"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="불분명한 사진은 그림을 그릴 수 없어요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8GJ-nr-aG1">
+                                        <rect key="frame" x="182.5" y="350" width="273" height="25"/>
                                         <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -686,8 +708,8 @@
                                             <constraint firstAttribute="width" secondItem="otj-6G-GfH" secondAttribute="height" multiplier="1:1" id="USU-aJ-XD9"/>
                                         </constraints>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="이렇게 찍어주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ku8-4A-ogx">
-                                        <rect key="frame" x="44" y="350" width="102" height="20"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃이 잘 보이게 찍어주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ku8-4A-ogx">
+                                        <rect key="frame" x="21" y="350" width="148.5" height="20"/>
                                         <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
                                         <color key="textColor" systemColor="secondarySystemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -745,7 +767,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPR-KI-D0D">
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="alexander-sinn-S40mkcrTi2c-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-gh-pbl">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marek-piwnicki-FU-zNC7NZ5o-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-gh-pbl">
                                         <rect key="frame" x="10" y="30" width="394" height="434"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-E6-saW">
@@ -1045,10 +1067,10 @@
         <image name="KakaoTalk_Image_2022-07-15-16-01-44" width="100" height="100"/>
         <image name="KakaoTalk_Image_2022-07-15-16-01-46" width="100" height="100"/>
         <image name="KakaoTalk_Image_2022-07-15-16-17-7" width="192" height="192"/>
-        <image name="alexander-sinn-S40mkcrTi2c-unsplash" width="6024" height="4024"/>
         <image name="download" width="512" height="512"/>
         <image name="exampleFlower" width="1440" height="1440"/>
         <image name="logoImage" width="838" height="741"/>
+        <image name="marek-piwnicki-FU-zNC7NZ5o-unsplash" width="3357" height="4476"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -22,9 +22,11 @@ class PhotoGuideViewController: UIViewController {
        
         
         correctPhotoImage?.layer.borderWidth = 2
+        correctPhotoImage?.layer.cornerRadius = 20
         correctPhotoImage?.layer.borderColor = UIColor.white.cgColor
         
         wrongPhotoImage?.layer.borderWidth = 2
+        wrongPhotoImage?.layer.cornerRadius = 20
         wrongPhotoImage?.layer.borderColor = UIColor.white.cgColor
         
     }

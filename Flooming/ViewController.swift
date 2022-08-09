@@ -11,6 +11,8 @@ var images = ["01.svg", "02.svg", "03.svg", "04.svg"]
 
 class ViewController: UIViewController {
     
+    @IBOutlet weak var pictureImage: UIImageView!
+    @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var mainView: UIView!
     
     override func viewDidLoad() {
@@ -18,6 +20,15 @@ class ViewController: UIViewController {
         // Do any additional setup after loading the view.
         mainView.clipsToBounds = true
         mainView.layer.cornerRadius = 30
+        
+        pictureImage.layer.cornerRadius = 20
+        pictureImage?.layer.borderWidth = 2
+        pictureImage?.layer.borderColor = UIColor.white.cgColor
+        
+        photoImage.layer.cornerRadius = 20
+        photoImage?.layer.borderWidth = 2
+        photoImage?.layer.borderColor = UIColor.white.cgColor
+        
         mainView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         mainView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
     }
