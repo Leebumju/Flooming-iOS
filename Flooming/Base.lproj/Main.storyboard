@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="j7g-Cu-3Zq">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvT-y9-V2Y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
@@ -75,7 +75,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-Re-QlL">
                                         <rect key="frame" x="10" y="696" width="394" height="60"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="지금 해보기">
+                                        <buttonConfiguration key="configuration" style="filled" title="지금 해볼래요">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -138,11 +139,13 @@
                                     <constraint firstAttribute="width" constant="340" id="ptn-cX-h6Y"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="시작할래요">
+                                    <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
+                                </buttonConfiguration>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-iC-hTf">
-                                <rect key="frame" x="149" y="736" width="116" height="26"/>
-                                <color key="pageIndicatorTintColor" red="0.89534007930000004" green="0.96699744460000003" blue="0.54743400019999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <rect key="frame" x="149" y="776" width="116" height="26"/>
+                                <color key="pageIndicatorTintColor" systemColor="systemPurpleColor"/>
                                 <connections>
                                     <action selector="pageChanged:" destination="j7g-Cu-3Zq" eventType="valueChanged" id="kXQ-BM-NHr"/>
                                 </connections>
@@ -159,11 +162,11 @@
                             <constraint firstItem="3R7-Lt-ZXn" firstAttribute="leading" secondItem="Xf6-5G-c6E" secondAttribute="leading" id="1ik-Zj-Fss"/>
                             <constraint firstItem="J3a-kc-RCB" firstAttribute="bottom" secondItem="Xf6-5G-c6E" secondAttribute="bottom" id="2d0-Jw-koj"/>
                             <constraint firstItem="3R7-Lt-ZXn" firstAttribute="top" secondItem="Xf6-5G-c6E" secondAttribute="top" id="AFo-la-zM2"/>
-                            <constraint firstItem="J3a-kc-RCB" firstAttribute="top" secondItem="bIR-iC-hTf" secondAttribute="bottom" constant="60" id="RWM-pF-eYi"/>
+                            <constraint firstItem="J3a-kc-RCB" firstAttribute="top" secondItem="bIR-iC-hTf" secondAttribute="bottom" constant="20" id="RWM-pF-eYi"/>
                             <constraint firstItem="Xf6-5G-c6E" firstAttribute="trailing" secondItem="3R7-Lt-ZXn" secondAttribute="trailing" id="VoI-jX-vV7"/>
                             <constraint firstItem="bIR-iC-hTf" firstAttribute="centerX" secondItem="Xf6-5G-c6E" secondAttribute="centerX" id="X2V-0O-Uhn"/>
-                            <constraint firstItem="bIR-iC-hTf" firstAttribute="top" secondItem="3R7-Lt-ZXn" secondAttribute="bottom" constant="50" id="aOy-uG-EN3"/>
                             <constraint firstItem="J3a-kc-RCB" firstAttribute="centerX" secondItem="Xf6-5G-c6E" secondAttribute="centerX" id="qif-Kp-Wnf"/>
+                            <constraint firstItem="bIR-iC-hTf" firstAttribute="top" secondItem="3R7-Lt-ZXn" secondAttribute="bottom" constant="30" id="uM2-ix-6Wr"/>
                         </constraints>
                     </view>
                     <connections>
@@ -519,8 +522,8 @@
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Comment" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qpc-d5-iwp">
-                                                    <rect key="frame" x="157" y="175" width="56.5" height="20"/>
-                                                    <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="17"/>
+                                                    <rect key="frame" x="157" y="175" width="66.5" height="20"/>
+                                                    <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -642,7 +645,8 @@
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxV-Vu-dOs">
                                         <rect key="frame" x="10" y="721" width="394" height="60"/>
                                         <state key="normal" title="Button"/>
-                                        <buttonConfiguration key="configuration" style="filled" title="예 이해했습니다!">
+                                        <buttonConfiguration key="configuration" style="filled" title="이해했어요">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -751,6 +755,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="사진 찍기">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="22"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -764,6 +769,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="앨범에서 가져오기">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="22"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -789,6 +795,7 @@
                                 <rect key="frame" x="10" y="821" width="394" height="60"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="사진 선택">
+                                    <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                     <color key="baseBackgroundColor" systemColor="labelColor"/>
                                 </buttonConfiguration>
                                 <connections>
@@ -868,6 +875,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="그림을 그려볼까요?">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -882,20 +890,20 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flower name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwz-HS-rSq">
-                                        <rect key="frame" x="169.5" y="510" width="75" height="17"/>
-                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="17"/>
+                                        <rect key="frame" x="152" y="510" width="110" height="25"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flower meaning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaH-6B-wfV">
-                                        <rect key="frame" x="160.5" y="527" width="93" height="17"/>
-                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="17"/>
+                                        <rect key="frame" x="147" y="535" width="120" height="22"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="22"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="percent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4D-RB-L4N">
-                                        <rect key="frame" x="183" y="544" width="48" height="17"/>
-                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="17"/>
+                                        <rect key="frame" x="179" y="557" width="56.5" height="20"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -969,6 +977,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="저장할게요">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                     </button>
@@ -979,6 +988,7 @@
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="전시관에 업로드할게요">
+                                            <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
@@ -988,7 +998,7 @@
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="남기고 싶은 말이 있나요?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Lh-GVr">
                                         <rect key="frame" x="77" y="340" width="260" height="34"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="20"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="23"/>
                                         <textInputTraits key="textInputTraits"/>
                                     </textField>
                                 </subviews>
@@ -1053,6 +1063,9 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemPurpleColor">
+            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

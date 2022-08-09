@@ -17,9 +17,9 @@ class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
         var scrollHeight: CGFloat! = 0.0
 
         //data for the slides
-        var titles = ["FAST DELIVERY","EXCITING OFFERS","SECURE PAYMENT"]
-        var descs = ["Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Lorem ipsum dolor sit amet, consectetur adipiscing elit.","Lorem ipsum dolor sit amet, consectetur adipiscing elit."]
-        var imgs = ["background","intro4","intro5"]
+        var titles = ["이 꽃은 무슨 꽃일까?","꽃을 그림으로 간직하고 싶은 당신","전시관 머시기 해볼까요"]
+        var descs = ["길거리에 피어있는\n 꽃의 이름과 꽃말을 알아봐요.","Flooming에서 원하는 꽃 사진을\n 선택해 나만의 그림으로 바꿔봐요","다양한 사용자들의 꽃 사진과 그림을 \n한 눈에 뭐 살펴보자 이런식"]
+        var imgs = ["blooming","blooming","blooming"]
 
         //get dynamic width and height of scrollview and save it
         override func viewDidLayoutSubviews() {
@@ -54,13 +54,15 @@ class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
               
                 let txt1 = UILabel.init(frame: CGRect(x:32,y:imageView.frame.maxY+30,width:scrollWidth-64,height:30))
                 txt1.textAlignment = .center
-                txt1.font = UIFont.boldSystemFont(ofSize: 20.0)
+//                txt1.font = UIFont.boldSystemFont(ofSize: 20.0)
+               
+                txt1.font = UIFont(name: "SimKyungha", size: 20.0)
                 txt1.text = titles[index]
 
                 let txt2 = UILabel.init(frame: CGRect(x:32,y:txt1.frame.maxY+10,width:scrollWidth-64,height:50))
                 txt2.textAlignment = .center
                 txt2.numberOfLines = 3
-                txt2.font = UIFont.systemFont(ofSize: 18.0)
+                txt2.font = UIFont(name: "SimKyungha", size: 18.0)
                 txt2.text = descs[index]
 
                 slide.addSubview(imageView)
@@ -96,5 +98,7 @@ class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
             pageControl?.currentPage = Int(page)
         }
         // Do any additional setup after loading the view.
-    }
+    
+    
+}
     
