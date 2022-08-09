@@ -41,10 +41,6 @@ class FinalResultViewController: UIViewController {
         finalResultView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
         finalResultView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
         
-        
-        
-        
-        
         AF.request(
                     floomingUrl, // [주소]
                     method: .post, // [전송 타입]

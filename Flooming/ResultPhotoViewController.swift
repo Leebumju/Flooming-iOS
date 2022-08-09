@@ -14,6 +14,8 @@ import Foundation
 
 class ResultPhotoViewController: UIViewController {
 
+    
+    
     var selectedImage: UIImage!
     // 여기서 
     var switchOn: UIImage?
@@ -40,8 +42,7 @@ class ResultPhotoViewController: UIViewController {
         super.viewDidLoad()
         switchOn = selectedImage
         
-        
-
+ 
         resultPhotoView.clipsToBounds = true
         resultPhotoView.layer.cornerRadius = 30
         resultPhotoView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
@@ -100,7 +101,9 @@ class ResultPhotoViewController: UIViewController {
        
         
     }
+    
 
+    
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination
@@ -132,6 +135,7 @@ class ResultPhotoViewController: UIViewController {
         }
      
     }
+    
 }
 
 struct Flower: Codable {
