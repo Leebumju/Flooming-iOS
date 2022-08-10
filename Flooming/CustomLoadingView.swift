@@ -13,8 +13,10 @@ class CustomLoadingView {
     private static let sharedInstance = CustomLoadingView()
     
     private var backgroundView: UIView?
-    private var popupView: GIFImageView?
-            
+    
+    let popupView = GIFImageView()
+    popupView.contentMode = .center
+    popupView.prepareForAnimation(withGIFNamed: "spinner")
     class func show() {
           //view를 show해주는 코드
     }

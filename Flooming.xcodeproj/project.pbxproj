@@ -10,6 +10,7 @@
 		AD0E89562885501A004E90A2 /* FinalResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0E89552885501A004E90A2 /* FinalResultViewController.swift */; };
 		AD1379F828A23F08002D68E9 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */; };
 		AD1379FE28A25CF7002D68E9 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */; };
+		AD15BE9B28A3BCB6006DF88C /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */; };
 		AD2177A428893D5300673B57 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A328893D5300673B57 /* NetworkResult.swift */; };
 		AD2177A628893D9400673B57 /* FlowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A528893D9400673B57 /* FlowerModel.swift */; };
 		AD2177A928893E1B00673B57 /* FlowerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A828893E1B00673B57 /* FlowerService.swift */; };
@@ -51,6 +52,7 @@
 		AD0E89552885501A004E90A2 /* FinalResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalResultViewController.swift; sourceTree = "<group>"; };
 		AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
+		AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
 		AD2177A328893D5300673B57 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		AD2177A528893D9400673B57 /* FlowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerModel.swift; sourceTree = "<group>"; };
 		AD2177A828893E1B00673B57 /* FlowerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerService.swift; sourceTree = "<group>"; };
@@ -195,6 +197,7 @@
 				AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */,
 				AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */,
 				AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */,
+				AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */,
 			);
 			path = Flooming;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				AD7E99892875835F00B5CCEF /* LeferiBaseBold.otf in Resources */,
 				D870DE2A2861DAE70096CC57 /* LaunchScreen.storyboard in Resources */,
 				AD7E998C2875836600B5CCEF /* LeferiPointBlackOblique.otf in Resources */,
+				AD15BE9B28A3BCB6006DF88C /* OnBoarding.storyboard in Resources */,
 				D870DE272861DAE70096CC57 /* Assets.xcassets in Resources */,
 				AD7E99902875836E00B5CCEF /* LeferiPointWhiteOblique.otf in Resources */,
 				D870DE252861DAE30096CC57 /* Main.storyboard in Resources */,
@@ -495,9 +499,10 @@
 				DEVELOPMENT_TEAM = 277QUM3J2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flooming/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 가져오기";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
@@ -525,9 +530,10 @@
 				DEVELOPMENT_TEAM = 277QUM3J2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flooming/Info.plist;
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 가져오기";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 15.0;

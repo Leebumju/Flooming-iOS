@@ -99,6 +99,28 @@ class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
         }
         // Do any additional setup after loading the view.
     
+    @IBAction func nextButtonClicked(_ sender: Any) {
+            presentMainVC()
+        }
+        
+        private func presentMainVC() {
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            let vc = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
+            vc.modalPresentationStyle = .fullScreen
+            present(vc, animated: false, completion: nil)
+        }
     
 }
     
+
+public class Storage {
+    static func isFirstTime() -> Bool {
+        let defaults = UserDefaults.standard
+        if defaults.object(forKey: "isFirstTime") == nil {
+        defaults.set("No", forKey:"isFirstTime")
+        return true
+        } else {
+            return false
+        }
+    }
+}

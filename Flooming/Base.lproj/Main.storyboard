@@ -17,7 +17,7 @@
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -98,6 +98,9 @@
                                             <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
+                                        <connections>
+                                            <segue destination="sP8-y3-WuH" kind="show" id="wpM-mG-8IV"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="linkColor"/>
@@ -145,61 +148,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028.985507246377" y="115.84821428571428"/>
-        </scene>
-        <!--On Boarding View Controller-->
-        <scene sceneID="gCj-Pz-Gcg">
-            <objects>
-                <viewController id="j7g-Cu-3Zq" customClass="OnBoardingViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="OEC-y0-0AA">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="J3a-kc-RCB">
-                                <rect key="frame" x="37" y="822" width="340" height="40"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="fBa-oi-75b"/>
-                                    <constraint firstAttribute="width" constant="340" id="ptn-cX-h6Y"/>
-                                </constraints>
-                                <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="시작할래요">
-                                    <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
-                                </buttonConfiguration>
-                            </button>
-                            <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="bIR-iC-hTf">
-                                <rect key="frame" x="149" y="776" width="116" height="26"/>
-                                <color key="pageIndicatorTintColor" systemColor="systemPurpleColor"/>
-                                <connections>
-                                    <action selector="pageChanged:" destination="j7g-Cu-3Zq" eventType="valueChanged" id="kXQ-BM-NHr"/>
-                                </connections>
-                            </pageControl>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3R7-Lt-ZXn">
-                                <rect key="frame" x="87" y="384" width="240" height="128"/>
-                                <viewLayoutGuide key="contentLayoutGuide" id="D5R-ys-MKS"/>
-                                <viewLayoutGuide key="frameLayoutGuide" id="Sfk-PI-8Fh"/>
-                            </scrollView>
-                        </subviews>
-                        <viewLayoutGuide key="safeArea" id="Xf6-5G-c6E"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="3R7-Lt-ZXn" firstAttribute="leading" secondItem="Xf6-5G-c6E" secondAttribute="leading" id="1ik-Zj-Fss"/>
-                            <constraint firstItem="J3a-kc-RCB" firstAttribute="bottom" secondItem="Xf6-5G-c6E" secondAttribute="bottom" id="2d0-Jw-koj"/>
-                            <constraint firstItem="3R7-Lt-ZXn" firstAttribute="top" secondItem="Xf6-5G-c6E" secondAttribute="top" id="AFo-la-zM2"/>
-                            <constraint firstItem="J3a-kc-RCB" firstAttribute="top" secondItem="bIR-iC-hTf" secondAttribute="bottom" constant="20" id="RWM-pF-eYi"/>
-                            <constraint firstItem="Xf6-5G-c6E" firstAttribute="trailing" secondItem="3R7-Lt-ZXn" secondAttribute="trailing" id="VoI-jX-vV7"/>
-                            <constraint firstItem="bIR-iC-hTf" firstAttribute="centerX" secondItem="Xf6-5G-c6E" secondAttribute="centerX" id="X2V-0O-Uhn"/>
-                            <constraint firstItem="J3a-kc-RCB" firstAttribute="centerX" secondItem="Xf6-5G-c6E" secondAttribute="centerX" id="qif-Kp-Wnf"/>
-                            <constraint firstItem="bIR-iC-hTf" firstAttribute="top" secondItem="3R7-Lt-ZXn" secondAttribute="bottom" constant="30" id="uM2-ix-6Wr"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="btnGetStarted" destination="J3a-kc-RCB" id="qwr-Nw-CSL"/>
-                        <outlet property="pageControl" destination="bIR-iC-hTf" id="Le3-o3-AtJ"/>
-                        <outlet property="scrollView" destination="3R7-Lt-ZXn" id="KJX-hl-dMz"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="k1h-Ne-HkD" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-127.53623188405798" y="820.98214285714278"/>
         </scene>
         <!--Compare Photo View Controller-->
         <scene sceneID="dKh-Lg-cva">
@@ -543,11 +491,11 @@
             <objects>
                 <viewController id="sP8-y3-WuH" customClass="GalleryTableViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="m5a-Po-itQ">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RFS-ru-Ea8">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="808"/>
+                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="250" id="Pcp-sP-Taa" customClass="MyCell" customModule="Flooming" customModuleProvider="target">
@@ -634,6 +582,7 @@
                             <constraint firstItem="RFS-ru-Ea8" firstAttribute="leading" secondItem="zi0-Cd-y78" secondAttribute="leading" id="xSD-Kd-tmR"/>
                         </constraints>
                     </view>
+                    <navigationItem key="navigationItem" id="bYM-UH-8iD"/>
                     <connections>
                         <outlet property="galleryView" destination="m5a-Po-itQ" id="F6p-WA-rvt"/>
                         <outlet property="tableView" destination="RFS-ru-Ea8" id="12v-cK-RbB"/>
@@ -871,20 +820,21 @@
         <!--Navigation Controller-->
         <scene sceneID="7gD-HS-gvv">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="TvT-y9-V2Y" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TvT-y9-V2Y" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="MVp-Q7-8HG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ys0-ed-SIz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="hR8-Go-Ctx"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="8Vw-HS-gvA"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q96-2K-Jt0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="239" y="116"/>
+            <point key="canvasLocation" x="-591" y="131"/>
         </scene>
         <!--분류 결과-->
         <scene sceneID="17T-xw-kDe">
@@ -1036,7 +986,7 @@
                                             <color key="baseBackgroundColor" systemColor="labelColor"/>
                                         </buttonConfiguration>
                                         <connections>
-                                            <segue destination="sP8-y3-WuH" kind="presentation" id="meE-Wy-QfS"/>
+                                            <segue destination="sP8-y3-WuH" kind="show" id="meE-Wy-QfS"/>
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="남기고 싶은 말이 있나요?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Lh-GVr">
@@ -1084,6 +1034,9 @@
             <point key="canvasLocation" x="3803" y="116"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="wpM-mG-8IV"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="01" width="936" height="671"/>
         <image name="KakaoTalk_Image_2022-07-15-16-01-44" width="100" height="100"/>
@@ -1107,9 +1060,6 @@
         </systemColor>
         <systemColor name="systemGray2Color">
             <color red="0.68235294117647061" green="0.68235294117647061" blue="0.69803921568627447" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemPurpleColor">
-            <color red="0.68627450980392157" green="0.32156862745098042" blue="0.87058823529411766" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemYellowColor">
             <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

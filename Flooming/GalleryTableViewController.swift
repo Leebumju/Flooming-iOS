@@ -59,7 +59,7 @@ class GalleryTableViewController: UIViewController {
                     method: .post, // [전송 타입]
                     parameters: ["photo_id":photo_id ?? 0,
                                  "picture_id":picture_id ?? 0,
-                                 "comment":comment!], // [전송 데이터]
+                                 "comment":comment ?? "0"], // [전송 데이터]
                     encoding: JSONEncoding.default, // [인코딩 스타일]
                     headers: header // [헤더 지정]
                 )
