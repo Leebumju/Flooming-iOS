@@ -42,9 +42,36 @@ class GalleryTableViewController: UIViewController {
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
     
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
+    
+    
+    private let loadingView: CustomLoadingView = {
+        let view = CustomLoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+      }()
+    
 
+    
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        //self.galleryView.backgroundColor = .white
+        self.galleryView.addSubview(self.loadingView)
+        
+        NSLayoutConstraint.activate([
+              self.loadingView.leftAnchor.constraint(equalTo: self.tableView.leftAnchor),
+              self.loadingView.rightAnchor.constraint(equalTo: self.tableView.rightAnchor),
+              self.loadingView.bottomAnchor.constraint(equalTo: self.tableView.bottomAnchor),
+              self.loadingView.topAnchor.constraint(equalTo: self.tableView.topAnchor),
+            ])
+        
+        self.loadingView.isLoading = true
+        self.getSomeData { [weak self] in
+            self?.loadingView.isLoading = false
+        }
+        self.loadingView.isLoading = true
         self.tableView.rowHeight = 350;
         
         galleryView.clipsToBounds = true
@@ -92,12 +119,18 @@ class GalleryTableViewController: UIViewController {
                         return
                     }
                 }
+        
     }
-
+    
+    private func getSomeData(completion: @escaping () -> ()) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
+          completion()
+        }
+      }
     
     override func viewDidAppear(_ animated: Bool) {
             super.viewDidAppear(animated)
-            
+        
             paging()
             
         }

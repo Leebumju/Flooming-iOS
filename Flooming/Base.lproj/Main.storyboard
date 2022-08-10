@@ -935,7 +935,6 @@
                         <outlet property="flowerEnglishName" destination="hwz-HS-rSq" id="vl2-Gv-OxE"/>
                         <outlet property="flowerMeaning" destination="TaH-6B-wfV" id="Cpg-Le-IY2"/>
                         <outlet property="kindOfFlowerImage" destination="waI-ag-j0S" id="5nf-hE-ic8"/>
-                        <outlet property="loadingButton" destination="f5g-jt-EEU" id="nL0-Dc-Qlb"/>
                         <outlet property="percent" destination="u4D-RB-L4N" id="Euu-bB-ZKA"/>
                         <outlet property="resultPhotoImage" destination="n8g-kX-iTc" id="AkG-LR-gKy"/>
                         <outlet property="resultPhotoView" destination="t4J-4b-lIi" id="Yul-1Q-Zdc"/>
