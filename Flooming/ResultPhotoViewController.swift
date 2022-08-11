@@ -34,13 +34,26 @@ class ResultPhotoViewController: UIViewController {
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
- 
+    private let loadingView: CustomLoadingView = {
+        let view = CustomLoadingView()
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+    }()
     
     
     override func viewDidLoad() {
         
         super.viewDidLoad()
         switchOn = selectedImage
+        self.resultPhotoView.addSubview(self.loadingView)
+        
+        NSLayoutConstraint.activate([
+              self.loadingView.leftAnchor.constraint(equalTo: self.resultPhotoView.leftAnchor),
+              self.loadingView.rightAnchor.constraint(equalTo: self.resultPhotoView.rightAnchor),
+              self.loadingView.bottomAnchor.constraint(equalTo: self.resultPhotoView.bottomAnchor),
+              self.loadingView.topAnchor.constraint(equalTo: self.resultPhotoView.topAnchor),
+        ])
+        
         
  
         resultPhotoView.clipsToBounds = true
@@ -96,13 +109,15 @@ class ResultPhotoViewController: UIViewController {
             }
             
         }
-        
-        
        
         
     }
     
-
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        self.loadingView.isLoading = false
+    }
     
    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

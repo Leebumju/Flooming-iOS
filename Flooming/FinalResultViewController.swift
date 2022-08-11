@@ -16,9 +16,12 @@ class FinalResultViewController: UIViewController {
     var selectedImage: UIImage!
     var photo_id: Int?
     var nextpictureId: Int?
+    
     let floomingUrl: String = "http://flooming.link/picture"
     var pictureImageUrl: String?
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
+    
+    
     
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var finalResultView: UIView!

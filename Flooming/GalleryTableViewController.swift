@@ -18,7 +18,8 @@ class GalleryTableViewController: UIViewController {
     var comment: String?
     var picture_id: Int?
     
-
+    
+    
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -34,6 +35,8 @@ class GalleryTableViewController: UIViewController {
     
     var baseUrl = "http://flooming.link/gallery?page="
     let floomingUrl: String = "http://flooming.link/picture"
+
+    
     var pictureImageUrl: String?
    // let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
@@ -48,11 +51,7 @@ class GalleryTableViewController: UIViewController {
         let view = CustomLoadingView()
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
-      }()
-    
-
-    
-    
+    }()
     
     
     override func viewDidLoad() {
@@ -68,11 +67,10 @@ class GalleryTableViewController: UIViewController {
             ])
         
         self.loadingView.isLoading = true
-        self.getSomeData { [weak self] in
-            self?.loadingView.isLoading = false
-        }
-        self.loadingView.isLoading = true
+       
         self.tableView.rowHeight = 350;
+        
+        
         
         galleryView.clipsToBounds = true
         galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
@@ -112,6 +110,7 @@ class GalleryTableViewController: UIViewController {
                             let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int)
 
                             datas.append(data)
+                            
                         }
                         
                     
@@ -120,20 +119,18 @@ class GalleryTableViewController: UIViewController {
                     }
                 }
         
+        
     }
-    
-    private func getSomeData(completion: @escaping () -> ()) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 10.0) {
-          completion()
-        }
-      }
+  
     
     override func viewDidAppear(_ animated: Bool) {
-            super.viewDidAppear(animated)
+        super.viewDidAppear(animated)
         
-            paging()
-            
-        }
+        //로딩뷰 없애기
+        self.loadingView.isLoading = false
+        
+        paging()
+    }
 
     
         func paging() {
@@ -192,6 +189,11 @@ class GalleryTableViewController: UIViewController {
                 self.tableView.reloadData()
             }
         }
+    
+    
+    
+    
+    
 }
 
 // /gallery?page
@@ -199,6 +201,16 @@ class MyCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var galleryImage: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    
+    //---------------------------------------------------
+    let urlString = "http://flooming.link/picture/1"
+//    let encodedStr = self.urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+    @IBAction func downloadButton(_ sender: Any) {
+        imageDownload(url: URL(string: urlString)!)
+    }
+    //--------------------------------------------------
+    
+    
     
     override func awakeFromNib() {
             super.awakeFromNib()
@@ -226,6 +238,27 @@ class MyCell: UITableViewCell {
                 pageControl.currentPage = newPage
             }
         }
+    
+    func imageDownload(url: URL) {
+        var request = URLRequest(url: url)
+        request.httpMethod = "GET"
+
+        URLSession.shared.dataTask(with: request) { data, response, error in
+            guard
+                let httpURLResponse = response as? HTTPURLResponse, httpURLResponse.statusCode == 200,
+                let mimeType = response?.mimeType, mimeType.hasPrefix("image"),
+                let data = data, error == nil,
+                let image = UIImage(data: data)
+                else {
+                    print("Download image fail : \(url)")
+                    return
+            }
+
+            DispatchQueue.main.async() {[weak self] in
+                print("Download image success \(url)")
+            }
+        }.resume()
+    }
 }
 
 class LoadingCell: UITableViewCell {
@@ -270,14 +303,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             let data = cellDatas[indexPath.row]
-            
-//            cell.pageControl.numberOfPages = images.count
-//            cell.pageControl.currentPage = 0
-//            // 페이지 표시 색상
-//            cell.pageControl.pageIndicatorTintColor = UIColor.lightGray
-//            // 현재 페이지 표시 색상
-//            cell.pageControl.currentPageIndicatorTintColor = UIColor.black
-//            
+              
             self.pictureImageUrl = "\(self.floomingUrl)/\(data.pictureId)"
             print("그림 이미지:\(String(describing: self.pictureImageUrl))")
             let urlString = self.pictureImageUrl

@@ -518,24 +518,23 @@
                                                     <color key="textColor" systemColor="systemBackgroundColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="download" translatesAutoresizingMaskIntoConstraints="NO" id="kG5-i4-0aS">
-                                                    <rect key="frame" x="324" y="175" width="20" height="20"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" constant="20" id="YQY-zN-J3C"/>
-                                                        <constraint firstAttribute="width" secondItem="kG5-i4-0aS" secondAttribute="height" multiplier="1:1" id="lfD-DL-yjY"/>
-                                                    </constraints>
-                                                </imageView>
                                                 <pageControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="J4Y-UR-X4m">
                                                     <rect key="frame" x="149" y="172" width="116" height="26"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </pageControl>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cl9-Lq-hYs">
+                                                    <rect key="frame" x="296" y="175" width="67" height="36"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" title="Button"/>
+                                                    <buttonConfiguration key="configuration" style="plain" title="Button"/>
+                                                    <connections>
+                                                        <action selector="downloadButton:" destination="Pcp-sP-Taa" eventType="touchUpInside" id="NRI-0s-TyC"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="qpc-d5-iwp" firstAttribute="leading" secondItem="od1-1b-waq" secondAttribute="leading" id="JjA-f2-dzr"/>
                                                 <constraint firstItem="qpc-d5-iwp" firstAttribute="top" secondItem="od1-1b-waq" secondAttribute="top" constant="100" id="Ytj-XT-jNP"/>
-                                                <constraint firstItem="kG5-i4-0aS" firstAttribute="top" secondItem="qpc-d5-iwp" secondAttribute="top" id="aFC-C5-YDv"/>
-                                                <constraint firstAttribute="trailing" secondItem="kG5-i4-0aS" secondAttribute="trailing" constant="70" id="eHr-UP-etL"/>
-                                                <constraint firstItem="kG5-i4-0aS" firstAttribute="bottom" secondItem="qpc-d5-iwp" secondAttribute="bottom" id="kIP-10-OZA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <constraints>
@@ -590,7 +589,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wyw-Wu-FHj" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4701" y="234"/>
+            <point key="canvasLocation" x="4700" y="233.70535714285714"/>
         </scene>
         <!--갤러리-->
         <scene sceneID="Ywl-ex-561">
@@ -1041,7 +1040,6 @@
         <image name="KakaoTalk_Image_2022-07-15-16-01-44" width="100" height="100"/>
         <image name="KakaoTalk_Image_2022-07-15-16-01-46" width="100" height="100"/>
         <image name="KakaoTalk_Image_2022-07-15-16-17-7" width="192" height="192"/>
-        <image name="download" width="512" height="512"/>
         <image name="exampleFlower" width="1440" height="1440"/>
         <image name="logoImage" width="838" height="741"/>
         <image name="marek-piwnicki-FU-zNC7NZ5o-unsplash" width="3357" height="4476"/>
