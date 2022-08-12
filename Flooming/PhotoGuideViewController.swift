@@ -15,7 +15,7 @@ class PhotoGuideViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    
         settingBackground(view: photoGuideView)
         updateImageBorder(image: correctPhotoImage)
         updateImageBorder(image: wrongPhotoImage)

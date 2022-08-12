@@ -15,10 +15,11 @@ class ViewController: UIViewController {
     @IBOutlet weak var photoImage: UIImageView!
     @IBOutlet weak var mainView: UIView!
     
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
         updateImageBorder(image: pictureImage)
         updateImageBorder(image: photoImage)
         settingBackground(view: mainView)
