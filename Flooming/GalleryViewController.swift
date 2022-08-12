@@ -44,8 +44,6 @@ class GalleryViewController: UIViewController {
                     "Content-Type" : "multipart/form-data"]
         
         AF.upload(multipartFormData: { multipartFormData in
-                    print("오로로로로롤ㄹ")
-                // png이미지로 한번 변화해서 해보기
                     if let image = self.switchOn.pngData() {
                         multipartFormData.append(image, withName: "file", fileName: "01.png", mimeType: "image/png")
                     }

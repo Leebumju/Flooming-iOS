@@ -39,10 +39,8 @@ class FinalResultViewController: UIViewController {
 
         
         print("포토 아이디는 \(photo_id)")
-        finalResultView.clipsToBounds = true
-        finalResultView.layer.cornerRadius = 30
-        finalResultView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-        finalResultView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
+        settingBackground(view: finalResultView)
+        updateImageBorder(image: finalResultImageView)
         
         AF.request(
                     floomingUrl, // [주소]

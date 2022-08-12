@@ -14,16 +14,10 @@ import Foundation
 
 class ResultPhotoViewController: UIViewController {
 
-    
-    
     var selectedImage: UIImage!
-    // 여기서 
     var switchOn: UIImage?
     var urlFlowerName: String?
-    
     var photoId: Int?
-    
-    
     let floomingUrl: String = "http://flooming.link"
     
     @IBOutlet weak var resultPhotoView: UIView!
@@ -54,16 +48,14 @@ class ResultPhotoViewController: UIViewController {
               self.loadingView.topAnchor.constraint(equalTo: self.resultPhotoView.topAnchor),
         ])
         
-        
- 
-        resultPhotoView.clipsToBounds = true
-        resultPhotoView.layer.cornerRadius = 30
-        resultPhotoView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-        resultPhotoView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
+        settingBackground(view: resultPhotoView)
         // Do any additional setup after loading the view.
         
         resultPhotoImage.image = selectedImage
         
+        //ImageView 경계선 설정 및 굵기 조정
+        updateImageBorder(image: resultPhotoImage)
+        updateImageBorder(image: kindOfFlowerImage)
         
         let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         
@@ -78,7 +70,7 @@ class ResultPhotoViewController: UIViewController {
         
             switch response.result {
                 case .success(let value):
-                    let json = JSON(value)
+                let json = JSON(value)
                 let kor_name = json["kor_name"]
                 let eng_name = json["eng_name"]
                 let probability = json["probability"]
@@ -89,7 +81,6 @@ class ResultPhotoViewController: UIViewController {
                 let urlString = self.floomingUrl + "/flower/\(kor_name)"
                 let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 
-                print(self.floomingUrl + "/photo")
                 
                 let photo_id = tempPhotoId.rawValue as! Int
                 self.photoId = photo_id
@@ -104,8 +95,25 @@ class ResultPhotoViewController: UIViewController {
                 
                 self.updateUI(encodedStr)
                 
-                default:
-                    return
+            case .failure(let error):
+                self.percent.text = "오류 발생!!!"
+                let alert = UIAlertController(title:"사진을 다시 찍어주세요.",
+                    message: "올바른 사진이 아닙니다.",
+                    preferredStyle: UIAlertController.Style.alert)
+                //2. 확인 버튼 만들기
+                let cancle = UIAlertAction(title: "취소", style: .default) { (action) in
+                    //취소 버튼 클릭시 이전 화면으로 돌아가기
+                    self.navigationController?.popViewController(animated: true)
+                }
+                //3. 확인 버튼을 경고창에 추가하기
+                alert.addAction(cancle)
+                //4. 경고창 보이기
+                self.present(alert,animated: true,completion: nil)
+                
+                break
+                
+            default:
+                return
             }
             
         }
@@ -151,13 +159,5 @@ class ResultPhotoViewController: UIViewController {
      
     }
     
-}
-
-struct Flower: Codable {
-    let photo_id: String
-    let probability: String
-    let kor_name: String
-    let eng_name: String
-    let flower_language: String
 }
 

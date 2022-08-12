@@ -18,22 +18,11 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        mainView.clipsToBounds = true
-        mainView.layer.cornerRadius = 30
         
-        pictureImage.layer.cornerRadius = 20
-        pictureImage?.layer.borderWidth = 2
-        pictureImage?.layer.borderColor = UIColor.white.cgColor
-        
-        photoImage.layer.cornerRadius = 20
-        photoImage?.layer.borderWidth = 2
-        photoImage?.layer.borderColor = UIColor.white.cgColor
-        
-        mainView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-        mainView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
+        updateImageBorder(image: pictureImage)
+        updateImageBorder(image: photoImage)
+        settingBackground(view: mainView)
     }
-    
-    
 }
 
 

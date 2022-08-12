@@ -13,16 +13,16 @@ import Alamofire
 class ChoicePhotoViewController: UIViewController {
     
     @IBOutlet weak var choicePhotoView: UIView!
-    @IBOutlet weak var choicePhoto: UIImageView!
+    @IBOutlet weak var choicePhotoImage: UIImageView!
     
     let imagePickerController = UIImagePickerController()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        choicePhotoView.clipsToBounds = true
-        choicePhotoView.layer.cornerRadius = 30
-        choicePhotoView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-        choicePhotoView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
+        //뷰 모양 조정
+        settingBackground(view: choicePhotoView)
+        //사진 선택 이미지 모양 조정
+        updateImageBorder(image: choicePhotoImage)
         imagePickerController.delegate = self
     }
     
@@ -51,7 +51,7 @@ class ChoicePhotoViewController: UIViewController {
             return
         }
         
-        nextVC.selectedImage = choicePhoto.image
+        nextVC.selectedImage = choicePhotoImage.image
     }
 }
 
@@ -70,7 +70,7 @@ extension ChoicePhotoViewController: UIImagePickerControllerDelegate, UINavigati
 extension ChoicePhotoViewController: CropViewControllerDelegate {
     func cropViewControllerDidCrop(_ cropViewController: CropViewController, cropped: UIImage, transformation: Transformation, cropInfo: CropInfo) {
             // 이미지 크롭 후 할 작업 추가
-            choicePhoto.image = cropped
+            choicePhotoImage.image = cropped
             cropViewController.dismiss(animated: true, completion: nil)
         }
         

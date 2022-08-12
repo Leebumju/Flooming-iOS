@@ -14,6 +14,7 @@
 		AD2177A428893D5300673B57 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A328893D5300673B57 /* NetworkResult.swift */; };
 		AD2177A628893D9400673B57 /* FlowerModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A528893D9400673B57 /* FlowerModel.swift */; };
 		AD2177A928893E1B00673B57 /* FlowerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD2177A828893E1B00673B57 /* FlowerService.swift */; };
+		AD346B1D28A641970060C7BB /* ModifyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD346B1C28A641970060C7BB /* ModifyImage.swift */; };
 		AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CB286D9C1100B4398D /* PhotoAuth.swift */; };
 		AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */; };
 		AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */; };
@@ -56,6 +57,7 @@
 		AD2177A328893D5300673B57 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		AD2177A528893D9400673B57 /* FlowerModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerModel.swift; sourceTree = "<group>"; };
 		AD2177A828893E1B00673B57 /* FlowerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlowerService.swift; sourceTree = "<group>"; };
+		AD346B1C28A641970060C7BB /* ModifyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyImage.swift; sourceTree = "<group>"; };
 		AD3501CB286D9C1100B4398D /* PhotoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAuth.swift; sourceTree = "<group>"; };
 		AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePhotoViewController.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 				AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */,
 				AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */,
 				AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */,
+				AD346B1C28A641970060C7BB /* ModifyImage.swift */,
 			);
 			path = Flooming;
 			sourceTree = "<group>";
@@ -340,6 +343,7 @@
 				ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */,
 				ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */,
 				ADC90D9D28814B7B00B55B6F /* ErrorViewController.swift in Sources */,
+				AD346B1D28A641970060C7BB /* ModifyImage.swift in Sources */,
 				AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */,
 				AD1379FE28A25CF7002D68E9 /* CustomLoadingView.swift in Sources */,
 				AD607F052876D6D30054B60C /* AddActionEditService.swift in Sources */,

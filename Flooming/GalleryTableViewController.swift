@@ -19,12 +19,10 @@ class GalleryTableViewController: UIViewController {
     var picture_id: Int?
     
     
-    
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
     var pageNum = 0
-    
     
     var photoIdArray: Array<Int> = []
     var pictureIdArray: Array<Int> = []
@@ -71,10 +69,10 @@ class GalleryTableViewController: UIViewController {
         self.tableView.rowHeight = 350;
         
         
-        
-        galleryView.clipsToBounds = true
-        galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-        galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
+        settingBackground(view: galleryView)
+//        galleryView.clipsToBounds = true
+//        galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
+//        galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
         self.tableView.backgroundColor = UIColor.clear
         var datas: [CellData] = []
         
@@ -82,9 +80,9 @@ class GalleryTableViewController: UIViewController {
         AF.request(
                     "http://flooming.link/gallery", // [주소]
                     method: .post, // [전송 타입]
-                    parameters: ["photo_id":photo_id ?? 0,
-                                 "picture_id":picture_id ?? 0,
-                                 "comment":comment ?? "0"], // [전송 데이터]
+                    parameters: ["photo_id":photo_id ?? nil,
+                                 "picture_id":picture_id ?? nil,
+                                 "comment":comment ?? nil], // [전송 데이터]
                     encoding: JSONEncoding.default, // [인코딩 스타일]
                     headers: header // [헤더 지정]
                 )

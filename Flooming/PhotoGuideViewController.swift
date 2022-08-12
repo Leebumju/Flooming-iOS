@@ -15,19 +15,9 @@ class PhotoGuideViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        photoGuideView.clipsToBounds = true
-        photoGuideView.layer.cornerRadius = 30
-        photoGuideView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-        photoGuideView.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
-       
         
-        correctPhotoImage?.layer.borderWidth = 2
-        correctPhotoImage?.layer.cornerRadius = 20
-        correctPhotoImage?.layer.borderColor = UIColor.white.cgColor
-        
-        wrongPhotoImage?.layer.borderWidth = 2
-        wrongPhotoImage?.layer.cornerRadius = 20
-        wrongPhotoImage?.layer.borderColor = UIColor.white.cgColor
-        
+        settingBackground(view: photoGuideView)
+        updateImageBorder(image: correctPhotoImage)
+        updateImageBorder(image: wrongPhotoImage)
     }
 }
