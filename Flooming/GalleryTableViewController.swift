@@ -35,8 +35,12 @@ class GalleryTableViewController: UIViewController {
     let floomingUrl: String = "http://flooming.link/picture"
 
     
+    @IBAction func homeButton(_ sender: Any) {
+        print("클릭되었음.")
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+  
     var pictureImageUrl: String?
-   // let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
@@ -44,35 +48,19 @@ class GalleryTableViewController: UIViewController {
     
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
     
-    
-    private let loadingView: CustomLoadingView = {
-        let view = CustomLoadingView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
+
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        //self.galleryView.backgroundColor = .white
-        self.galleryView.addSubview(self.loadingView)
+  
+        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-        NSLayoutConstraint.activate([
-              self.loadingView.leftAnchor.constraint(equalTo: self.tableView.leftAnchor),
-              self.loadingView.rightAnchor.constraint(equalTo: self.tableView.rightAnchor),
-              self.loadingView.bottomAnchor.constraint(equalTo: self.tableView.bottomAnchor),
-              self.loadingView.topAnchor.constraint(equalTo: self.tableView.topAnchor),
-            ])
-        
-        self.loadingView.isLoading = true
        
         self.tableView.rowHeight = 350;
         
         
         settingBackground(view: galleryView)
-//        galleryView.clipsToBounds = true
-//        galleryView.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
-//        galleryView.backgroundColor = UIColor(patternImage: UIImage(named: "galleryBackground.png")!)
         self.tableView.backgroundColor = UIColor.clear
         var datas: [CellData] = []
         
@@ -123,9 +111,6 @@ class GalleryTableViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        //로딩뷰 없애기
-        self.loadingView.isLoading = false
         
         paging()
     }
@@ -204,7 +189,15 @@ class MyCell: UITableViewCell {
     let urlString = "http://flooming.link/picture/1"
 //    let encodedStr = self.urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
     @IBAction func downloadButton(_ sender: Any) {
-        imageDownload(url: URL(string: urlString)!)
+        UIImageWriteToSavedPhotosAlbum(galleryImage.image!, self, #selector(saveImage(_:didFinishSavingWithError:contextInfo:)), nil)
+    }
+    
+    @objc func saveImage(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error { //사진 저장 에러
+            print(error)
+        } else {
+            print("Save")
+        }
     }
     //--------------------------------------------------
     
@@ -313,7 +306,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
                 if let ImageData = try? Data(contentsOf: URL(string: encodedStr)!) {
                     tempImg = UIImage(data: ImageData)!
                 } else {
-                    tempImg = UIImage(named: "03.svg")!
+                    tempImg = UIImage(named: "FirstOnBoarding.jpeg")!
                 }
             
                 DispatchQueue.main.async {
@@ -336,25 +329,6 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             return cell
         }
     }
-    
-//    func updateUI(_ url : String, cell: MyCell){
-//
-//        var tempImg : UIImage?
-//
-//        DispatchQueue.global().async {
-//            if let ImageData = try? Data(contentsOf: URL(string: url)!) {
-//                tempImg = UIImage(data: ImageData)!
-//            } else {
-//                tempImg = UIImage(named: "03.svg")!
-//            }
-//
-//            DispatchQueue.main.async {
-//                cell.galleryImage.image = tempImg
-//            }
-//        }
-//
-//    }
-    
     
 }
 
