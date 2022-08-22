@@ -35,7 +35,7 @@ class GalleryTableViewController: UIViewController {
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
     var baseUrl = "http://flooming.link/gallery?page="
     let floomingUrl: String = "http://flooming.link/picture"
-
+    let photoUrl: String = "http://flooming.link/photo"
     
     @IBAction func homeButton(_ sender: Any) {
         print("클릭되었음.")
@@ -188,7 +188,6 @@ class MyCell: UITableViewCell {
     var cellImage: UIImage?
     var photo: UIImage?
     
-    
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
     
     //---------------------------------------------------
@@ -214,9 +213,8 @@ extension MyCell {
         self.galleryImage.image = pictureEncodedUrl
         cellImage = pictureEncodedUrl
         photo = photoImage
+        
     }
-    
-    
     
     @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
         
@@ -229,13 +227,12 @@ extension MyCell {
                     print("왼쪽")
                     pageControl.currentPage -= 1
                     self.galleryImage.image = photo
-//                    print(galleryImage.image!)
+    
                     print("바뀜")
                     case UISwipeGestureRecognizer.Direction.right :
                     print("오른쪽")
                     pageControl.currentPage += 1
-                    self.galleryImage.image = UIImage(named: "download.jpeg")!
-//                    print(galleryImage.image!)
+                    self.galleryImage.image = cellImage
                     default:
                       break
                 }
@@ -244,23 +241,7 @@ extension MyCell {
 
         }
         
-        // 두 손가락 스와이프 제스쳐를 행했을 때 실행할 액션 메서드
-        @objc func respondToSwipeGestureMulti(_ gesture: UIGestureRecognizer) {
-            if let swipeGesture = gesture as? UISwipeGestureRecognizer {
-                print("siballl")
-                switch swipeGesture.direction {
-                   case UISwipeGestureRecognizer.Direction.left:
-                        pageControl.currentPage -= 1
-                        galleryImage.image = UIImage(named: "logoImage")
-                   case UISwipeGestureRecognizer.Direction.right:
-                        pageControl.currentPage += 1
-                        galleryImage.image = UIImage(named: "HomeButton")
-                   default:
-                       break
-                }
-            }
-        }
-    //----------------------------------------
+     
     
 }
 
@@ -306,16 +287,30 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             let data = cellDatas[indexPath.row]
               
             let pictureUrlString = "\(self.floomingUrl)/\(data.pictureId)"
-            let photoUrlString = "\(self.floomingUrl)/\(data.photoId)"
+            let photoUrlString = "\(self.photoUrl)/\(data.photoId)"
+            
+            print("픽쳐 아이디:\(pictureUrlString)")
+            print("포토 아이디: \(photoUrlString)")
             
             let pictureEncodeStr = pictureUrlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             let photoEncodeStr = photoUrlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
             
             var pictureImage : UIImage?
             var photoImage: UIImage?
+            //------------------------------------------
+            let swipeLeft = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGesture(_:)))
+                    swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+                cell.addGestureRecognizer(swipeLeft)
 
+                    let swipeRight = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGesture(_:)))
+                    swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+                    cell.addGestureRecognizer(swipeRight)
+
+            
+            //------------------------------------------
             //background 큐에서 비동기 방식으로 실행할 코드
             DispatchQueue.global().async {
+                
                 if let ImageData = try? Data(contentsOf: URL(string: pictureEncodeStr)!) {
                     pictureImage = UIImage(data: ImageData)!
                 } else {
@@ -329,36 +324,15 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
                 }
                 
 //                cell.transferImageByUrl(pictureEncodedUrl: pictureImage!)
-            
+                
             
                 //main 큐에서 비동기 방식으로 실행할 코드
                 DispatchQueue.main.async {
-//                    cell.galleryImage.image = pictureImage
                     cell.transferImageByUrl(pictureEncodedUrl: pictureImage!, photoImage: photoImage!)
-                    //------------------------------------------
-                    let swipeLeft = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGesture(_:)))
-                            swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-                            self.view.addGestureRecognizer(swipeLeft)
-
-                            let swipeRight = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGesture(_:)))
-                            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-                            self.view.addGestureRecognizer(swipeRight)
-
-                            // 두 손가락 스와이프 제스쳐 등록(좌, 우)
-                            let swipeLeftMulti = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGestureMulti(_:)))
-                            swipeLeftMulti.direction = UISwipeGestureRecognizer.Direction.left
-                    swipeLeftMulti.numberOfTouchesRequired = self.numOfTouchs
-                            self.view.addGestureRecognizer(swipeLeftMulti)
-
-                            let swipeRightMulti = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGestureMulti(_:)))
-                            swipeRightMulti.direction = UISwipeGestureRecognizer.Direction.right
-                    swipeRightMulti.numberOfTouchesRequired = self.numOfTouchs
-                            self.view.addGestureRecognizer(swipeRightMulti)
-                    
-                    //------------------------------------------
+//                    cell.galleryImage.image = pictureImage
                 }
             }
-        
+            
             cell.titleLabel.text = data.comment
             
             
