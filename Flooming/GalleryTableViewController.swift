@@ -20,9 +20,9 @@ class GalleryTableViewController: UIViewController {
     var comment: String?
     var picture_id: Int?
     var gallery_Id: Int?
-    
-    
-    
+    //----
+    var galleryIdInt: Int?
+    //----
     @IBOutlet var galleryView: UIView!
     @IBOutlet weak var tableView: UITableView!
     
@@ -69,8 +69,7 @@ class GalleryTableViewController: UIViewController {
                     method: .post, // [전송 타입]
                     parameters: ["photo_id":photo_id ?? nil,
                                  "picture_id":picture_id ?? nil,
-                                 "comment":comment ?? nil,
-                                 "gallery_id":gallery_Id ?? nil], // [전송 데이터]
+                                 "comment":comment ?? nil], // [전송 데이터]
                     encoding: JSONEncoding.default, // [인코딩 스타일]
                     headers: header // [헤더 지정]
                 )
@@ -93,7 +92,8 @@ class GalleryTableViewController: UIViewController {
                             print("result[picture_id]: \(result[pageNumber]["picture_id"])")
                                    
         
-                            let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int)
+                            let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int,
+                                galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
 
                             datas.append(data)
                             
@@ -149,7 +149,7 @@ class GalleryTableViewController: UIViewController {
                                 print("result[picture_id]: \(result[pageNumber]["picture_id"])")
                                        
             
-                                let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int)
+                                let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int, galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
 
                                 datas.append(data)
                             }
@@ -182,7 +182,8 @@ class GalleryTableViewController: UIViewController {
         guard let nextVC = destination as? PopupViewController else {
             return
         }
-        //nextVC.photo_id = self.photo_id
+        nextVC.gallery_id = self.galleryIdInt!
+        print(self.galleryIdInt)
         //print(self.photo_id!)
     }
     
@@ -197,7 +198,6 @@ class MyCell: UITableViewCell {
     var cellImage: UIImage?
     var photo: UIImage?
     
-    var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
     
     //---------------------------------------------------
     @IBAction func downloadButton(_ sender: Any) {
@@ -308,7 +308,9 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
               
             let pictureUrlString = "\(self.floomingUrl)/\(data.pictureId)"
             let photoUrlString = "\(self.photoUrl)/\(data.photoId)"
-            
+            //------
+            galleryIdInt = data.galleryId
+            //------
             print("픽쳐 아이디:\(pictureUrlString)")
             print("포토 아이디: \(photoUrlString)")
             
@@ -410,4 +412,5 @@ struct CellData {
     var photoId: Int
     var comment: String
     var pictureId: Int
+    var galleryId: Int
 }
