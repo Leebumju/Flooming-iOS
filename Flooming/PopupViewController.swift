@@ -6,14 +6,21 @@
 //
 
 import UIKit
+import Alamofire
+import SwiftyJSON
 
 class PopupViewController: UIViewController {
-
-    var popupImage: UIImage!
     
-    @IBOutlet weak var popupImageView: UIImageView!
     @IBOutlet weak var infoView: UIView!
-        
+    @IBOutlet weak var popupView: UIView!
+    
+    @IBOutlet weak var detailsTextField: UITextField!
+    
+    let header : HTTPHeaders = ["Content-Type" : "application/json"]
+    let floomingUrl: String = "http://flooming.link/report"
+    var photo_id: Int = 1
+    var detail: String?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -23,19 +30,10 @@ class PopupViewController: UIViewController {
         infoView.layer.shadowOffset = CGSize(width: 1, height: 4)
         infoView.layer.shadowRadius = 10
         infoView.layer.shadowOpacity = 1
-        popupImageView.image = popupImage
 //            
 //        // infoView 모서리 둥글게 만들기
-//        infoView.layer.cornerRadius = 25
-//        infoView.clipsToBounds = true
-//        view.addSubview(containerView)
-//            
-//            // containerView 에 대해 Auto Layout 설정
-//        containerView.translatesAutoresizingMaskIntoConstraints = false
-//        containerView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
-//        containerView.centerYAnchor.constraint(equalTo: view.centerYAnchor, constant: -10).isActive = true
-//        containerView.widthAnchor.constraint(equalToConstant: 315).isActive = true
-//        containerView.heightAnchor.constraint(equalToConstant: 367).isActive = true
+        popupView.clipsToBounds = true
+        popupView.layer.cornerRadius = 30
     }
     
     @IBAction func closeButtonTapped(_ sender: Any) {
@@ -44,6 +42,25 @@ class PopupViewController: UIViewController {
     
     @IBAction func openButtonTapped(_ sender: Any) {
         
+        detail = self.detailsTextField.text
+        
+        AF.request(
+                    floomingUrl, // [주소]
+                    method: .post, // [전송 타입]
+                    parameters: ["gallery_id": photo_id, "detail": detail ], // [전송 데이터]
+                    encoding: JSONEncoding.default, // [인코딩 스타일]
+                    headers: header // [헤더 지정]
+                )
+                .validate(statusCode: 200..<300)
+                .responseData { response in
+                    switch response.result {
+                    case .success(let value):
+                        let json = JSON(value)
+                       // print("아아아아ㅏ아아아ㅏ아아ㅏ아\(String(describing: self.pictureImageUrl))")
+                        default:
+                        return
+                    }
+                }
     }
 }
     

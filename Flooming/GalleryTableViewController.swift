@@ -19,6 +19,8 @@ class GalleryTableViewController: UIViewController {
     var photo_id: Int?
     var comment: String?
     var picture_id: Int?
+    var gallery_Id: Int?
+    
     
     
     @IBOutlet var galleryView: UIView!
@@ -29,6 +31,7 @@ class GalleryTableViewController: UIViewController {
     var photoIdArray: Array<Int> = []
     var pictureIdArray: Array<Int> = []
     var commentArray: Array<String> = []
+    var galleryIdArray: Array<Int> = []
     
 // page control 관련 변수
     let numOfTouchs = 2
@@ -43,18 +46,9 @@ class GalleryTableViewController: UIViewController {
     }
   
     var pictureImageUrl: String?
-      
-    
-    
-    
-    
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
-    
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
-    
-
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -75,7 +69,8 @@ class GalleryTableViewController: UIViewController {
                     method: .post, // [전송 타입]
                     parameters: ["photo_id":photo_id ?? nil,
                                  "picture_id":picture_id ?? nil,
-                                 "comment":comment ?? nil], // [전송 데이터]
+                                 "comment":comment ?? nil,
+                                 "gallery_id":gallery_Id ?? nil], // [전송 데이터]
                     encoding: JSONEncoding.default, // [인코딩 스타일]
                     headers: header // [헤더 지정]
                 )
@@ -178,6 +173,19 @@ class GalleryTableViewController: UIViewController {
             }
         }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("시바아아아아아아ㅏㄹ")
+        let destination = segue.destination
+        
+            //가고자 하는 VC가 맞는지 확인해줍니다.
+        guard let nextVC = destination as? PopupViewController else {
+            return
+        }
+        //nextVC.photo_id = self.photo_id
+        //print(self.photo_id!)
+    }
+    
 }
 
 // /gallery?page
@@ -185,6 +193,7 @@ class MyCell: UITableViewCell {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var galleryImage: UIImageView!
     @IBOutlet weak var pageControl: UIPageControl!
+    @IBOutlet weak var declarationButton: UIButton!
     var cellImage: UIImage?
     var photo: UIImage?
     
@@ -195,7 +204,6 @@ class MyCell: UITableViewCell {
         UIImageWriteToSavedPhotosAlbum(galleryImage.image!, self, #selector(saveImage(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
-    
     @objc func saveImage(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
         if let error = error { //사진 저장 에러
             print(error)
@@ -203,6 +211,9 @@ class MyCell: UITableViewCell {
             print("Save")
         }
     }
+    
+    
+    
 }
 
 extension MyCell {
@@ -240,9 +251,6 @@ extension MyCell {
             }
 
         }
-        
-     
-    
 }
 
 class LoadingCell: UITableViewCell {
@@ -258,6 +266,18 @@ class LoadingCell: UITableViewCell {
 
 extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource {
     // Section을 2개 설정하는 이유는 페이징 로딩 시 로딩 셀을 표시해주기 위해서입니다.
+    
+    //신고 기능
+   @objc func declarationButtonClicked(_ sender: UIButton) {
+       print("클릭 되었음.")
+       let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+       let popupVC = storyBoard.instantiateViewController(withIdentifier: "PopupViewController")
+       popupVC.modalPresentationStyle = .overFullScreen
+       present(popupVC, animated: false, completion: nil)
+   }
+    
+    
+    
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
     }
@@ -334,7 +354,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             cell.titleLabel.text = data.comment
-            
+            cell.declarationButton.addTarget(self, action: #selector(declarationButtonClicked(_:)), for: .touchUpInside)
             
             return cell
             

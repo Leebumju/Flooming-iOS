@@ -75,7 +75,6 @@ class ComparePhotoViewController: UIViewController, UICollectionViewDelegate, UI
             return
         }
         
-        nextVC.popupImage = comparePhoto.image
     }
 }
 
