@@ -10,6 +10,7 @@ import Alamofire
 import simd
 import SwiftyJSON
 import Foundation
+import Toast_Swift
 
 class FinalResultViewController: UIViewController {
     
@@ -28,7 +29,29 @@ class FinalResultViewController: UIViewController {
     @IBOutlet weak var finalResultImageView: UIImageView!
     @IBOutlet weak var commentLabel: UILabel!
     
+    @IBAction func clickDownloadButton(_ sender: Any) {
+        let alert = UIAlertController(title:"사진 다운로드",
+                                      message: "사진을 다운로드 할까요?",
+                                      preferredStyle: UIAlertController.Style.alert)
+        
+        let cancel = UIAlertAction(title: "취소", style: .cancel, handler: nil)
+        let check = UIAlertAction(title: "확인", style: .default) { (action) in
+            UIImageWriteToSavedPhotosAlbum(self.finalResultImageView.image!, self, #selector(self.saveImage(_:didFinishSavingWithError:contextInfo:)), nil)
+            self.view.makeToast("사진이 다운로드 되었습니다.", duration: 1.0, position: .bottom)
+        }
+        
+        alert.addAction(cancel)
+        alert.addAction(check)
+        self.present(alert,animated: true,completion: nil)
+    }
     
+    @objc func saveImage(_ image: UIImage, didFinishSavingWithError error: NSError?, contextInfo: UnsafeRawPointer) {
+        if let error = error { //사진 저장 에러
+            print(error)
+        } else {
+            print("Save")
+        }
+    }
     //    /picutre로 post 요청
     
     override func viewDidLoad() {

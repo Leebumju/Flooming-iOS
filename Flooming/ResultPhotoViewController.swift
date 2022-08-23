@@ -28,6 +28,8 @@ class ResultPhotoViewController: UIViewController {
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -108,6 +110,7 @@ class ResultPhotoViewController: UIViewController {
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
+    
     }
     
     
@@ -139,6 +142,7 @@ class ResultPhotoViewController: UIViewController {
                 self.kindOfFlowerImage.image = tempImg
             }
         }
+        
     }
     
 }
