@@ -13,7 +13,7 @@ import Foundation
 
 
 class ResultPhotoViewController: UIViewController {
-
+    
     var selectedImage: UIImage!
     var switchOn: UIImage?
     var urlFlowerName: String?
@@ -28,25 +28,10 @@ class ResultPhotoViewController: UIViewController {
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
-    private let loadingView: CustomLoadingView = {
-        let view = CustomLoadingView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        return view
-    }()
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
         switchOn = selectedImage
-        self.resultPhotoView.addSubview(self.loadingView)
-        
-        NSLayoutConstraint.activate([
-              self.loadingView.leftAnchor.constraint(equalTo: self.resultPhotoView.leftAnchor),
-              self.loadingView.rightAnchor.constraint(equalTo: self.resultPhotoView.rightAnchor),
-              self.loadingView.bottomAnchor.constraint(equalTo: self.resultPhotoView.bottomAnchor),
-              self.loadingView.topAnchor.constraint(equalTo: self.resultPhotoView.topAnchor),
-        ])
         
         settingBackground(view: resultPhotoView)
         // Do any additional setup after loading the view.
@@ -62,21 +47,21 @@ class ResultPhotoViewController: UIViewController {
         
         AF.upload(multipartFormData: { multipartFormData in
             // png이미지로 한번 변화해서 해보기
-    
+            
             if let image = self.switchOn!.pngData() {
                 multipartFormData.append(image, withName: "file", fileName: "02.png", mimeType: "image/png")
             }
         }, to: floomingUrl + "/photo", usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { response in
-        
+            
             switch response.result {
-                case .success(let value):
+            case .success(let value):
                 let json = JSON(value)
                 let kor_name = json["kor_name"]
                 let eng_name = json["eng_name"]
                 let probability = json["probability"]
                 let tempPhotoId = json["photo_id"]
                 let flower_language = json["flower_language"]
-                    print(kor_name)
+                print(kor_name)
                 self.urlFlowerName = kor_name.stringValue
                 let urlString = self.floomingUrl + "/flower/\(kor_name)"
                 let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
@@ -98,8 +83,8 @@ class ResultPhotoViewController: UIViewController {
             case .failure(let error):
                 self.percent.text = "오류 발생!!!"
                 let alert = UIAlertController(title:"사진을 다시 찍어주세요.",
-                    message: "올바른 사진이 아닙니다.",
-                    preferredStyle: UIAlertController.Style.alert)
+                                              message: "올바른 사진이 아닙니다.",
+                                              preferredStyle: UIAlertController.Style.alert)
                 //2. 확인 버튼 만들기
                 let cancle = UIAlertAction(title: "취소", style: .default) { (action) in
                     //취소 버튼 클릭시 이전 화면으로 돌아가기
@@ -117,21 +102,19 @@ class ResultPhotoViewController: UIViewController {
             }
             
         }
-       
+        
         
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        
-        self.loadingView.isLoading = false
     }
     
-   
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination
         
-            //가고자 하는 VC가 맞는지 확인해줍니다.
+        //가고자 하는 VC가 맞는지 확인해줍니다.
         guard let nextVC = destination as? FinalResultViewController else {
             return
         }
@@ -144,19 +127,18 @@ class ResultPhotoViewController: UIViewController {
     func updateUI(_ url : String){
         
         var tempImg : UIImage?
-             
+        
         DispatchQueue.global().async {
             if let ImageData = try? Data(contentsOf: URL(string: url)!) {
                 tempImg = UIImage(data: ImageData)!
             } else {
                 tempImg = UIImage(named: "01.svg")!
             }
-     
+            
             DispatchQueue.main.async {
                 self.kindOfFlowerImage.image = tempImg
             }
         }
-     
     }
     
 }

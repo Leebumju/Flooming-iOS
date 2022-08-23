@@ -18,7 +18,6 @@
 		AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CB286D9C1100B4398D /* PhotoAuth.swift */; };
 		AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */; };
 		AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */; };
-		AD607F052876D6D30054B60C /* AddActionEditService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD607F042876D6D30054B60C /* AddActionEditService.swift */; };
 		AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */; };
 		AD7E99892875835F00B5CCEF /* LeferiBaseBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99842875835400B5CCEF /* LeferiBaseBold.otf */; };
 		AD7E998A2875836100B5CCEF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99872875835400B5CCEF /* LeferiBaseRegular.otf */; };
@@ -61,7 +60,6 @@
 		AD3501CB286D9C1100B4398D /* PhotoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAuth.swift; sourceTree = "<group>"; };
 		AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePhotoViewController.swift; sourceTree = "<group>"; };
-		AD607F042876D6D30054B60C /* AddActionEditService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddActionEditService.swift; sourceTree = "<group>"; };
 		AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorViewController.swift; sourceTree = "<group>"; };
 		AD7E99802875835400B5CCEF /* LeferiPointSpecial.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointSpecial.otf; sourceTree = "<group>"; };
 		AD7E99812875835400B5CCEF /* LeferiPointWhiteOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointWhiteOblique.otf; sourceTree = "<group>"; };
@@ -193,7 +191,6 @@
 				AD3501CB286D9C1100B4398D /* PhotoAuth.swift */,
 				AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */,
 				AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */,
-				AD607F042876D6D30054B60C /* AddActionEditService.swift */,
 				ADD54074287FE2ED009DF6D0 /* PopupViewController.swift */,
 				ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */,
 				AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */,
@@ -346,7 +343,6 @@
 				AD346B1D28A641970060C7BB /* ModifyImage.swift in Sources */,
 				AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */,
 				AD1379FE28A25CF7002D68E9 /* CustomLoadingView.swift in Sources */,
-				AD607F052876D6D30054B60C /* AddActionEditService.swift in Sources */,
 				AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */,
 				AD7E99952876BDFF00B5CCEF /* GalleryViewController.swift in Sources */,
 				AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */,

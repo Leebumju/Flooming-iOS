@@ -28,7 +28,7 @@ class PopupViewController: UIViewController {
         infoView.layer.shadowOffset = CGSize(width: 1, height: 4)
         infoView.layer.shadowRadius = 10
         infoView.layer.shadowOpacity = 1
-
+        
         popupView.clipsToBounds = true
         popupView.layer.cornerRadius = 30
     }
@@ -42,33 +42,28 @@ class PopupViewController: UIViewController {
         detail = self.detailsTextField.text
         
         AF.request(
-                    floomingUrl, // [주소]
-                    method: .post, // [전송 타입]
-                    parameters: ["gallery_id": gallery_id, "detail": detail ], // [전송 데이터]
-                    encoding: JSONEncoding.default, // [인코딩 스타일]
-                    headers: header // [헤더 지정]
-                )
-                .validate(statusCode: 200..<300)
-                .responseData { response in
-                    switch response.result {
-                    case .success(_):
-//                        let json = JSON(value)
-                        let alert = UIAlertController(title:"신고가 완료되었습니다",
-                            message: "감사합니다.",
-                            preferredStyle: UIAlertController.Style.alert)
-                        //2. 확인 버튼 만들기
-                        let cancle = UIAlertAction(title: "확인", style: .default) { (action) in
-                            //취소 버튼 클릭시 이전 화면으로 돌아가기
-                            self.dismiss(animated: false, completion: nil)
-                        }
-                        //3. 확인 버튼을 경고창에 추가하기
-                        alert.addAction(cancle)
-                        //4. 경고창 보이기
-                        self.present(alert,animated: true,completion: nil)
-                        default:
-                        return
+            floomingUrl, // [주소]
+            method: .post, // [전송 타입]
+            parameters: ["gallery_id": gallery_id, "detail": detail ], // [전송 데이터]
+            encoding: JSONEncoding.default, // [인코딩 스타일]
+            headers: header // [헤더 지정]
+        )
+            .validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(_):
+                    let alert = UIAlertController(title:"신고가 완료되었습니다",
+                                                  message: "감사합니다.",
+                                                  preferredStyle: UIAlertController.Style.alert)
+                    let check = UIAlertAction(title: "확인", style: .default) { (action) in
+                        self.dismiss(animated: false, completion: nil)
                     }
+                    alert.addAction(check)
+                    self.present(alert,animated: true,completion: nil)
+                default:
+                    return
                 }
+            }
     }
 }
     

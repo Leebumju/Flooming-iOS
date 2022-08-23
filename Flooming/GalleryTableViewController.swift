@@ -10,7 +10,7 @@ import Alamofire
 import simd
 import SwiftyJSON
 import Foundation
-
+import Toast_Swift
 
 
 class GalleryTableViewController: UIViewController {
@@ -33,7 +33,7 @@ class GalleryTableViewController: UIViewController {
     var commentArray: Array<String> = []
     var galleryIdArray: Array<Int> = []
     
-// page control 관련 변수
+    // page control 관련 변수
     let numOfTouchs = 2
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
     var baseUrl = "http://flooming.link/gallery?page="
@@ -44,7 +44,7 @@ class GalleryTableViewController: UIViewController {
         print("클릭되었음.")
         self.navigationController?.popToRootViewController(animated: true)
     }
-  
+    
     var pictureImageUrl: String?
     var isPaging: Bool = false // 현재 페이징 중인지 체크하는 flag
     var hasNextPage: Bool = false // 마지막 페이지 인지 체크 하는 flag
@@ -52,10 +52,10 @@ class GalleryTableViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
-       
+        
         self.tableView.rowHeight = 350;
         
         
@@ -65,120 +65,112 @@ class GalleryTableViewController: UIViewController {
         
         let pageUrl = ("\(baseUrl)\(String(pageNum))")
         AF.request(
-                    "http://flooming.link/gallery", // [주소]
-                    method: .post, // [전송 타입]
-                    parameters: ["photo_id":photo_id ?? nil,
-                                 "picture_id":picture_id ?? nil,
-                                 "comment":comment ?? nil], // [전송 데이터]
-                    encoding: JSONEncoding.default, // [인코딩 스타일]
-                    headers: header // [헤더 지정]
-                )
-                .validate(statusCode: 200..<300)
-                .responseData { response in
-                    switch response.result {
-                    case .success(let value):
-                        let json = JSON(value)
-                        let result = json["result"]
-                        print("result는 \(result)")
-                        
-                        for pageNumber in 0 ..< 5 {
-                            //let data = CellData(comment: "Title\(pageNumber)")
-
-                            print("pageNumber: \(pageNumber)")
-//                                print(PhotoArray.photoIdArray.count)
-                            
-                            print("result[photo_id]: \(result[pageNumber]["photo_id"])")
-                         
-                            print("result[picture_id]: \(result[pageNumber]["picture_id"])")
-                                   
-        
-                            let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int,
-                                galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
-
-                            datas.append(data)
-                            
-                        }
-                        
+            "http://flooming.link/gallery", // [주소]
+            method: .post, // [전송 타입]
+            parameters: ["photo_id":photo_id ?? nil,
+                         "picture_id":picture_id ?? nil,
+                         "comment":comment ?? nil], // [전송 데이터]
+            encoding: JSONEncoding.default, // [인코딩 스타일]
+            headers: header // [헤더 지정]
+        )
+            .validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let result = json["result"]
+                    print("result는 \(result)")
                     
-                    default:
-                        return
+                    for pageNumber in 0 ..< 5 {
+                        print("pageNumber: \(pageNumber)")
+                        print("result[photo_id]: \(result[pageNumber]["photo_id"])")
+                        print("result[picture_id]: \(result[pageNumber]["picture_id"])")
+                        
+                        let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int,
+                                            galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
+                        
+                        datas.append(data)
                     }
+                    
+                default:
+                    return
                 }
+            }
         
         
     }
-  
+    
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
         paging()
     }
-
     
-        func paging() {
-            
-            var datas: [CellData] = []
-            
-            let pageUrl = ("\(baseUrl)\(String(pageNum))")
-            
-            print(pageUrl)
-            
-            AF.request(
-                        pageUrl, // [주소]
-                        method: .get, // [전송 타입]
-                        parameters: [:] // [전송 데이터]
-                    )
-                    .validate(statusCode: 200..<300)
-                    .responseData { response in
-                        switch response.result {
-                        case .success(let value):
-                            let json = JSON(value)
-                            let result = json["result"]
-
-                            print(result)
-                            
-                            for pageNumber in 0 ..< 5 {
-                                //let data = CellData(comment: "Title\(pageNumber)")
-
-                                print("pageNumber: \(pageNumber)")
-//                                print(PhotoArray.photoIdArray.count)
-                                
-                                print("result[photo_id]: \(result[pageNumber]["photo_id"])")
-                             
-                                print("result[picture_id]: \(result[pageNumber]["picture_id"])")
-                                       
-            
-                                let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int, galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
-
-                                datas.append(data)
-                            }
-                            
+    
+    func paging() {
+        
+        var datas: [CellData] = []
+        
+        let pageUrl = ("\(baseUrl)\(String(pageNum))")
+        
+        print(pageUrl)
+        
+        AF.request(
+            pageUrl, // [주소]
+            method: .get, // [전송 타입]
+            parameters: [:] // [전송 데이터]
+        )
+            .validate(statusCode: 200..<300)
+            .responseData { response in
+                switch response.result {
+                case .success(let value):
+                    let json = JSON(value)
+                    let result = json["result"]
+                    
+                    print(result)
+                    
+                    for pageNumber in 0 ..< 5 {
+                        //let data = CellData(comment: "Title\(pageNumber)")
                         
-                        default:
-                            return
-                        }
+                        print("pageNumber: \(pageNumber)")
+                        //                                print(PhotoArray.photoIdArray.count)
+                        
+                        print("result[photo_id]: \(result[pageNumber]["photo_id"])")
+                        
+                        print("result[picture_id]: \(result[pageNumber]["picture_id"])")
+                        
+                        
+                        let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int, galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
+                        
+                        datas.append(data)
                     }
-            
-                
-            pageNum = pageNum + 1
-            
-            DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                self.cellDatas.append(contentsOf: datas) // 데이터는 계속해서 append 시켜줌 (페이징의 핵심!)
-                
-                self.hasNextPage = self.cellDatas.count > 35 ? false : true // 다음 페이지가 있는지 여부를 표시
-                self.isPaging = false // 페이징이 종료 되었음을 표시
-                
-                self.tableView.reloadData()
+                    
+                    
+                default:
+                    return
+                }
             }
+        
+        
+        pageNum = pageNum + 1
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.cellDatas.append(contentsOf: datas) // 데이터는 계속해서 append 시켜줌 (페이징의 핵심!)
+            
+            self.hasNextPage = self.cellDatas.count > 35 ? false : true // 다음 페이지가 있는지 여부를 표시
+            self.isPaging = false // 페이징이 종료 되었음을 표시
+            
+            self.tableView.reloadData()
         }
+    }
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print("시바아아아아아아ㅏㄹ")
         let destination = segue.destination
         
-            //가고자 하는 VC가 맞는지 확인해줍니다.
+        //가고자 하는 VC가 맞는지 확인해줍니다.
         guard let nextVC = destination as? PopupViewController else {
             return
         }
@@ -198,9 +190,11 @@ class MyCell: UITableViewCell {
     var cellImage: UIImage?
     var photo: UIImage?
     
+
     
     //---------------------------------------------------
     @IBAction func downloadButton(_ sender: Any) {
+        self.makeToast("사진이 다운로드 되었습니다.", duration: 1.0, position: .bottom)
         UIImageWriteToSavedPhotosAlbum(galleryImage.image!, self, #selector(saveImage(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
@@ -211,7 +205,7 @@ class MyCell: UITableViewCell {
             print("Save")
         }
     }
-    
+
     
     
 }
@@ -220,7 +214,7 @@ extension MyCell {
     //----------------------------------------
     //cell에 url 줘서 그걸 변환하게 해보자
     func transferImageByUrl(pictureEncodedUrl: UIImage, photoImage: UIImage) {
-//        self.galleryImage.image = pictureEncodedUrl
+        //        self.galleryImage.image = pictureEncodedUrl
         self.galleryImage.image = pictureEncodedUrl
         cellImage = pictureEncodedUrl
         photo = photoImage
@@ -230,27 +224,27 @@ extension MyCell {
     @objc func respondToSwipeGesture(_ gesture: UIGestureRecognizer) {
         
         // 만일 제스쳐가 있다면
-            if let swipeGesture = gesture as? UISwipeGestureRecognizer{
-                // 발생한 이벤트가 각 방향의 스와이프 이벤트라면
-                // pageControl이 가르키는 현재 페이지에 해당하는 이미지를 imageView에 할당
-                switch swipeGesture.direction {
-                    case UISwipeGestureRecognizer.Direction.left :
-                    print("왼쪽")
-                    pageControl.currentPage -= 1
-                    self.galleryImage.image = photo
-    
-                    print("바뀜")
-                    case UISwipeGestureRecognizer.Direction.right :
-                    print("오른쪽")
-                    pageControl.currentPage += 1
-                    self.galleryImage.image = cellImage
-                    default:
-                      break
-                }
-
+        if let swipeGesture = gesture as? UISwipeGestureRecognizer{
+            // 발생한 이벤트가 각 방향의 스와이프 이벤트라면
+            // pageControl이 가르키는 현재 페이지에 해당하는 이미지를 imageView에 할당
+            switch swipeGesture.direction {
+            case UISwipeGestureRecognizer.Direction.left :
+                print("왼쪽")
+                pageControl.currentPage -= 1
+                self.galleryImage.image = photo
+                
+                print("바뀜")
+            case UISwipeGestureRecognizer.Direction.right :
+                print("오른쪽")
+                pageControl.currentPage += 1
+                self.galleryImage.image = cellImage
+            default:
+                break
             }
-
+            
         }
+        
+    }
 }
 
 class LoadingCell: UITableViewCell {
@@ -268,15 +262,12 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
     // Section을 2개 설정하는 이유는 페이징 로딩 시 로딩 셀을 표시해주기 위해서입니다.
     
     //신고 기능
-   @objc func declarationButtonClicked(_ sender: UIButton) {
-       print("클릭 되었음.")
-       let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
-       let popupVC = storyBoard.instantiateViewController(withIdentifier: "PopupViewController")
-       popupVC.modalPresentationStyle = .overFullScreen
-       present(popupVC, animated: false, completion: nil)
-   }
-    
-    
+    @objc func declarationButtonClicked(_ sender: UIButton) {
+        let storyBoard = UIStoryboard.init(name: "Main", bundle: nil)
+        let popupVC = storyBoard.instantiateViewController(withIdentifier: "PopupViewController")
+        popupVC.modalPresentationStyle = .overFullScreen
+        present(popupVC, animated: false, completion: nil)
+    }
     
     func numberOfSections(in tableView: UITableView) -> Int {
         return 2
@@ -293,7 +284,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
     }
     
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-            cell.backgroundColor = UIColor.clear
+        cell.backgroundColor = UIColor.clear
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -305,7 +296,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             cell.pageControl.numberOfPages = 2
             cell.pageControl.currentPage = 0
             let data = cellDatas[indexPath.row]
-              
+            
             let pictureUrlString = "\(self.floomingUrl)/\(data.pictureId)"
             let photoUrlString = "\(self.photoUrl)/\(data.photoId)"
             //------
@@ -321,13 +312,13 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             var photoImage: UIImage?
             //------------------------------------------
             let swipeLeft = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGesture(_:)))
-                    swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
-                cell.addGestureRecognizer(swipeLeft)
-
-                    let swipeRight = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGesture(_:)))
-                    swipeRight.direction = UISwipeGestureRecognizer.Direction.right
-                    cell.addGestureRecognizer(swipeRight)
-
+            swipeLeft.direction = UISwipeGestureRecognizer.Direction.left
+            cell.addGestureRecognizer(swipeLeft)
+            
+            let swipeRight = UISwipeGestureRecognizer(target: cell, action: #selector(cell.respondToSwipeGesture(_:)))
+            swipeRight.direction = UISwipeGestureRecognizer.Direction.right
+            cell.addGestureRecognizer(swipeRight)
+            
             
             //------------------------------------------
             //background 큐에서 비동기 방식으로 실행할 코드
@@ -345,13 +336,13 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
                     photoImage = UIImage(named: "FirstOnBoarding.jpeg")!
                 }
                 
-//                cell.transferImageByUrl(pictureEncodedUrl: pictureImage!)
+                //                cell.transferImageByUrl(pictureEncodedUrl: pictureImage!)
                 
-            
+                
                 //main 큐에서 비동기 방식으로 실행할 코드
                 DispatchQueue.main.async {
                     cell.transferImageByUrl(pictureEncodedUrl: pictureImage!, photoImage: photoImage!)
-//                    cell.galleryImage.image = pictureImage
+                    //                    cell.galleryImage.image = pictureImage
                 }
             }
             
@@ -361,20 +352,14 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             return cell
             
         } else {
-            
             guard let cell = tableView.dequeueReusableCell(withIdentifier: "LoadingCell", for: indexPath) as? LoadingCell else {
                 return UITableViewCell()
             }
-            
             cell.start()
             
             return cell
         }
-        
     }
-    
-    
-    
 }
 
 
