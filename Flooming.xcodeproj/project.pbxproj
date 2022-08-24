@@ -15,6 +15,7 @@
 		AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CB286D9C1100B4398D /* PhotoAuth.swift */; };
 		AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */; };
 		AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */; };
+		AD38F18728B60A3A00109C85 /* AlamofireServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18628B60A3A00109C85 /* AlamofireServices.swift */; };
 		AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */; };
 		AD7E99892875835F00B5CCEF /* LeferiBaseBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99842875835400B5CCEF /* LeferiBaseBold.otf */; };
 		AD7E998A2875836100B5CCEF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99872875835400B5CCEF /* LeferiBaseRegular.otf */; };
@@ -54,6 +55,7 @@
 		AD3501CB286D9C1100B4398D /* PhotoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAuth.swift; sourceTree = "<group>"; };
 		AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePhotoViewController.swift; sourceTree = "<group>"; };
+		AD38F18628B60A3A00109C85 /* AlamofireServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServices.swift; sourceTree = "<group>"; };
 		AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorViewController.swift; sourceTree = "<group>"; };
 		AD7E99802875835400B5CCEF /* LeferiPointSpecial.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointSpecial.otf; sourceTree = "<group>"; };
 		AD7E99812875835400B5CCEF /* LeferiPointWhiteOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointWhiteOblique.otf; sourceTree = "<group>"; };
@@ -150,6 +152,21 @@
 			path = ViewModels;
 			sourceTree = "<group>";
 		};
+		AD38F18428B609D000109C85 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Cells;
+			sourceTree = "<group>";
+		};
+		AD38F18528B60A1F00109C85 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				AD38F18628B60A3A00109C85 /* AlamofireServices.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
 		AD3C3ECC2898E85600300DAB /* Models */ = {
 			isa = PBXGroup;
 			children = (
@@ -194,7 +211,9 @@
 		D870DE1C2861DAE30096CC57 /* Flooming */ = {
 			isa = PBXGroup;
 			children = (
+				AD38F18528B60A1F00109C85 /* Services */,
 				D870DE2B2861DAE70096CC57 /* Info.plist */,
+				AD38F18428B609D000109C85 /* Cells */,
 				AD38F18328B6078F00109C85 /* ViewModels */,
 				AD38F18228B6077100109C85 /* Controllers */,
 				AD38F18128B6075200109C85 /* AppDelegate */,
@@ -355,6 +374,7 @@
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
+				AD38F18728B60A3A00109C85 /* AlamofireServices.swift in Sources */,
 				AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */,
 				AD1379F828A23F08002D68E9 /* OnBoardingViewController.swift in Sources */,
 				ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */,
