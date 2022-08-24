@@ -55,7 +55,7 @@ class ResultPhotoViewController: UIViewController {
     
     //------------------------------
     func uploadPhoto(image: UIImage) {
-        UploadPhotoService.shared.login(selectedImage: image) { result in
+        UploadPhotoService.shared.updatePhoto(selectedImage: image) { result in
             switch result {
             case .success(let value):
                 let json = JSON(value)

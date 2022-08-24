@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		AD0E89562885501A004E90A2 /* FinalResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD0E89552885501A004E90A2 /* FinalResultViewController.swift */; };
+		AD11D12228B6589F00AA51E5 /* CreatePictureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD11D12128B6589F00AA51E5 /* CreatePictureService.swift */; };
 		AD1379F828A23F08002D68E9 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */; };
 		AD1379FE28A25CF7002D68E9 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */; };
 		AD15BE9B28A3BCB6006DF88C /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */; };
@@ -51,6 +52,7 @@
 		84C25C0C6867F726027F7F4D /* Pods_Flooming.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Flooming.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D7FFD3109C166CD6B90BEC0 /* Pods-Flooming.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Flooming.release.xcconfig"; path = "Target Support Files/Pods-Flooming/Pods-Flooming.release.xcconfig"; sourceTree = "<group>"; };
 		AD0E89552885501A004E90A2 /* FinalResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinalResultViewController.swift; sourceTree = "<group>"; };
+		AD11D12128B6589F00AA51E5 /* CreatePictureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreatePictureService.swift; sourceTree = "<group>"; };
 		AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
 		AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 				AD38F18828B611EC00109C85 /* NetworkResult.swift */,
 				AD38F18A28B6120300109C85 /* APIConstants.swift */,
 				AD38F18C28B6138900109C85 /* UploadPhotoService.swift */,
+				AD11D12128B6589F00AA51E5 /* CreatePictureService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
+				AD11D12228B6589F00AA51E5 /* CreatePictureService.swift in Sources */,
 				AD38F18728B60A3A00109C85 /* AlamofireServices.swift in Sources */,
 				AD38F18928B611EC00109C85 /* NetworkResult.swift in Sources */,
 				AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */,

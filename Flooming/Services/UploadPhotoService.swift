@@ -9,22 +9,13 @@ import Foundation
 import Alamofire
 import SwiftyJSON
 
-struct LoginDataModel: Decodable {
-    let kor_name: String
-    let eng_name: String
-    let probability: String
-    let tempPhotoId: String
-    let flower_language: String
-}
-
-
 struct UploadPhotoService {
     // static을 활용해서 shared라는 이름으로 LoginService 싱글턴 인스턴스 선언
     static let shared = UploadPhotoService()
     
     // login 메서드: @escape 키워드를 사용해 escape closure 형태로 completion 정의
     // 해당 네트워크 작업이 끝날 때 -> completion closure에 네트워크의 결과를 담아서 호출
-    func login(selectedImage: UIImage, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func updatePhoto(selectedImage: UIImage, completion: @escaping (NetworkResult<Any>) -> Void) {
         // json 형태로 받아오기 위해 header 작성 -> 필요한 헤더를 Key-Value의 형태로 작성
         let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         // dataRequest: 주소를 가지고, get 방식으로, 인코딩 방식으로, 헤더 정보와 함께 요청을 보내기 위한 정보(요청서)
@@ -44,7 +35,7 @@ struct UploadPhotoService {
                 
                 guard let statusCode = Response.response?.statusCode else {return}
                 guard let value = Response.value else {return}
-                let networkResult = self.judgeStatus(by: statusCode, json)
+                let networkResult = judgeStatus(by: statusCode, json)
                 completion(networkResult)
                 
             case .failure: completion(.pathErr)
@@ -53,19 +44,20 @@ struct UploadPhotoService {
         }
     }
     
-    // 서버에서 주는 값중에서 message만 빼서 밖으로 전달
-    private func judgeStatus(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
-        
-        guard let decodedData = try? json
-        else { return .pathErr}
-        
-        switch statusCode {
-            //kor name말고 전체를 보내고 싶으면 decodedData하면 될라나
-        case 200: return .success(decodedData)
-        case 400: return .requestErr(decodedData)
-        case 500: return .serverErr
-        default: return .networkFail
-        }
-    }
 }
 
+// 서버에서 주는 값중에서 message만 빼서 밖으로 전달
+func judgeStatus(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
+    
+    guard let decodedData = try? json
+    else { return .pathErr}
+    
+    switch statusCode {
+        //kor name말고 전체를 보내고 싶으면 decodedData하면 될라나
+    case 200: return .success(decodedData)
+    case 400: return .requestErr(decodedData)
+    case 500: return .serverErr
+    default: return .networkFail
+        
+    }
+}

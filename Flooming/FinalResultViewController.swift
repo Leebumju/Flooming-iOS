@@ -14,12 +14,13 @@ import Toast_Swift
 
 class FinalResultViewController: UIViewController {
     
+    let pictureURL: String = APIConstants.shared.pictureURL
+    
     var selectedImage: UIImage!
     var photo_id: Int?
     var nextpictureId: Int?
-    
-    let pictureURL: String = APIConstants.shared.pictureURL
     var pictureImageUrl: String?
+    
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
     
     @IBOutlet weak var commentTextField: UITextField!
@@ -50,8 +51,8 @@ class FinalResultViewController: UIViewController {
             print("Save")
         }
     }
-    //    /picutre로 post 요청
     
+    //picutre로 post 요청
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -63,33 +64,10 @@ class FinalResultViewController: UIViewController {
         settingBackground(view: finalResultView)
         updateImageBorder(image: finalResultImageView)
         
-        AF.request(
-            pictureURL, // [주소]
-            method: .post, // [전송 타입]
-            parameters: ["photo_id":photo_id], // [전송 데이터]
-            encoding: JSONEncoding.default, // [인코딩 스타일]
-            headers: header // [헤더 지정]
-        )
-            .validate(statusCode: 200..<300)
-            .responseData { response in
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    let pictureId = json["picture_id"]
-                    self.nextpictureId = pictureId.rawValue as! Int
-                    print("pictureid: \(pictureId)")
-                    self.pictureImageUrl = "\(self.pictureURL)/\(pictureId)"
-                    print("pictureImageURL은 \(String(describing: self.pictureImageUrl))")
-                    let urlString = self.pictureImageUrl
-                    let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-                    updateImageFromUrl(encodedStr: encodedStr, imageView: self.finalResultImageView)
-                default:
-                    return
-                }
-            }
+        //서버 통신 부분
+        createPicture(photoId: photo_id!)
+        
     }
-    
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination
@@ -104,7 +82,33 @@ class FinalResultViewController: UIViewController {
         nextVC.comment = self.commentTextField.text
         
         print("남긴 말은:\(commentTextField.text)")
-        //        nextVC.comment = self.comment
+    }
+    
+    
+    func createPicture(photoId: Int) {
+        CreatePictureService.shared.createPicture(photo_id: photoId) { result in 
+            switch result {
+            case .success(let value):
+                print("success")
+                let json = JSON(value)
+                let pictureId = json["picture_id"]
+                self.nextpictureId = pictureId.rawValue as! Int
+                print("pictureid: \(pictureId)")
+                self.pictureImageUrl = "\(self.pictureURL)/\(pictureId)"
+                print("pictureImageURL은 \(String(describing: self.pictureImageUrl))")
+                let urlString = self.pictureImageUrl
+                let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
+                updateImageFromUrl(encodedStr: encodedStr, imageView: self.finalResultImageView)
+            case .requestErr(let message):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
     }
     
 }
