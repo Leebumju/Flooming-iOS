@@ -56,7 +56,9 @@ struct UploadPhotoService {
     // 서버에서 주는 값중에서 message만 빼서 밖으로 전달
     private func judgeStatus(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
         
-        guard let decodedData = try? json
+        let decoder = JSONDecoder()
+//        guard let decodedData = try? json
+        guard let decodedData = try? decoder.
         else { return .pathErr}
         
         switch statusCode {

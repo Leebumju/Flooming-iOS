@@ -17,7 +17,6 @@ class ResultPhotoViewController: UIViewController {
     var selectedImage: UIImage?
     var urlFlowerName: String?
     var photoId: Int?
-    let floomingUrl: String = "http://flooming.link"
     
     @IBOutlet weak var resultPhotoView: UIView!
     @IBOutlet weak var resultPhotoImage: UIImageView!
@@ -68,67 +67,35 @@ class ResultPhotoViewController: UIViewController {
                 let flower_language = json["flower_language"]
                 print(kor_name)
                 self.urlFlowerName = kor_name.stringValue
-                let urlString = self.floomingUrl + "/flower/\(kor_name)"
+                let urlString = APIConstants.shared.baseURL + "/flower/\(kor_name)"
                 let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 
-                
                 let photo_id = tempPhotoId.rawValue as! Int
-                self.photoId = photo_id
                 let flowerKorName = kor_name.rawValue as! String
                 let flowerEngName = eng_name.rawValue as! String
                 let flowerProbability = probability.rawValue as! Int
                 let flowerLanguage = flower_language.rawValue as! String
                 
+                self.photoId = photo_id
                 self.flowerEnglishName.text = flowerKorName + "\"" + flowerEngName + "\""
                 self.percent.text = String(flowerProbability)
                 self.flowerMeaning.text = flowerLanguage
-                
-                self.updateUI(encodedStr)
+                //이미지 업데이트 함수 호출
+                updateImageFromUrl(encodedStr: encodedStr, imageView: self.kindOfFlowerImage)
             case .requestErr(let message):
                 print("requestErr")
             case .pathErr:
                 print("pathErr")
                 self.percent.text = "오류 발생!!!"
-                let alert = UIAlertController(title:"사진을 다시 찍어주세요.",
-                                              message: "올바른 사진이 아닙니다.",
-                                              preferredStyle: UIAlertController.Style.alert)
-                //2. 확인 버튼 만들기
-                let cancle = UIAlertAction(title: "취소", style: .default) { (action) in
-                    //취소 버튼 클릭시 이전 화면으로 돌아가기
-                    self.navigationController?.popViewController(animated: true)
-                }
-                //3. 확인 버튼을 경고창에 추가하기
-                alert.addAction(cancle)
-                //4. 경고창 보이기
-                self.present(alert,animated: true,completion: nil)
-                
+                showAlert(viewController: self, title: "사진을 다시 찍어주세요.", message: "올바른 사진이 아닙니다.")
                 break
             case .serverErr:
                 print("serverErr")
             case .networkFail:
                 print("networkFail")
+                showAlert(viewController: self, title: "네트워크 불안정", message: "네트워크를 확인해 주세요.")
             }
         }
     }
-    
-    //url로 이미지 가져오기
-    func updateUI(_ url : String){
-        
-        var tempImg : UIImage?
-        
-        DispatchQueue.global().async {
-            if let ImageData = try? Data(contentsOf: URL(string: url)!) {
-                tempImg = UIImage(data: ImageData)!
-            } else {
-                tempImg = UIImage(named: "01.svg")!
-            }
-            
-            DispatchQueue.main.async {
-                self.kindOfFlowerImage.image = tempImg
-            }
-        }
-        
-    }
-    
 }
 

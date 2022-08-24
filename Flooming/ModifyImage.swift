@@ -19,3 +19,20 @@ func settingBackground(view: UIView) {
     view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
     view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
 }
+
+func updateImageFromUrl(encodedStr: String, imageView: UIImageView){
+    
+    var tempImg : UIImage?
+    
+    DispatchQueue.global().async {
+        if let ImageData = try? Data(contentsOf: URL(string: encodedStr)!) {
+            tempImg = UIImage(data: ImageData)!
+        } else {
+            tempImg = UIImage(named: "01.svg")!
+        }
+        
+        DispatchQueue.main.async {
+            imageView.image = tempImg
+        }
+    }
+}

@@ -38,3 +38,18 @@ func simpleYesAndNo(_ controller: UIViewController, message: String, title: Stri
     alertController.addAction(alertActionYes)
     controller.present(alertController, animated: true, completion: nil)
 }
+
+func showAlert(viewController: UIViewController, title: String, message: String) {
+    let alert = UIAlertController(title: title,
+                                  message: message,
+                                  preferredStyle: UIAlertController.Style.alert)
+    //2. 확인 버튼 만들기
+    let cancle = UIAlertAction(title: "취소", style: .default) { (action) in
+        //취소 버튼 클릭시 이전 화면으로 돌아가기
+        viewController.navigationController?.popViewController(animated: true)
+    }
+    //3. 확인 버튼을 경고창에 추가하기
+    alert.addAction(cancle)
+    //4. 경고창 보이기
+    viewController.present(alert,animated: true,completion: nil)
+}

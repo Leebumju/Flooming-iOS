@@ -18,11 +18,9 @@ class FinalResultViewController: UIViewController {
     var photo_id: Int?
     var nextpictureId: Int?
     
-    let floomingUrl: String = "http://flooming.link/picture"
+    let pictureURL: String = APIConstants.shared.baseURL + "/picture"
     var pictureImageUrl: String?
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
-    
-    
     
     @IBOutlet weak var commentTextField: UITextField!
     @IBOutlet weak var finalResultView: UIView!
@@ -66,7 +64,7 @@ class FinalResultViewController: UIViewController {
         updateImageBorder(image: finalResultImageView)
         
         AF.request(
-            floomingUrl, // [주소]
+            pictureURL, // [주소]
             method: .post, // [전송 타입]
             parameters: ["photo_id":photo_id], // [전송 데이터]
             encoding: JSONEncoding.default, // [인코딩 스타일]
@@ -79,35 +77,19 @@ class FinalResultViewController: UIViewController {
                     let json = JSON(value)
                     let pictureId = json["picture_id"]
                     self.nextpictureId = pictureId.rawValue as! Int
-                    print("pictureid는 \(pictureId)")
-                    self.pictureImageUrl = "\(self.floomingUrl)/\(pictureId)"
-                    print("아아아아ㅏ아아아ㅏ아아ㅏ아\(String(describing: self.pictureImageUrl))")
+                    print("pictureid: \(pictureId)")
+                    self.pictureImageUrl = "\(self.pictureURL)/\(pictureId)"
+                    print("pictureImageURL은 \(String(describing: self.pictureImageUrl))")
                     let urlString = self.pictureImageUrl
                     let encodedStr = urlString!.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-                    self.updateUI(encodedStr)
+                    updateImageFromUrl(encodedStr: encodedStr, imageView: self.finalResultImageView)
                 default:
                     return
                 }
             }
     }
     
-    func updateUI(_ url : String){
-        
-        var tempImg : UIImage?
-        
-        DispatchQueue.global().async {
-            if let ImageData = try? Data(contentsOf: URL(string: url)!) {
-                tempImg = UIImage(data: ImageData)!
-            } else {
-                tempImg = UIImage(named: "01.svg")!
-            }
-            
-            DispatchQueue.main.async {
-                self.finalResultImageView.image = tempImg
-            }
-        }
-        
-    }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination
@@ -126,3 +108,4 @@ class FinalResultViewController: UIViewController {
     }
     
 }
+
