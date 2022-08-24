@@ -27,8 +27,6 @@ class ResultPhotoViewController: UIViewController {
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
-    
-    
     override func viewDidLoad() {
         
         super.viewDidLoad()
@@ -40,19 +38,10 @@ class ResultPhotoViewController: UIViewController {
         updateImageBorder(image: resultPhotoImage)
         updateImageBorder(image: kindOfFlowerImage)
         
-        let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
-        
         //공용 인스턴스에 있는 통신하는 메서드를 호출해서 받은 데이터를 실질적으로 가공하는 함수
         uploadPhoto(image: selectedImage!)
-        
-        
+
     }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    
-    }
-    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destination = segue.destination
@@ -64,9 +53,6 @@ class ResultPhotoViewController: UIViewController {
         
         nextVC.photo_id = self.photoId
     }
-    
-    
-    
     
     //------------------------------
     func uploadPhoto(image: UIImage) {
