@@ -7,6 +7,7 @@
 
 import Foundation
 import Alamofire
+import SwiftyJSON
 
 struct LoginDataModel: Decodable {
     let kor_name: String
@@ -38,10 +39,12 @@ struct UploadPhotoService {
             dump(Response)
             // dataResponse.result: 통신 성공했는지 실패했는지에 대한 여부
             switch Response.result {
-            case .success:
+            case .success(let value):
+                let json = JSON(value)
+                
                 guard let statusCode = Response.response?.statusCode else {return}
                 guard let value = Response.value else {return}
-                let networkResult = self.judgeStatus(by: statusCode, value as! Data)
+                let networkResult = self.judgeStatus(by: statusCode, json)
                 completion(networkResult)
                 
             case .failure: completion(.pathErr)
@@ -51,15 +54,12 @@ struct UploadPhotoService {
     }
     
     // 서버에서 주는 값중에서 message만 빼서 밖으로 전달
-    private func judgeStatus(by statusCode: Int, _ data: Data) -> NetworkResult<Any> {
+    private func judgeStatus(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
         
-        let decoder = JSONDecoder()
-        
-        guard let decodedData = try? decoder.decode(LoginDataModel.self, from: data)
+        guard let decodedData = try? json
         else { return .pathErr}
         
         switch statusCode {
-        
             //kor name말고 전체를 보내고 싶으면 decodedData하면 될라나
         case 200: return .success(decodedData)
         case 400: return .requestErr(decodedData)

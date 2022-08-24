@@ -32,9 +32,7 @@ class ResultPhotoViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        //------------------------------------------------------------------------------
-        loginAction(image: selectedImage!)
-        //------------------------------------------------------------------------------
+    
         settingBackground(view: resultPhotoView)
         resultPhotoImage.image = selectedImage
         
@@ -44,17 +42,39 @@ class ResultPhotoViewController: UIViewController {
         
         let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         
-        AF.upload(multipartFormData: { multipartFormData in
-            // png이미지로 한번 변화해서 해보기
-            
-            if let image = self.selectedImage!.pngData() {
-                multipartFormData.append(image, withName: "file", fileName: "02.png", mimeType: "image/png")
-            }
-        }, to: floomingUrl + "/photo", usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { response in
-            
-            switch response.result {
+        //공용 인스턴스에 있는 통신하는 메서드를 호출해서 받은 데이터를 실질적으로 가공하는 함수
+        uploadPhoto(image: selectedImage!)
+        
+        
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+    
+    }
+    
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destination = segue.destination
+        
+        //가고자 하는 VC가 맞는지 확인해줍니다.
+        guard let nextVC = destination as? FinalResultViewController else {
+            return
+        }
+        
+        nextVC.photo_id = self.photoId
+    }
+    
+    
+    
+    
+    //------------------------------
+    func uploadPhoto(image: UIImage) {
+        UploadPhotoService.shared.login(selectedImage: image) { result in
+            switch result {
             case .success(let value):
                 let json = JSON(value)
+                print("success - ", json["kor_name"])
                 let kor_name = json["kor_name"]
                 let eng_name = json["eng_name"]
                 let probability = json["probability"]
@@ -78,8 +98,10 @@ class ResultPhotoViewController: UIViewController {
                 self.flowerMeaning.text = flowerLanguage
                 
                 self.updateUI(encodedStr)
-                
-            case .failure(let error):
+            case .requestErr(let message):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
                 self.percent.text = "오류 발생!!!"
                 let alert = UIAlertController(title:"사진을 다시 찍어주세요.",
                                               message: "올바른 사진이 아닙니다.",
@@ -95,43 +117,6 @@ class ResultPhotoViewController: UIViewController {
                 self.present(alert,animated: true,completion: nil)
                 
                 break
-                
-            default:
-                return
-            }
-            
-        }
-        
-        
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-    
-    }
-    
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let destination = segue.destination
-        
-        //가고자 하는 VC가 맞는지 확인해줍니다.
-        guard let nextVC = destination as? FinalResultViewController else {
-            return
-        }
-        
-        nextVC.photo_id = self.photoId
-    }
-    
-    //------------------------------
-    func loginAction(image: UIImage) {
-        UploadPhotoService.shared.login(selectedImage: image) { result in
-            switch result {
-            case .success(let message):
-                print("success - ", message)
-            case .requestErr(let message):
-                print("requestErr")
-            case .pathErr:
-                print("pathErr")
             case .serverErr:
                 print("serverErr")
             case .networkFail:
@@ -139,7 +124,6 @@ class ResultPhotoViewController: UIViewController {
             }
         }
     }
-    //------------------------------
     
     //url로 이미지 가져오기
     func updateUI(_ url : String){

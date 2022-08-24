@@ -11,6 +11,6 @@ struct APIConstants {
     
     static let shared = APIConstants()
     
-    let baseURL: String = "http::"
+    let baseURL: String = "http://flooming.link"
     let loginURL: String = "hefe"
 }
