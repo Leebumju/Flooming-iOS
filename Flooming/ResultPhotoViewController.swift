@@ -14,8 +14,7 @@ import Foundation
 
 class ResultPhotoViewController: UIViewController {
     
-    var selectedImage: UIImage!
-    var switchOn: UIImage?
+    var selectedImage: UIImage?
     var urlFlowerName: String?
     var photoId: Int?
     let floomingUrl: String = "http://flooming.link"
@@ -33,11 +32,10 @@ class ResultPhotoViewController: UIViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        switchOn = selectedImage
-        
+        //------------------------------------------------------------------------------
+        loginAction(image: selectedImage!)
+        //------------------------------------------------------------------------------
         settingBackground(view: resultPhotoView)
-        // Do any additional setup after loading the view.
-        
         resultPhotoImage.image = selectedImage
         
         //ImageView 경계선 설정 및 굵기 조정
@@ -46,11 +44,10 @@ class ResultPhotoViewController: UIViewController {
         
         let header : HTTPHeaders = ["Content-Type" : "multipart/form-data"]
         
-        
         AF.upload(multipartFormData: { multipartFormData in
             // png이미지로 한번 변화해서 해보기
             
-            if let image = self.switchOn!.pngData() {
+            if let image = self.selectedImage!.pngData() {
                 multipartFormData.append(image, withName: "file", fileName: "02.png", mimeType: "image/png")
             }
         }, to: floomingUrl + "/photo", usingThreshold: UInt64.init(), method: .post, headers: header).responseJSON { response in
@@ -125,6 +122,24 @@ class ResultPhotoViewController: UIViewController {
         nextVC.photo_id = self.photoId
     }
     
+    //------------------------------
+    func loginAction(image: UIImage) {
+        UploadPhotoService.shared.login(selectedImage: image) { result in
+            switch result {
+            case .success(let message):
+                print("success - ", message)
+            case .requestErr(let message):
+                print("requestErr")
+            case .pathErr:
+                print("pathErr")
+            case .serverErr:
+                print("serverErr")
+            case .networkFail:
+                print("networkFail")
+            }
+        }
+    }
+    //------------------------------
     
     //url로 이미지 가져오기
     func updateUI(_ url : String){

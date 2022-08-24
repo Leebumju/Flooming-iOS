@@ -16,6 +16,9 @@
 		AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */; };
 		AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */; };
 		AD38F18728B60A3A00109C85 /* AlamofireServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18628B60A3A00109C85 /* AlamofireServices.swift */; };
+		AD38F18928B611EC00109C85 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18828B611EC00109C85 /* NetworkResult.swift */; };
+		AD38F18B28B6120300109C85 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18A28B6120300109C85 /* APIConstants.swift */; };
+		AD38F18D28B6138900109C85 /* UploadPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18C28B6138900109C85 /* UploadPhotoService.swift */; };
 		AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */; };
 		AD7E99892875835F00B5CCEF /* LeferiBaseBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99842875835400B5CCEF /* LeferiBaseBold.otf */; };
 		AD7E998A2875836100B5CCEF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99872875835400B5CCEF /* LeferiBaseRegular.otf */; };
@@ -56,6 +59,9 @@
 		AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
 		AD384D6E286C4B1300611D4D /* ChoicePhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChoicePhotoViewController.swift; sourceTree = "<group>"; };
 		AD38F18628B60A3A00109C85 /* AlamofireServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlamofireServices.swift; sourceTree = "<group>"; };
+		AD38F18828B611EC00109C85 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
+		AD38F18A28B6120300109C85 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
+		AD38F18C28B6138900109C85 /* UploadPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoService.swift; sourceTree = "<group>"; };
 		AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorViewController.swift; sourceTree = "<group>"; };
 		AD7E99802875835400B5CCEF /* LeferiPointSpecial.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointSpecial.otf; sourceTree = "<group>"; };
 		AD7E99812875835400B5CCEF /* LeferiPointWhiteOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointWhiteOblique.otf; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 			isa = PBXGroup;
 			children = (
 				AD38F18628B60A3A00109C85 /* AlamofireServices.swift */,
+				AD38F18828B611EC00109C85 /* NetworkResult.swift */,
+				AD38F18A28B6120300109C85 /* APIConstants.swift */,
+				AD38F18C28B6138900109C85 /* UploadPhotoService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -370,16 +379,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				ADC90D9B28813F9600B55B6F /* ResultPhotoViewController.swift in Sources */,
+				AD38F18D28B6138900109C85 /* UploadPhotoService.swift in Sources */,
 				AD7E99972876C74A00B5CCEF /* PhotoInfo.swift in Sources */,
 				D870DE222861DAE30096CC57 /* ViewController.swift in Sources */,
 				D870DE1E2861DAE30096CC57 /* AppDelegate.swift in Sources */,
 				D86E9F802864A8460054E535 /* PhotoGuideViewController.swift in Sources */,
 				AD38F18728B60A3A00109C85 /* AlamofireServices.swift in Sources */,
+				AD38F18928B611EC00109C85 /* NetworkResult.swift in Sources */,
 				AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */,
 				AD1379F828A23F08002D68E9 /* OnBoardingViewController.swift in Sources */,
 				ADD54077287FECE3009DF6D0 /* GalleryTableViewController.swift in Sources */,
 				ADE357E3287ED0A400CB1283 /* ComparePhotoViewController.swift in Sources */,
 				ADC90D9D28814B7B00B55B6F /* ErrorViewController.swift in Sources */,
+				AD38F18B28B6120300109C85 /* APIConstants.swift in Sources */,
 				AD346B1D28A641970060C7BB /* ModifyImage.swift in Sources */,
 				AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */,
 				AD1379FE28A25CF7002D68E9 /* CustomLoadingView.swift in Sources */,

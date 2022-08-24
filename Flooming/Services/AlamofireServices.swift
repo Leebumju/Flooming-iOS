@@ -8,6 +8,9 @@
 import Foundation
 
 class AlamofireServices {
+    
+    let baseURL: String = "http://flooming.link"
+    
     func uploadPhoto(url: URL) {
         
     }
@@ -28,5 +31,15 @@ class AlamofireServices {
         
     }
     
+    func createGallery(url: URL) {
+        
+    }
     
+    func getPicture(url: URL) {
+        
+    }
+    
+    func postReport(url: URL) {
+        
+    }
 }

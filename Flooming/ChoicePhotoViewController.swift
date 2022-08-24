@@ -8,9 +8,9 @@
 import UIKit
 import Photos
 import Mantis
-import Alamofire
 
 class ChoicePhotoViewController: UIViewController {
+    
     
     @IBOutlet weak var choicePhotoView: UIView!
     @IBOutlet weak var choicePhotoImage: UIImageView!
