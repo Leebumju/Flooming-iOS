@@ -28,7 +28,7 @@ func updateImageFromUrl(encodedStr: String, imageView: UIImageView){
         if let ImageData = try? Data(contentsOf: URL(string: encodedStr)!) {
             tempImg = UIImage(data: ImageData)!
         } else {
-            tempImg = UIImage(named: "01.svg")!
+            tempImg = UIImage(named: "01.svg")
         }
         
         DispatchQueue.main.async {

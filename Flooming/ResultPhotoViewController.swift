@@ -67,7 +67,8 @@ class ResultPhotoViewController: UIViewController {
                 let flower_language = json["flower_language"]
                 print(kor_name)
                 self.urlFlowerName = kor_name.stringValue
-                let urlString = APIConstants.shared.baseURL + "/flower/\(kor_name)"
+                let urlString = APIConstants.shared.flowerURL+"/\(kor_name)"
+                print(urlString)
                 let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
                 
                 let photo_id = tempPhotoId.rawValue as! Int

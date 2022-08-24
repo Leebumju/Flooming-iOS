@@ -18,7 +18,7 @@ class FinalResultViewController: UIViewController {
     var photo_id: Int?
     var nextpictureId: Int?
     
-    let pictureURL: String = APIConstants.shared.baseURL + "/picture"
+    let pictureURL: String = APIConstants.shared.pictureURL
     var pictureImageUrl: String?
     let header : HTTPHeaders = ["Content-Type" : "application/json"]
     

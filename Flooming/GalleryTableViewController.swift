@@ -35,10 +35,8 @@ class GalleryTableViewController: UIViewController {
     
     // page control 관련 변수
     let numOfTouchs = 2
+    
     var cellDatas: [CellData] = [] // 셀에 표시될 데이터 리스트
-    var baseUrl = "http://flooming.link/gallery?page="
-    let floomingUrl: String = "http://flooming.link/picture"
-    let photoUrl: String = "http://flooming.link/photo"
     
     @IBAction func homeButton(_ sender: Any) {
         print("클릭되었음.")
@@ -63,7 +61,7 @@ class GalleryTableViewController: UIViewController {
         self.tableView.backgroundColor = UIColor.clear
         var datas: [CellData] = []
         
-        let pageUrl = ("\(baseUrl)\(String(pageNum))")
+        let pageUrl = ("\(APIConstants.shared.galleryPageURL)\(String(pageNum))")
         AF.request(
             "http://flooming.link/gallery", // [주소]
             method: .post, // [전송 타입]
@@ -112,7 +110,7 @@ class GalleryTableViewController: UIViewController {
         
         var datas: [CellData] = []
         
-        let pageUrl = ("\(baseUrl)\(String(pageNum))")
+        let pageUrl = ("\(APIConstants.shared.galleryPageURL)\(String(pageNum))")
         
         print(pageUrl)
         
@@ -176,7 +174,6 @@ class GalleryTableViewController: UIViewController {
         }
         nextVC.gallery_id = self.galleryIdInt!
         print(self.galleryIdInt)
-        //print(self.photo_id!)
     }
     
 }
@@ -189,8 +186,6 @@ class MyCell: UITableViewCell {
     @IBOutlet weak var declarationButton: UIButton!
     var cellImage: UIImage?
     var photo: UIImage?
-    
-
     
     //---------------------------------------------------
     @IBAction func downloadButton(_ sender: Any) {
@@ -206,8 +201,6 @@ class MyCell: UITableViewCell {
         }
     }
 
-    
-    
 }
 
 extension MyCell {
@@ -297,8 +290,8 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             cell.pageControl.currentPage = 0
             let data = cellDatas[indexPath.row]
             
-            let pictureUrlString = "\(self.floomingUrl)/\(data.pictureId)"
-            let photoUrlString = "\(self.photoUrl)/\(data.photoId)"
+            let pictureUrlString = "\(APIConstants.shared.pictureURL)/\(data.pictureId)"
+            let photoUrlString = "\(APIConstants.shared.photoURL)/\(data.photoId)"
             //------
             galleryIdInt = data.galleryId
             //------
