@@ -51,9 +51,11 @@ class ChoicePhotoViewController: UIViewController {
         guard let nextVC = destination as? ResultPhotoViewController else {
             return
         }
-        
-        nextVC.selectedImage = choicePhotoImage.image
+    
+        //250x250으로 리사이즈해서 다음 화면으로 보내기
+        nextVC.selectedImage = resizeImage(image: choicePhotoImage.image!, width: 250, height: 250)
     }
+    
 }
 
 extension ChoicePhotoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
@@ -85,6 +87,7 @@ extension ChoicePhotoViewController: CropViewControllerDelegate {
         let cropViewController = Mantis.cropViewController(image: image)
         cropViewController.delegate = self
         cropViewController.modalPresentationStyle = .fullScreen
+        cropViewController.config.presetFixedRatioType = .alwaysUsingOnePresetFixedRatio(ratio: 1.0 / 1.0)
         self.present(cropViewController, animated: true)
     }
 }

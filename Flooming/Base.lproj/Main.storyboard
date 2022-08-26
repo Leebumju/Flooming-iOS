@@ -974,11 +974,11 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="NrU-Xu-ehn">
                                 <rect key="frame" x="0.0" y="100" width="414" height="762"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logoImage" translatesAutoresizingMaskIntoConstraints="NO" id="9fn-7y-Opq">
-                                        <rect key="frame" x="77" y="100" width="260" height="230"/>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="logoImage" translatesAutoresizingMaskIntoConstraints="NO" id="9fn-7y-Opq">
+                                        <rect key="frame" x="77" y="100" width="250" height="250"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="260" id="7Ph-s6-SMK"/>
-                                            <constraint firstAttribute="width" secondItem="9fn-7y-Opq" secondAttribute="height" multiplier="838:741" id="XnP-7n-tM4"/>
+                                            <constraint firstAttribute="width" constant="250" id="7Ph-s6-SMK"/>
+                                            <constraint firstAttribute="width" secondItem="9fn-7y-Opq" secondAttribute="height" multiplier="1:1" id="XnP-7n-tM4"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPr-Kp-93S">
@@ -1011,7 +1011,7 @@
                                         </connections>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="남기고 싶은 말이 있나요?" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="zy9-Lh-GVr">
-                                        <rect key="frame" x="77" y="340" width="260" height="34"/>
+                                        <rect key="frame" x="82" y="360" width="250" height="34"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="23"/>
                                         <textInputTraits key="textInputTraits"/>

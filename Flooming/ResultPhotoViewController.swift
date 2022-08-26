@@ -36,7 +36,7 @@ class ResultPhotoViewController: UIViewController {
         updateImageClearBorder(image: resultPhotoImage)
         updateImageClearBorder(image: kindOfFlowerImage)
         
-        resultPhotoImage.image = resizeImage(image: selectedImage!, width: 250, height: 250)
+        resultPhotoImage.image = selectedImage
         //공용 인스턴스에 있는 통신하는 메서드를 호출해서 받은 데이터를 실질적으로 가공하는 함수
         uploadPhoto(image: selectedImage!)
 

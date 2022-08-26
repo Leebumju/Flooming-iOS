@@ -62,7 +62,8 @@ class FinalResultViewController: UIViewController {
         
         print("포토 아이디는 \(photo_id)")
         settingBackground(view: finalResultView)
-        updateImageBorder(image: finalResultImageView)
+        updateImageClearBorder(image: finalResultImageView)
+        
         
         //서버 통신 부분
         createPicture(photoId: photo_id!)
