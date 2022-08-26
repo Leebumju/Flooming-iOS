@@ -22,7 +22,8 @@ class ChoicePhotoViewController: UIViewController {
         //뷰 모양 조정
         settingBackground(view: choicePhotoView)
         //사진 선택 이미지 모양 조정
-        updateImageBorder(image: choicePhotoImage)
+        updateImageClearBorder(image: choicePhotoImage)
+        updateImageClearBorder(image: choicePhotoImage)
         imagePickerController.delegate = self
     }
     

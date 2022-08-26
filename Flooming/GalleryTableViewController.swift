@@ -187,6 +187,7 @@ class MyCell: UITableViewCell {
     var cellImage: UIImage?
     var photo: UIImage?
     
+
     //---------------------------------------------------
     @IBAction func downloadButton(_ sender: Any) {
         self.makeToast("사진이 다운로드 되었습니다.", duration: 1.0, position: .bottom)
@@ -339,6 +340,7 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
                 }
             }
             
+            updateImageClearBorder(image: cell.galleryImage)
             cell.titleLabel.text = data.comment
             cell.declarationButton.addTarget(self, action: #selector(declarationButtonClicked(_:)), for: .touchUpInside)
             

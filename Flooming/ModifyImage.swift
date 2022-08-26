@@ -13,6 +13,13 @@ func updateImageBorder(image: UIImageView) {
     image.layer.borderColor = UIColor.white.cgColor
 }
 
+func updateImageClearBorder(image: UIImageView) {
+    image.layer.borderWidth = 2
+    image.layer.cornerRadius = 20
+    image.layer.borderColor = UIColor.clear.cgColor
+
+}
+
 func settingBackground(view: UIView) {
     view.clipsToBounds = true
     view.layer.cornerRadius = 30
@@ -32,7 +39,16 @@ func updateImageFromUrl(encodedStr: String, imageView: UIImageView){
         }
         
         DispatchQueue.main.async {
-            imageView.image = tempImg
+            imageView.image = resizeImage(image: tempImg!, width: 250, height: 250)
         }
     }
 }
+
+
+func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {
+     UIGraphicsBeginImageContext(CGSize(width: width, height: height))
+     image.draw(in: CGRect(x: 0, y: 0, width: width, height: height))
+     let newImage = UIGraphicsGetImageFromCurrentImageContext()
+     UIGraphicsEndImageContext()
+     return newImage!
+ }

@@ -31,12 +31,12 @@ class ResultPhotoViewController: UIViewController {
         super.viewDidLoad()
     
         settingBackground(view: resultPhotoView)
-        resultPhotoImage.image = selectedImage
         
         //ImageView 경계선 설정 및 굵기 조정
-        updateImageBorder(image: resultPhotoImage)
-        updateImageBorder(image: kindOfFlowerImage)
+        updateImageClearBorder(image: resultPhotoImage)
+        updateImageClearBorder(image: kindOfFlowerImage)
         
+        resultPhotoImage.image = resizeImage(image: selectedImage!, width: 250, height: 250)
         //공용 인스턴스에 있는 통신하는 메서드를 호출해서 받은 데이터를 실질적으로 가공하는 함수
         uploadPhoto(image: selectedImage!)
 
@@ -88,10 +88,11 @@ class ResultPhotoViewController: UIViewController {
             case .pathErr:
                 print("pathErr")
                 self.percent.text = "오류 발생!!!"
-                showAlert(viewController: self, title: "사진을 다시 찍어주세요.", message: "올바른 사진이 아닙니다.")
+                showAlert(viewController: self, title: "사진을 다시 찍어주세요", message: "올바른 사진이 아닙니다")
                 break
             case .serverErr:
                 print("serverErr")
+                showAlert(viewController: self, title: "현재 서비스를 이용할 수 없어요", message: "이용에 불편을 끼쳐 드려 죄송합니다")
             case .networkFail:
                 print("networkFail")
                 showAlert(viewController: self, title: "네트워크 불안정", message: "네트워크를 확인해 주세요.")

@@ -895,26 +895,26 @@
                                         </connections>
                                     </button>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="01" translatesAutoresizingMaskIntoConstraints="NO" id="waI-ag-j0S">
-                                        <rect key="frame" x="132" y="360" width="150" height="150"/>
+                                        <rect key="frame" x="132" y="330" width="150" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="150" id="62Q-nh-GVc"/>
                                             <constraint firstAttribute="width" secondItem="waI-ag-j0S" secondAttribute="height" multiplier="1:1" id="T2M-iI-XJS"/>
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flower name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hwz-HS-rSq">
-                                        <rect key="frame" x="152" y="510" width="110" height="25"/>
-                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
+                                        <rect key="frame" x="141" y="490" width="132" height="30"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="flower meaning" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TaH-6B-wfV">
-                                        <rect key="frame" x="147" y="535" width="120" height="22"/>
-                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="22"/>
+                                        <rect key="frame" x="139" y="530" width="136.5" height="25"/>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="percent" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u4D-RB-L4N">
-                                        <rect key="frame" x="179" y="557" width="56.5" height="20"/>
+                                        <rect key="frame" x="179" y="565" width="56.5" height="20"/>
                                         <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
                                         <color key="textColor" systemColor="systemBackgroundColor"/>
                                         <nil key="highlightedColor"/>
@@ -923,13 +923,13 @@
                                 <color key="backgroundColor" systemColor="linkColor"/>
                                 <constraints>
                                     <constraint firstItem="OTT-dz-poC" firstAttribute="top" secondItem="t4J-4b-lIi" secondAttribute="top" constant="50" id="3vo-Bz-uc3"/>
-                                    <constraint firstItem="waI-ag-j0S" firstAttribute="top" secondItem="n8g-kX-iTc" secondAttribute="bottom" constant="60" id="66J-th-Hbx"/>
+                                    <constraint firstItem="waI-ag-j0S" firstAttribute="top" secondItem="n8g-kX-iTc" secondAttribute="bottom" constant="30" id="66J-th-Hbx"/>
                                     <constraint firstItem="n8g-kX-iTc" firstAttribute="centerX" secondItem="t4J-4b-lIi" secondAttribute="centerX" id="KFu-FO-dT1"/>
-                                    <constraint firstItem="u4D-RB-L4N" firstAttribute="top" secondItem="TaH-6B-wfV" secondAttribute="bottom" id="OYh-0V-kK0"/>
-                                    <constraint firstItem="hwz-HS-rSq" firstAttribute="top" secondItem="waI-ag-j0S" secondAttribute="bottom" id="Vgl-ZP-lWg"/>
+                                    <constraint firstItem="u4D-RB-L4N" firstAttribute="top" secondItem="TaH-6B-wfV" secondAttribute="bottom" constant="10" id="OYh-0V-kK0"/>
+                                    <constraint firstItem="hwz-HS-rSq" firstAttribute="top" secondItem="waI-ag-j0S" secondAttribute="bottom" constant="10" id="Vgl-ZP-lWg"/>
                                     <constraint firstItem="hwz-HS-rSq" firstAttribute="centerX" secondItem="waI-ag-j0S" secondAttribute="centerX" id="WWb-UR-zjQ"/>
                                     <constraint firstAttribute="bottom" secondItem="f5g-jt-EEU" secondAttribute="bottom" id="fix-so-CWM"/>
-                                    <constraint firstItem="TaH-6B-wfV" firstAttribute="top" secondItem="hwz-HS-rSq" secondAttribute="bottom" id="gsM-f5-HFJ"/>
+                                    <constraint firstItem="TaH-6B-wfV" firstAttribute="top" secondItem="hwz-HS-rSq" secondAttribute="bottom" constant="10" id="gsM-f5-HFJ"/>
                                     <constraint firstItem="waI-ag-j0S" firstAttribute="centerX" secondItem="n8g-kX-iTc" secondAttribute="centerX" id="h8w-Id-QcJ"/>
                                     <constraint firstItem="u4D-RB-L4N" firstAttribute="centerX" secondItem="TaH-6B-wfV" secondAttribute="centerX" id="kGy-yn-sLP"/>
                                     <constraint firstAttribute="trailing" secondItem="f5g-jt-EEU" secondAttribute="trailing" constant="10" id="naQ-OI-eGd"/>
