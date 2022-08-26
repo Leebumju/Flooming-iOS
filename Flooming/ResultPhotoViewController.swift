@@ -85,6 +85,9 @@ class ResultPhotoViewController: UIViewController {
                 updateImageFromUrl(encodedStr: encodedStr, imageView: self.kindOfFlowerImage)
             case .requestErr(let message):
                 print("requestErr")
+                self.percent.text = "오류 발생!!!"
+                showAlert(viewController: self, title: "사진을 다시 찍어주세요", message: "올바른 사진이 아닙니다")
+                break
             case .pathErr:
                 print("pathErr")
                 self.percent.text = "오류 발생!!!"
