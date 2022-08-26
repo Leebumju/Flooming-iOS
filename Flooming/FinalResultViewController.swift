@@ -12,7 +12,7 @@ import SwiftyJSON
 import Foundation
 import Toast_Swift
 
-class FinalResultViewController: UIViewController {
+class FinalResultViewController: UIViewController,UITextFieldDelegate {
     
     let pictureURL: String = APIConstants.shared.pictureURL
     
@@ -55,19 +55,26 @@ class FinalResultViewController: UIViewController {
     //picutre로 post 요청
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        commentTextField.delegate = self
         commentTextField.backgroundColor = UIColor.clear
         commentTextField.attributedPlaceholder = NSAttributedString(string: "남기시고 싶은 말이 있나요?", attributes: [.foregroundColor: UIColor.white])
-        
+
         
         print("포토 아이디는 \(photo_id)")
         settingBackground(view: finalResultView)
         updateImageClearBorder(image: finalResultImageView)
         
-        
         //서버 통신 부분
         createPicture(photoId: photo_id!)
         
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        let maxLength = 100
+        let currentString: NSString = (textField.text ?? "") as NSString
+        let newString: NSString =
+            currentString.replacingCharacters(in: range, with: string) as NSString
+        return newString.length <= maxLength
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -113,4 +120,6 @@ class FinalResultViewController: UIViewController {
     }
     
 }
+
+
 

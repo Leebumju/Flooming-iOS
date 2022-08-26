@@ -54,7 +54,7 @@ class GalleryTableViewController: UIViewController {
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         
-        self.tableView.rowHeight = 350;
+        self.tableView.rowHeight = 400;
         
         
         settingBackground(view: galleryView)
@@ -341,6 +341,9 @@ extension GalleryTableViewController: UITableViewDelegate, UITableViewDataSource
             }
             
             updateImageClearBorder(image: cell.galleryImage)
+            
+            cell.titleLabel.numberOfLines = 0
+            cell.titleLabel.lineBreakStrategy = .hangulWordPriority
             cell.titleLabel.text = data.comment
             cell.declarationButton.addTarget(self, action: #selector(declarationButtonClicked(_:)), for: .touchUpInside)
             

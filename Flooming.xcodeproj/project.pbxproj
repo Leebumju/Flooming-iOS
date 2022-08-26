@@ -223,8 +223,8 @@
 		D870DE1C2861DAE30096CC57 /* Flooming */ = {
 			isa = PBXGroup;
 			children = (
-				AD38F18528B60A1F00109C85 /* Services */,
 				D870DE2B2861DAE70096CC57 /* Info.plist */,
+				AD38F18528B60A1F00109C85 /* Services */,
 				AD38F18428B609D000109C85 /* Cells */,
 				AD38F18328B6078F00109C85 /* ViewModels */,
 				AD38F18228B6077100109C85 /* Controllers */,
