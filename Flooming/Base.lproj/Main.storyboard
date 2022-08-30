@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19529" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvT-y9-V2Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21223" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvT-y9-V2Y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="19519"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21204"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -23,7 +24,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-Ua-sGg">
-                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOOMING은 마음에 드는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFs-Q3-uV7">
                                         <rect key="frame" x="20" y="60" width="238" height="30"/>
@@ -70,10 +71,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-Re-QlL">
-                                        <rect key="frame" x="10" y="714" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="700" width="394" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="394" id="XDL-ob-eVy"/>
-                                            <constraint firstAttribute="width" secondItem="X4J-Re-QlL" secondAttribute="height" multiplier="394:40" id="mAg-O0-yRA"/>
+                                            <constraint firstAttribute="width" secondItem="X4J-Re-QlL" secondAttribute="height" multiplier="394:50" id="mAg-O0-yRA"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="지금 해볼래요">
@@ -85,9 +86,9 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-MR-7wQ">
-                                        <rect key="frame" x="10" y="664" width="394" height="40"/>
+                                        <rect key="frame" x="10" y="640" width="394" height="50"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="SqK-MR-7wQ" secondAttribute="height" multiplier="394:40" id="hta-ED-emz"/>
+                                            <constraint firstAttribute="width" secondItem="SqK-MR-7wQ" secondAttribute="height" multiplier="394:50" id="hta-ED-emz"/>
                                             <constraint firstAttribute="width" constant="394" id="z1i-SM-Ucl"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
@@ -278,7 +279,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78K-BG-1Yf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KakaoTalk_Image_2022-07-15-16-17-7" translatesAutoresizingMaskIntoConstraints="NO" id="xCo-7b-XfA">
                                         <rect key="frame" x="107" y="200" width="200" height="200"/>
@@ -329,7 +330,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zO1-z8-URO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-wZ-Mtp">
                                         <rect key="frame" x="146" y="100" width="122" height="21"/>
@@ -398,11 +399,11 @@
             <objects>
                 <viewController storyboardIdentifier="PopupViewController" id="npE-F1-SWi" customClass="PopupViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cez-vH-eBj" colorLabel="IBBuiltInLabel-Orange">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOh-pv-3Ay">
-                                <rect key="frame" x="64.5" y="304" width="285" height="200"/>
+                                <rect key="frame" x="64.5" y="343" width="285" height="200"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="신고 사유는 무엇인가요?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qiq-ds-jkv">
                                         <rect key="frame" x="53.5" y="28" width="178" height="25"/>
@@ -417,6 +418,9 @@
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="No8-xp-1di">
                                         <rect key="frame" x="20" y="252" width="100" height="31"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="0QF-q4-68Q"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="신고하기">
                                             <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
@@ -484,11 +488,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RFS-ru-Ea8">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="500" id="Pcp-sP-Taa" customClass="MyCell" customModule="Flooming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="500"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pcp-sP-Taa" id="ICq-Df-y7C">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
@@ -565,7 +569,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LoadingCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="HbM-0z-P1k" customClass="LoadingCell" customModule="Flooming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="544.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="550" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HbM-0z-P1k" id="5Cn-Y1-v7G">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -633,6 +637,9 @@
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lxV-Vu-dOs">
                                         <rect key="frame" x="10" y="721" width="394" height="60"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="lxV-Vu-dOs" secondAttribute="height" multiplier="394:50" id="C8B-gg-gbI"/>
+                                        </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="이해했어요">
                                             <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
@@ -748,10 +755,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPR-KI-D0D">
-                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marek-piwnicki-FU-zNC7NZ5o-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-gh-pbl">
-                                        <rect key="frame" x="10" y="30" width="394" height="434"/>
+                                        <rect key="frame" x="10" y="30" width="394" height="430"/>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="l7N-E6-saW">
                                         <rect key="frame" x="10" y="474" width="170" height="50"/>
@@ -798,6 +805,9 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DG5-ZS-CPh">
                                 <rect key="frame" x="10" y="821" width="394" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="DG5-ZS-CPh" secondAttribute="height" multiplier="394:50" id="yNV-lU-yES"/>
+                                </constraints>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="사진 선택">
                                     <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
@@ -837,7 +847,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="MVp-Q7-8HG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ys0-ed-SIz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
@@ -883,8 +893,7 @@
                                     <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="f5g-jt-EEU">
                                         <rect key="frame" x="10" y="731" width="394" height="60"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="f5g-jt-EEU" secondAttribute="height" multiplier="197:40" id="f55-qw-LpJ"/>
-                                            <constraint firstAttribute="width" constant="394" id="nWD-Mm-a7L"/>
+                                            <constraint firstAttribute="width" secondItem="f5g-jt-EEU" secondAttribute="height" multiplier="394:50" id="f55-qw-LpJ"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="그림을 그려볼까요?">
@@ -983,10 +992,10 @@
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HPr-Kp-93S">
-                                        <rect key="frame" x="10" y="692" width="394" height="60"/>
+                                        <rect key="frame" x="10" y="702" width="394" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="394" id="Bgp-4q-Wgi"/>
-                                            <constraint firstAttribute="width" secondItem="HPr-Kp-93S" secondAttribute="height" multiplier="394:60" id="j7A-HM-S7Y"/>
+                                            <constraint firstAttribute="width" secondItem="HPr-Kp-93S" secondAttribute="height" multiplier="394:50" id="j7A-HM-S7Y"/>
                                         </constraints>
                                         <state key="normal" title="Button"/>
                                         <buttonConfiguration key="configuration" style="filled" title="저장할게요">
@@ -998,7 +1007,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="edx-ZN-3zp">
-                                        <rect key="frame" x="10" y="622" width="394" height="60"/>
+                                        <rect key="frame" x="10" y="642" width="394" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="394" id="Qew-h7-smy"/>
                                         </constraints>
@@ -1027,7 +1036,7 @@
                                     <constraint firstItem="zy9-Lh-GVr" firstAttribute="centerX" secondItem="9fn-7y-Opq" secondAttribute="centerX" id="GUb-qN-3af"/>
                                     <constraint firstItem="HPr-Kp-93S" firstAttribute="top" secondItem="edx-ZN-3zp" secondAttribute="bottom" constant="10" id="OcQ-2A-tiN"/>
                                     <constraint firstItem="zy9-Lh-GVr" firstAttribute="top" secondItem="9fn-7y-Opq" secondAttribute="bottom" constant="10" id="Tf8-9W-db4"/>
-                                    <constraint firstItem="edx-ZN-3zp" firstAttribute="width" secondItem="edx-ZN-3zp" secondAttribute="height" multiplier="394:60" id="TrL-X0-yN7"/>
+                                    <constraint firstItem="edx-ZN-3zp" firstAttribute="width" secondItem="edx-ZN-3zp" secondAttribute="height" multiplier="394:50" id="TrL-X0-yN7"/>
                                     <constraint firstItem="edx-ZN-3zp" firstAttribute="leading" secondItem="NrU-Xu-ehn" secondAttribute="leading" constant="10" id="bEf-ni-Mqp"/>
                                     <constraint firstItem="9fn-7y-Opq" firstAttribute="top" secondItem="NrU-Xu-ehn" secondAttribute="top" constant="100" id="nCe-HL-oXR"/>
                                     <constraint firstItem="HPr-Kp-93S" firstAttribute="leading" secondItem="NrU-Xu-ehn" secondAttribute="leading" constant="10" id="yrT-j5-jmA"/>
@@ -1057,7 +1066,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="wpM-mG-8IV"/>
+        <segue reference="meE-Wy-QfS"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="01" width="936" height="671"/>
@@ -1073,7 +1082,7 @@
         <image name="logoImage" width="838" height="741"/>
         <image name="marek-piwnicki-FU-zNC7NZ5o-unsplash" width="3357" height="4476"/>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
