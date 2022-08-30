@@ -20,6 +20,12 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        
+        
+        self.navigationController?.navigationBar.backgroundColor = UIColor.rgbaColorFromHex(rgb: 0x250B77, alpha: 1.0)
+    
+        self.view.backgroundColor = UIColor.rgbaColorFromHex(rgb: 0x250B77, alpha: 1.0)
+        
         updateImageBorder(image: pictureImage)
         updateImageBorder(image: photoImage)
         settingBackground(view: mainView)

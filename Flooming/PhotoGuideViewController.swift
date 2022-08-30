@@ -15,6 +15,9 @@ class PhotoGuideViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.view.backgroundColor = UIColor.rgbaColorFromHex(rgb: 0x250B77, alpha: 1.0)
+
         
         settingBackground(view: photoGuideView)
         updateImageBorder(image: correctPhotoImage)

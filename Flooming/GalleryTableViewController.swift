@@ -51,8 +51,7 @@ class GalleryTableViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
-        
+        self.navigationController?.navigationBar.backgroundColor = UIColor.clear
         
         self.tableView.rowHeight = 400;
         

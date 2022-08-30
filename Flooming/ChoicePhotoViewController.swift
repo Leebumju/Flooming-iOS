@@ -19,6 +19,9 @@ class ChoicePhotoViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+    
+        self.view.backgroundColor = UIColor.rgbaColorFromHex(rgb: 0x250B77, alpha: 1.0)
+
         //뷰 모양 조정
         settingBackground(view: choicePhotoView)
         //사진 선택 이미지 모양 조정

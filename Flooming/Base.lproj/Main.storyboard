@@ -14,7 +14,7 @@
         </array>
     </customFonts>
     <scenes>
-        <!--View Controller-->
+        <!--Flooming-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController storyboardIdentifier="ViewController" id="BYZ-38-t0r" customClass="ViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
@@ -22,12 +22,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FLOOMING" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qIC-mD-nvJ">
-                                <rect key="frame" x="134.5" y="50" width="145" height="40"/>
-                                <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="40"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-Ua-sGg">
                                 <rect key="frame" x="0.0" y="98" width="414" height="764"/>
                                 <subviews>
@@ -136,14 +130,12 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="kGe-Ua-sGg" secondAttribute="bottom" id="Tgc-ec-2J6"/>
-                            <constraint firstItem="qIC-mD-nvJ" firstAttribute="centerX" secondItem="6Tk-OE-BBY" secondAttribute="centerX" id="Uya-8E-aLs"/>
                             <constraint firstItem="kGe-Ua-sGg" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="10" id="gNL-iN-2a8"/>
                             <constraint firstItem="kGe-Ua-sGg" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="lBZ-DW-e9z"/>
-                            <constraint firstItem="qIC-mD-nvJ" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="50" id="sLV-Fr-l9I"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="kGe-Ua-sGg" secondAttribute="trailing" id="xVd-Ti-Q0a"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="BId-Jo-5qt"/>
+                    <navigationItem key="navigationItem" title="Flooming" largeTitleDisplayMode="always" id="BId-Jo-5qt"/>
                     <connections>
                         <outlet property="mainView" destination="kGe-Ua-sGg" id="fT2-pF-saU"/>
                         <outlet property="photoImage" destination="cVe-BX-LS0" id="DR1-aJ-Zhu"/>
@@ -843,10 +835,17 @@
             <objects>
                 <navigationController storyboardIdentifier="NavigationController" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="TvT-y9-V2Y" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationItem key="navigationItem" id="MVp-Q7-8HG"/>
+                    <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="MVp-Q7-8HG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ys0-ed-SIz">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="13"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -1058,7 +1057,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="meE-Wy-QfS"/>
+        <segue reference="wpM-mG-8IV"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="01" width="936" height="671"/>

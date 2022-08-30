@@ -55,6 +55,9 @@ class FinalResultViewController: UIViewController,UITextFieldDelegate {
     //picutre로 post 요청
     override func viewDidLoad() {
         super.viewDidLoad()
+
+        self.view.backgroundColor = UIColor.rgbaColorFromHex(rgb: 0x250B77, alpha: 1.0)
+
         commentTextField.delegate = self
         commentTextField.backgroundColor = UIColor.clear
         commentTextField.attributedPlaceholder = NSAttributedString(string: "남기시고 싶은 말이 있나요?", attributes: [.foregroundColor: UIColor.white])

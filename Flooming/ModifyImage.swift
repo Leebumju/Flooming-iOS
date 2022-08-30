@@ -27,6 +27,7 @@ func settingBackground(view: UIView) {
     view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
 }
 
+
 func updateImageFromUrl(encodedStr: String, imageView: UIImageView){
     
     var tempImg : UIImage?
@@ -52,3 +53,22 @@ func resizeImage(image: UIImage, width: CGFloat, height: CGFloat) -> UIImage {
      UIGraphicsEndImageContext()
      return newImage!
  }
+
+extension UIColor {
+    
+    /**
+     *  16     RGBA
+     */
+    class func rgbaColorFromHex(rgb:Int, alpha:CGFloat) ->UIColor {
+        
+        return UIColor(red: ((CGFloat)((rgb & 0xFF0000) >> 16)) / 255.0,
+                     green: ((CGFloat)((rgb & 0xFF00) >> 8)) / 255.0,
+                      blue: ((CGFloat)(rgb & 0xFF)) / 255.0,
+                     alpha: alpha)
+    }
+    
+    /**
+     *  16     RGB
+     */
+    
+}
