@@ -1,6 +1,7 @@
 {
   "images" : [
     {
+      "filename" : "KakaoTalk_Image_2022-08-12-16-53.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
@@ -13,7 +14,6 @@
       "scale" : "3x"
     },
     {
-      "filename" : "KakaoTalk_Image_2022-08-12-16-53.png",
       "idiom" : "iphone",
       "scale" : "1x"
     },
@@ -30,6 +30,7 @@
       "scale" : "1x"
     },
     {
+      "filename" : "KakaoTalk_Image_2022-08-31-21-22-55.png",
       "idiom" : "ipad",
       "scale" : "2x"
     }
