@@ -81,7 +81,7 @@ class ResultPhotoViewController: UIViewController {
                 let flowerLanguage = flower_language.rawValue as! String
                 
                 self.photoId = photo_id
-                self.flowerEnglishName.text = flowerKorName + "\"" + flowerEngName + "\""
+                self.flowerEnglishName.text = flowerKorName + "[" + flowerEngName + "]"
                 self.percent.text = String(flowerProbability)
                 self.flowerMeaning.text = flowerLanguage
                 //이미지 업데이트 함수 호출
