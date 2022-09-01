@@ -3,11 +3,11 @@
 <plist version="1.0">
 <dict>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>앨범에 사진을 추가하겠습니다</string>
+	<string>앨범에 사진 추가 권한을 허용해주세요. 꽃 사진과 그림을 다운로드할 때 사용됩니다.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>카메라를 사용하겠습니다</string>
+	<string>카메라 권한을 허용해주세요. 꽃 사진을 그림으로 변환할 때 사용됩니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>앨범을 사용하겠습니다</string>
+	<string>앨범 권한을 허용해주세요. 앨범에 있는 꽃 사진을 그림으로 변환할 때 사용됩니다.</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSExceptionDomains</key>
