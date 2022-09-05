@@ -28,6 +28,7 @@ class ViewController: UIViewController {
         
         updateImageBorder(image: pictureImage)
         updateImageBorder(image: photoImage)
+        
         settingBackground(view: mainView)
     }
 }

@@ -21,10 +21,12 @@ func updateImageClearBorder(image: UIImageView) {
 }
 
 func settingBackground(view: UIView) {
+    
     view.clipsToBounds = true
     view.layer.cornerRadius = 30
     view.layer.maskedCorners = CACornerMask(arrayLiteral: .layerMinXMinYCorner, .layerMaxXMinYCorner)
     view.backgroundColor = UIColor(patternImage: UIImage(named: "background.jpeg")!)
+    
 }
 
 
