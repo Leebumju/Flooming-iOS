@@ -26,12 +26,24 @@ class ResultPhotoViewController: UIViewController {
     @IBOutlet weak var flowerMeaning: UILabel!
     @IBOutlet weak var percent: UILabel!
     
+    lazy var activityIndicator: UIActivityIndicatorView = {
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
+        activityIndicator.center = self.view.center
+        activityIndicator.color = UIColor.red
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.style = UIActivityIndicatorView.Style.white
+        activityIndicator.stopAnimating()
+        return activityIndicator }()
+    
+    
     override func viewDidLoad() {
         
         super.viewDidLoad()
-
+        self.view.addSubview(self.activityIndicator)
         self.view.backgroundColor = UIColor.rgbaColorFromHex(rgb: 0x250B77, alpha: 1.0)
-
+        activityIndicator.startAnimating()
+        
     
         settingBackground(view: resultPhotoView)
         
@@ -39,10 +51,11 @@ class ResultPhotoViewController: UIViewController {
         updateImageClearBorder(image: resultPhotoImage)
         updateImageClearBorder(image: kindOfFlowerImage)
         
+        
         resultPhotoImage.image = selectedImage
         //공용 인스턴스에 있는 통신하는 메서드를 호출해서 받은 데이터를 실질적으로 가공하는 함수
         uploadPhoto(image: selectedImage!)
-
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -104,6 +117,7 @@ class ResultPhotoViewController: UIViewController {
                 showAlert(viewController: self, title: "네트워크 불안정", message: "네트워크를 확인해 주세요.")
             }
         }
+        //activityIndicator.stopAnimating()
     }
 }
 

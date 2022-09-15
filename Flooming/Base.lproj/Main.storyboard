@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvT-y9-V2Y">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21225" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="TvT-y9-V2Y">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21207"/>
         <capability name="Named colors" minToolsVersion="9.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
@@ -24,7 +25,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="redraw" horizontalCompressionResistancePriority="1" verticalCompressionResistancePriority="1" translatesAutoresizingMaskIntoConstraints="NO" id="kGe-Ua-sGg">
-                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" text="FLOOMING은 마음에 드는" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EFs-Q3-uV7">
                                         <rect key="frame" x="20" y="60" width="238" height="30"/>
@@ -57,19 +58,19 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PhotoRoseOfSharon" translatesAutoresizingMaskIntoConstraints="NO" id="cVe-BX-LS0">
-                                        <rect key="frame" x="20" y="177.5" width="169" height="169"/>
+                                        <rect key="frame" x="20" y="175.5" width="169" height="169"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="cVe-BX-LS0" secondAttribute="height" multiplier="1:1" id="dlZ-9G-fw8"/>
                                         </constraints>
                                     </imageView>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="PictureRoseOfSharon" translatesAutoresizingMaskIntoConstraints="NO" id="JBz-Ef-Yo0">
-                                        <rect key="frame" x="225" y="177.5" width="169" height="169"/>
+                                        <rect key="frame" x="225" y="175.5" width="169" height="169"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="JBz-Ef-Yo0" secondAttribute="height" multiplier="1:1" id="Ubo-tH-2Oz"/>
                                         </constraints>
                                     </imageView>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X4J-Re-QlL">
-                                        <rect key="frame" x="10" y="704" width="394" height="50"/>
+                                        <rect key="frame" x="10" y="700" width="394" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="394" id="XDL-ob-eVy"/>
                                             <constraint firstAttribute="width" secondItem="X4J-Re-QlL" secondAttribute="height" multiplier="394:50" id="mAg-O0-yRA"/>
@@ -84,7 +85,7 @@
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SqK-MR-7wQ">
-                                        <rect key="frame" x="10" y="644" width="394" height="50"/>
+                                        <rect key="frame" x="10" y="640" width="394" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="SqK-MR-7wQ" secondAttribute="height" multiplier="394:50" id="hta-ED-emz"/>
                                             <constraint firstAttribute="width" constant="394" id="z1i-SM-Ucl"/>
@@ -279,7 +280,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="78K-BG-1Yf">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="KakaoTalk_Image_2022-07-15-16-17-7" translatesAutoresizingMaskIntoConstraints="NO" id="xCo-7b-XfA">
                                         <rect key="frame" x="107" y="200" width="200" height="200"/>
@@ -330,7 +331,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zO1-z8-URO">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="48" width="414" height="814"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="꽃을 선택해주세요" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ey7-wZ-Mtp">
                                         <rect key="frame" x="146" y="100" width="122" height="21"/>
@@ -399,7 +400,7 @@
             <objects>
                 <viewController storyboardIdentifier="PopupViewController" id="npE-F1-SWi" customClass="PopupViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="cez-vH-eBj" colorLabel="IBBuiltInLabel-Orange">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MOh-pv-3Ay">
@@ -488,11 +489,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="RFS-ru-Ea8">
-                                <rect key="frame" x="0.0" y="88" width="414" height="774"/>
+                                <rect key="frame" x="0.0" y="92" width="414" height="770"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="MyCell" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="MyCell" rowHeight="500" id="Pcp-sP-Taa" customClass="MyCell" customModule="Flooming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="44.5" width="414" height="500"/>
+                                        <rect key="frame" x="0.0" y="50" width="414" height="500"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Pcp-sP-Taa" id="ICq-Df-y7C">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="500"/>
@@ -569,7 +570,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" restorationIdentifier="LoadingCell" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="LoadingCell" id="HbM-0z-P1k" customClass="LoadingCell" customModule="Flooming" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="544.5" width="414" height="43.5"/>
+                                        <rect key="frame" x="0.0" y="550" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="HbM-0z-P1k" id="5Cn-Y1-v7G">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -759,10 +760,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fPR-KI-D0D">
-                                <rect key="frame" x="0.0" y="98" width="414" height="764"/>
+                                <rect key="frame" x="0.0" y="102" width="414" height="760"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="marek-piwnicki-FU-zNC7NZ5o-unsplash" translatesAutoresizingMaskIntoConstraints="NO" id="kPc-gh-pbl">
-                                        <rect key="frame" x="16" y="30" width="382" height="382"/>
+                                        <rect key="frame" x="17" y="30" width="380" height="380"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="kPc-gh-pbl" secondAttribute="height" multiplier="1:1" id="aeD-BW-xdy"/>
                                         </constraints>
@@ -855,7 +856,7 @@
                     <toolbarItems/>
                     <navigationItem key="navigationItem" largeTitleDisplayMode="always" id="MVp-Q7-8HG"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="ys0-ed-SIz">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <rect key="frame" x="0.0" y="48" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="25"/>
@@ -979,7 +980,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ftk-j9-BJS" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3101" y="116"/>
+            <point key="canvasLocation" x="3100.0000000000005" y="115.84821428571428"/>
         </scene>
         <!--그림 결과-->
         <scene sceneID="XG4-lr-RAf">
@@ -1093,7 +1094,7 @@
             <color red="0.0" green="0.46000000000000002" blue="0.89000000000000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </namedColor>
         <systemColor name="labelColor">
-            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="linkColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
