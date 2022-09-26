@@ -17,9 +17,9 @@ class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
     var scrollHeight: CGFloat! = 0.0
     
     //data for the slides
-    var titles = ["이 꽃은 무슨 꽃일까?","꽃을 그림으로 간직하고 싶은 당신","다른 그림을 보고 싶나요?"]
-    var descs = ["길거리에 피어있는\n꽃의 이름과 꽃말을 알아봐요.","FLOOMING에서 원하는 꽃 사진을\n선택해 나만의 그림으로 바꿔봐요","다양한 사용자들의 꽃 사진과 그림을\n관람할 수 있어요."]
-    var imgs = ["FirstOnBoarding","SecondOnBoarding","ThirdOnBoarding"]
+    var titles = ["불쾌한 사진은 타인에게 피해를 줘요","이 꽃은 무슨 꽃일까?","꽃을 그림으로 간직하고 싶은 당신","다른 그림을 보고 싶나요?"]
+    var descs = ["다른 사용자에게 불쾌감을 주는 컨텐츠는 \n별다른 통보 없이 삭제됩니다.","길거리에 피어있는\n꽃의 이름과 꽃말을 알아봐요.","FLOOMING에서 원하는 꽃 사진을\n선택해 나만의 그림으로 바꿔봐요","다양한 사용자들의 꽃 사진과 그림을\n관람할 수 있어요."]
+    var imgs = ["CautionOnBoarding","FirstOnBoarding","SecondOnBoarding","ThirdOnBoarding"]
     
     //get dynamic width and height of scrollview and save it
     override func viewDidLayoutSubviews() {

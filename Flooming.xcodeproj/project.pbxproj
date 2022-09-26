@@ -555,8 +555,9 @@
 				DEVELOPMENT_TEAM = 277QUM3J2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flooming/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 가져오기";
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영 권한을 허용해주세요. 촬영한 꽃 사진을 그림으로 변환할 때 사용됩니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "앨범에 사진 추가 권한을 허용해주세요. 꽃 사진과 그림을 다운로드할 때 사용됩니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범 권한을 허용해주세요. 앨범에 있는 꽃 사진을 그림으로 변환할 때 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
@@ -586,8 +587,9 @@
 				DEVELOPMENT_TEAM = 277QUM3J2F;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Flooming/Info.plist;
-				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영";
-				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "사진 가져오기";
+				INFOPLIST_KEY_NSCameraUsageDescription = "사진 촬영 권한을 허용해주세요. 촬영한 꽃 사진을 그림으로 변환할 때 사용됩니다.";
+				INFOPLIST_KEY_NSPhotoLibraryAddUsageDescription = "앨범에 사진 추가 권한을 허용해주세요. 꽃 사진과 그림을 다운로드할 때 사용됩니다.";
+				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "앨범 권한을 허용해주세요. 앨범에 있는 꽃 사진을 그림으로 변환할 때 사용됩니다.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";

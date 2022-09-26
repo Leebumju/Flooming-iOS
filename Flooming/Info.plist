@@ -5,7 +5,7 @@
 	<key>NSPhotoLibraryAddUsageDescription</key>
 	<string>앨범에 사진 추가 권한을 허용해주세요. 꽃 사진과 그림을 다운로드할 때 사용됩니다.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>카메라 권한을 허용해주세요. 꽃 사진을 그림으로 변환할 때 사용됩니다.</string>
+	<string>사진 촬영 권한을 허용해주세요. 촬영한 꽃 사진을 그림으로 변환할 때 사용됩니다.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>앨범 권한을 허용해주세요. 앨범에 있는 꽃 사진을 그림으로 변환할 때 사용됩니다.</string>
 	<key>NSAppTransportSecurity</key>
