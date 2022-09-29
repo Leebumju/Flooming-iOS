@@ -8,6 +8,11 @@
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="SimKyungha.otf">
+            <string>SimKyungha</string>
+        </array>
+    </customFonts>
     <scenes>
         <!--On Boarding View Controller-->
         <scene sceneID="s0d-6b-0kx">
@@ -71,42 +76,84 @@
         <scene sceneID="sVu-D8-JXm">
             <objects>
                 <viewController id="fSp-8y-eJ1" customClass="OnBoardingSecondViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Llq-w5-KiM">
+                    <view key="view" contentMode="scaleToFill" id="Llq-w5-KiM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAW-hC-iTF">
-                                <rect key="frame" x="10" y="788" width="340" height="40"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="CautionOnBoarding" translatesAutoresizingMaskIntoConstraints="NO" id="7pI-hQ-kOx">
+                                <rect key="frame" x="107" y="128" width="200" height="200"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="40" id="gun-Dk-m2M"/>
-                                    <constraint firstAttribute="width" constant="340" id="pDP-Vr-eX7"/>
+                                    <constraint firstAttribute="width" constant="200" id="eru-Bg-MNg"/>
+                                    <constraint firstAttribute="width" secondItem="7pI-hQ-kOx" secondAttribute="height" multiplier="1:1" id="sWf-Ha-b2w"/>
+                                </constraints>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Flooming 약관동의" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ej5-sS-atC">
+                                <rect key="frame" x="20" y="398" width="178" height="30"/>
+                                <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="30"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEE-VK-Za1">
+                                <rect key="frame" x="37" y="778" width="340" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="340" id="3hF-5D-GoL"/>
+                                    <constraint firstAttribute="height" constant="40" id="Q6O-ST-xm1"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="시작할래요">
+                                <buttonConfiguration key="configuration" style="plain" title="동의합니다">
                                     <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="goToMainButton:" destination="fSp-8y-eJ1" eventType="touchUpInside" id="uog-Zm-MgK"/>
-                                    <action selector="nextButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L2c-lE-htW"/>
+                                    <action selector="goToMainButton:" destination="fSp-8y-eJ1" eventType="touchUpInside" id="btO-bA-8yI"/>
                                 </connections>
                             </button>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Jle-gP-cz1">
+                                <rect key="frame" x="20" y="448" width="374" height="280"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="다른 사용자에게 불쾌감, 피해를 주는 콘텐츠를 게시하지 않는다는 것에 동의합니다. 이 사항을 지키지 않을 시 별다른 통보 없이 해당 게시물이 삭제될 수 있습니다." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Rz-RY-E8f">
+                                        <rect key="frame" x="10" y="10" width="300" height="88"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="300" id="4Cv-AH-Twr"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" name="SimKyungha" family="SimKyungha" pointSize="22"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.81701704091632488" green="0.81701704091632488" blue="0.81701704091632488" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstItem="5Rz-RY-E8f" firstAttribute="leading" secondItem="Jle-gP-cz1" secondAttribute="leading" constant="10" id="igC-Ba-RCc"/>
+                                    <constraint firstItem="5Rz-RY-E8f" firstAttribute="top" secondItem="Jle-gP-cz1" secondAttribute="top" constant="10" id="nFl-8g-Bw0"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="53g-nt-iZC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="IAW-hC-iTF" secondAttribute="trailing" constant="10" id="g83-ix-JQU"/>
-                            <constraint firstItem="53g-nt-iZC" firstAttribute="bottom" secondItem="IAW-hC-iTF" secondAttribute="bottom" constant="10" id="u53-De-VEY"/>
-                            <constraint firstItem="IAW-hC-iTF" firstAttribute="leading" secondItem="53g-nt-iZC" secondAttribute="leading" constant="10" id="zdC-pf-Syv"/>
+                            <constraint firstItem="7pI-hQ-kOx" firstAttribute="top" secondItem="Llq-w5-KiM" secondAttribute="topMargin" constant="80" id="0Qt-gu-l9U"/>
+                            <constraint firstItem="Jle-gP-cz1" firstAttribute="top" secondItem="ej5-sS-atC" secondAttribute="bottom" constant="20" id="AXs-22-FWd"/>
+                            <constraint firstItem="ej5-sS-atC" firstAttribute="leading" secondItem="53g-nt-iZC" secondAttribute="leading" constant="20" id="BMd-QP-tZj"/>
+                            <constraint firstItem="Jle-gP-cz1" firstAttribute="leading" secondItem="ej5-sS-atC" secondAttribute="leading" id="EeK-QG-BWe"/>
+                            <constraint firstItem="ej5-sS-atC" firstAttribute="top" secondItem="7pI-hQ-kOx" secondAttribute="bottom" constant="70" id="Hph-DC-qqp"/>
+                            <constraint firstItem="53g-nt-iZC" firstAttribute="bottom" secondItem="NEE-VK-Za1" secondAttribute="bottom" constant="20" id="LfD-u5-f1u"/>
+                            <constraint firstItem="53g-nt-iZC" firstAttribute="trailing" secondItem="Jle-gP-cz1" secondAttribute="trailing" constant="20" id="NlY-hP-vhT"/>
+                            <constraint firstItem="NEE-VK-Za1" firstAttribute="top" secondItem="Jle-gP-cz1" secondAttribute="bottom" constant="50" id="c3V-2s-9Ml"/>
+                            <constraint firstItem="7pI-hQ-kOx" firstAttribute="centerX" secondItem="53g-nt-iZC" secondAttribute="centerX" id="fTl-TN-bVT"/>
+                            <constraint firstItem="NEE-VK-Za1" firstAttribute="centerX" secondItem="53g-nt-iZC" secondAttribute="centerX" id="uNQ-NL-O6C"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="boe-Tq-li7"/>
+                    <connections>
+                        <outlet property="textLabel" destination="5Rz-RY-E8f" id="nzZ-7B-ZEa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Q1J-Bu-esv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="828" y="52"/>
+            <point key="canvasLocation" x="829" y="42"/>
         </scene>
     </scenes>
     <resources>
+        <image name="CautionOnBoarding" width="742.41705322265625" height="712.572998046875"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
