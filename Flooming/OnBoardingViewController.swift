@@ -11,7 +11,6 @@ class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
     
     @IBOutlet var scrollView: UIScrollView!
     @IBOutlet var pageControl: UIPageControl!
-    @IBOutlet var btnGetStarted: UIButton!
     
     var scrollWidth: CGFloat! = 0.0
     var scrollHeight: CGFloat! = 0.0
@@ -99,16 +98,6 @@ class OnBoardingViewController: UIViewController, UIScrollViewDelegate {
     }
     // Do any additional setup after loading the view.
     
-    @IBAction func nextButtonClicked(_ sender: Any) {
-        presentMainVC()
-    }
-    
-    private func presentMainVC() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let vc = storyboard.instantiateViewController(withIdentifier: "NavigationController") as! UINavigationController
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: false, completion: nil)
-    }
     
 }
 

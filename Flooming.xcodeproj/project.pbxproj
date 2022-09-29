@@ -20,6 +20,7 @@
 		AD38F18928B611EC00109C85 /* NetworkResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18828B611EC00109C85 /* NetworkResult.swift */; };
 		AD38F18B28B6120300109C85 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18A28B6120300109C85 /* APIConstants.swift */; };
 		AD38F18D28B6138900109C85 /* UploadPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18C28B6138900109C85 /* UploadPhotoService.swift */; };
+		AD3DC70028E5532A006693DC /* OnBoardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3DC6FF28E5532A006693DC /* OnBoardingSecondViewController.swift */; };
 		AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */; };
 		AD7E99892875835F00B5CCEF /* LeferiBaseBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99842875835400B5CCEF /* LeferiBaseBold.otf */; };
 		AD7E998A2875836100B5CCEF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99872875835400B5CCEF /* LeferiBaseRegular.otf */; };
@@ -64,6 +65,7 @@
 		AD38F18828B611EC00109C85 /* NetworkResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkResult.swift; sourceTree = "<group>"; };
 		AD38F18A28B6120300109C85 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		AD38F18C28B6138900109C85 /* UploadPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoService.swift; sourceTree = "<group>"; };
+		AD3DC6FF28E5532A006693DC /* OnBoardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSecondViewController.swift; sourceTree = "<group>"; };
 		AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorViewController.swift; sourceTree = "<group>"; };
 		AD7E99802875835400B5CCEF /* LeferiPointSpecial.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointSpecial.otf; sourceTree = "<group>"; };
 		AD7E99812875835400B5CCEF /* LeferiPointWhiteOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointWhiteOblique.otf; sourceTree = "<group>"; };
@@ -249,6 +251,7 @@
 				ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */,
 				AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */,
 				AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */,
+				AD3DC6FF28E5532A006693DC /* OnBoardingSecondViewController.swift */,
 				AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */,
 				AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */,
 				AD346B1C28A641970060C7BB /* ModifyImage.swift */,
@@ -405,6 +408,7 @@
 				AD0E89562885501A004E90A2 /* FinalResultViewController.swift in Sources */,
 				D870DE202861DAE30096CC57 /* SceneDelegate.swift in Sources */,
 				ADD54075287FE2ED009DF6D0 /* PopupViewController.swift in Sources */,
+				AD3DC70028E5532A006693DC /* OnBoardingSecondViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

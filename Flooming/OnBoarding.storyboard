@@ -28,7 +28,7 @@
                                     <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
                                 </buttonConfiguration>
                                 <connections>
-                                    <action selector="nextButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="whu-Ax-5aB"/>
+                                    <segue destination="fSp-8y-eJ1" kind="show" id="6HQ-cZ-VOa"/>
                                 </connections>
                             </button>
                             <pageControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="ay4-To-kyA">
@@ -66,6 +66,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ief-a0-LHa" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="45" y="42"/>
+        </scene>
+        <!--On Boarding Second View Controller-->
+        <scene sceneID="sVu-D8-JXm">
+            <objects>
+                <viewController id="fSp-8y-eJ1" customClass="OnBoardingSecondViewController" customModule="Flooming" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" ambiguous="YES" id="Llq-w5-KiM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="838"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IAW-hC-iTF">
+                                <rect key="frame" x="10" y="788" width="340" height="40"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="gun-Dk-m2M"/>
+                                    <constraint firstAttribute="width" constant="340" id="pDP-Vr-eX7"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="시작할래요">
+                                    <fontDescription key="titleFontDescription" name="SimKyungha" family="SimKyungha" pointSize="20"/>
+                                </buttonConfiguration>
+                                <connections>
+                                    <action selector="goToMainButton:" destination="fSp-8y-eJ1" eventType="touchUpInside" id="uog-Zm-MgK"/>
+                                    <action selector="nextButtonClicked:" destination="Y6W-OH-hqX" eventType="touchUpInside" id="L2c-lE-htW"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="53g-nt-iZC"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="IAW-hC-iTF" secondAttribute="trailing" constant="10" id="g83-ix-JQU"/>
+                            <constraint firstItem="53g-nt-iZC" firstAttribute="bottom" secondItem="IAW-hC-iTF" secondAttribute="bottom" constant="10" id="u53-De-VEY"/>
+                            <constraint firstItem="IAW-hC-iTF" firstAttribute="leading" secondItem="53g-nt-iZC" secondAttribute="leading" constant="10" id="zdC-pf-Syv"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="boe-Tq-li7"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Q1J-Bu-esv" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="828" y="52"/>
         </scene>
     </scenes>
     <resources>

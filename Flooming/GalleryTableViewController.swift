@@ -126,12 +126,17 @@ class GalleryTableViewController: UIViewController {
                 switch response.result {
                 case .success(let value):
                     let json = JSON(value)
-                    let result = json["result"]
+                    var result = json["result"]
                     
                     print(result)
                     
                     for pageNumber in 0 ..< 5 {
                         //let data = CellData(comment: "Title\(pageNumber)")
+                        print(result[pageNumber]["photo_id"])
+                        if result[pageNumber]["photo_id"].rawValue is NSNull {
+                            break
+                        }
+                       
                         
                         print("pageNumber: \(pageNumber)")
                         //                                print(PhotoArray.photoIdArray.count)
@@ -167,7 +172,6 @@ class GalleryTableViewController: UIViewController {
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("시바아아아아아아ㅏㄹ")
         let destination = segue.destination
         
         //가고자 하는 VC가 맞는지 확인해줍니다.
