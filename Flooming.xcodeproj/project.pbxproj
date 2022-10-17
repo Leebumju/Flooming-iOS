@@ -21,6 +21,7 @@
 		AD38F18B28B6120300109C85 /* APIConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18A28B6120300109C85 /* APIConstants.swift */; };
 		AD38F18D28B6138900109C85 /* UploadPhotoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD38F18C28B6138900109C85 /* UploadPhotoService.swift */; };
 		AD3DC70028E5532A006693DC /* OnBoardingSecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3DC6FF28E5532A006693DC /* OnBoardingSecondViewController.swift */; };
+		AD44BD6828FD800300761AE2 /* GalleryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD44BD6728FD800300761AE2 /* GalleryService.swift */; };
 		AD74C8472882E2A100B3D1A9 /* ImageErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */; };
 		AD7E99892875835F00B5CCEF /* LeferiBaseBold.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99842875835400B5CCEF /* LeferiBaseBold.otf */; };
 		AD7E998A2875836100B5CCEF /* LeferiBaseRegular.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99872875835400B5CCEF /* LeferiBaseRegular.otf */; };
@@ -31,7 +32,6 @@
 		AD7E998F2875836C00B5CCEF /* LeferiPointWhite.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99852875835400B5CCEF /* LeferiPointWhite.otf */; };
 		AD7E99902875836E00B5CCEF /* LeferiPointWhiteOblique.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99812875835400B5CCEF /* LeferiPointWhiteOblique.otf */; };
 		AD7E99912875837000B5CCEF /* SimKyungha.otf in Resources */ = {isa = PBXBuildFile; fileRef = AD7E99882875835500B5CCEF /* SimKyungha.otf */; };
-		AD7E99952876BDFF00B5CCEF /* GalleryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */; };
 		AD7E99972876C74A00B5CCEF /* PhotoInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */; };
 		ADC90D9B28813F9600B55B6F /* ResultPhotoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC90D9A28813F9600B55B6F /* ResultPhotoViewController.swift */; };
 		ADC90D9D28814B7B00B55B6F /* ErrorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */; };
@@ -66,6 +66,7 @@
 		AD38F18A28B6120300109C85 /* APIConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIConstants.swift; sourceTree = "<group>"; };
 		AD38F18C28B6138900109C85 /* UploadPhotoService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UploadPhotoService.swift; sourceTree = "<group>"; };
 		AD3DC6FF28E5532A006693DC /* OnBoardingSecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingSecondViewController.swift; sourceTree = "<group>"; };
+		AD44BD6728FD800300761AE2 /* GalleryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryService.swift; sourceTree = "<group>"; };
 		AD74C8462882E2A100B3D1A9 /* ImageErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageErrorViewController.swift; sourceTree = "<group>"; };
 		AD7E99802875835400B5CCEF /* LeferiPointSpecial.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointSpecial.otf; sourceTree = "<group>"; };
 		AD7E99812875835400B5CCEF /* LeferiPointWhiteOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointWhiteOblique.otf; sourceTree = "<group>"; };
@@ -76,7 +77,6 @@
 		AD7E99862875835400B5CCEF /* LeferiPointBlackOblique.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiPointBlackOblique.otf; sourceTree = "<group>"; };
 		AD7E99872875835400B5CCEF /* LeferiBaseRegular.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = LeferiBaseRegular.otf; sourceTree = "<group>"; };
 		AD7E99882875835500B5CCEF /* SimKyungha.otf */ = {isa = PBXFileReference; lastKnownFileType = file; path = SimKyungha.otf; sourceTree = "<group>"; };
-		AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GalleryViewController.swift; sourceTree = "<group>"; };
 		AD7E99962876C74A00B5CCEF /* PhotoInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoInfo.swift; sourceTree = "<group>"; };
 		ADC90D9A28813F9600B55B6F /* ResultPhotoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultPhotoViewController.swift; sourceTree = "<group>"; };
 		ADC90D9C28814B7B00B55B6F /* ErrorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ErrorViewController.swift; sourceTree = "<group>"; };
@@ -177,6 +177,7 @@
 				AD38F18A28B6120300109C85 /* APIConstants.swift */,
 				AD38F18C28B6138900109C85 /* UploadPhotoService.swift */,
 				AD11D12128B6589F00AA51E5 /* CreatePictureService.swift */,
+				AD44BD6728FD800300761AE2 /* GalleryService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -240,7 +241,6 @@
 				ADC90D9A28813F9600B55B6F /* ResultPhotoViewController.swift */,
 				AD0E89552885501A004E90A2 /* FinalResultViewController.swift */,
 				ADD54076287FECE3009DF6D0 /* GalleryTableViewController.swift */,
-				AD7E99942876BDFF00B5CCEF /* GalleryViewController.swift */,
 				ADE357E2287ED0A400CB1283 /* ComparePhotoViewController.swift */,
 				D870DE232861DAE30096CC57 /* Main.storyboard */,
 				D870DE282861DAE70096CC57 /* LaunchScreen.storyboard */,
@@ -401,9 +401,9 @@
 				AD38F18B28B6120300109C85 /* APIConstants.swift in Sources */,
 				AD346B1D28A641970060C7BB /* ModifyImage.swift in Sources */,
 				AD384D6F286C4B1300611D4D /* ChoicePhotoViewController.swift in Sources */,
+				AD44BD6828FD800300761AE2 /* GalleryService.swift in Sources */,
 				AD1379FE28A25CF7002D68E9 /* CustomLoadingView.swift in Sources */,
 				AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */,
-				AD7E99952876BDFF00B5CCEF /* GalleryViewController.swift in Sources */,
 				AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */,
 				AD0E89562885501A004E90A2 /* FinalResultViewController.swift in Sources */,
 				D870DE202861DAE30096CC57 /* SceneDelegate.swift in Sources */,
