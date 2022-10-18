@@ -14,7 +14,7 @@ struct GalleryService {
     
     static let shared = GalleryService()
     
-    func createPicture(photo_id: Int, picture_id: Int, comment: String, completion: @escaping (NetworkResult<Any>) -> Void) {
+    func gallery(photo_id: Int, picture_id: Int, comment: String, completion: @escaping (NetworkResult<Any>) -> Void) {
         
         let header : HTTPHeaders = ["Content-Type" : "application/json"]
         
@@ -26,7 +26,7 @@ struct GalleryService {
                          "comment":comment ?? nil], // [전송 데이터]
             encoding: JSONEncoding.default, // [인코딩 스타일]
             headers: header // [헤더 지정]
-            //------- 여기까지 수정 완료------
+            
         )
             .validate(statusCode: 200..<300)
             .responseData { response in
@@ -34,22 +34,16 @@ struct GalleryService {
                 case .success(let value):
                     let json = JSON(value)
                     let result = json["result"]
-                    print("result는 \(result)")
                     
-                    for pageNumber in 0 ..< 5 {
-                        print("pageNumber: \(pageNumber)")
-                        print("result[photo_id]: \(result[pageNumber]["photo_id"])")
-                        print("result[picture_id]: \(result[pageNumber]["picture_id"])")
-                        
-                        let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int,
-                                            galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
-                        
-                        datas.append(data)
-                    }
+                    guard let statusCode = response.response?.statusCode else {return}
+                    guard let value = response.value else {return}
+                    let networkResult = judgeStatus(by: statusCode, json)
+                    completion(networkResult)
                     
-                default:
-                    return
+                case .failure: completion(.pathErr)
+                    
                 }
             }
-  
+        
+    }
 }

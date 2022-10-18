@@ -60,6 +60,7 @@ class ResultPhotoViewController: UIViewController {
         UploadPhotoService.shared.updatePhoto(selectedImage: image) { result in
             switch result {
             case .success(let value):
+                print("value값은: \(value)")
                 let json = JSON(value)
                 print("success - ", json["kor_name"])
                 let kor_name = json["kor_name"]

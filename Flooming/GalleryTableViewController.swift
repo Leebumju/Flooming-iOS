@@ -60,7 +60,6 @@ class GalleryTableViewController: UIViewController {
         self.tableView.backgroundColor = UIColor.clear
         var datas: [CellData] = []
         
-        let pageUrl = ("\(APIConstants.shared.galleryPageURL)\(String(pageNum))")
         AF.request(
             "http://flooming.link/gallery", // [주소]
             method: .post, // [전송 타입]
@@ -105,6 +104,36 @@ class GalleryTableViewController: UIViewController {
         super.viewDidAppear(animated)
         
         paging()
+    }
+    
+    func galleryService(photoId: Int, pictureId: Int, comment: String) {
+        GalleryService.shared.gallery(photo_id: photoId, picture_id: pictureId, comment: comment) { result in
+            switch result {
+            case .success(let value):
+                let json = JSON(value)
+                let result = json["result"]
+                print("result는 \(result)")
+                
+                for pageNumber in 0 ..< 5 {
+                    print("pageNumber: \(pageNumber)")
+                    print("result[photo_id]: \(result[pageNumber]["photo_id"])")
+                    print("result[picture_id]: \(result[pageNumber]["picture_id"])")
+                    
+                    let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int, galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
+                    
+                    self.cellDatas.append(data)
+
+                }
+                case .requestErr(let message):
+                    print("requestErr")
+                case .pathErr:
+                    print("pathErr")
+                case .serverErr:
+                    print("serverErr")
+                case .networkFail:
+                    print("networkFail")
+            }
+        }
     }
     
     
