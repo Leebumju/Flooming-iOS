@@ -60,40 +60,7 @@ class GalleryTableViewController: UIViewController {
         self.tableView.backgroundColor = UIColor.clear
         var datas: [CellData] = []
         
-        AF.request(
-            "http://flooming.link/gallery", // [주소]
-            method: .post, // [전송 타입]
-            parameters: ["photo_id":photo_id ?? nil,
-                         "picture_id":picture_id ?? nil,
-                         "comment":comment ?? nil], // [전송 데이터]
-            encoding: JSONEncoding.default, // [인코딩 스타일]
-            headers: header // [헤더 지정]
-        )
-            .validate(statusCode: 200..<300)
-            .responseData { response in
-                switch response.result {
-                case .success(let value):
-                    let json = JSON(value)
-                    let result = json["result"]
-                    print("result는 \(result)")
-                    
-                    for pageNumber in 0 ..< 5 {
-                        print("pageNumber: \(pageNumber)")
-                        print("result[photo_id]: \(result[pageNumber]["photo_id"])")
-                        print("result[picture_id]: \(result[pageNumber]["picture_id"])")
-                        
-                        let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int,
-                                            galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
-                        
-                        datas.append(data)
-                    }
-                    
-                default:
-                    return
-                }
-            }
-        
-        
+        galleryService(photoId: photo_id ?? 0, pictureId: picture_id ?? 0, comment: comment ?? "")
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -165,15 +132,6 @@ class GalleryTableViewController: UIViewController {
                         if result[pageNumber]["photo_id"].rawValue is NSNull {
                             break
                         }
-                       
-                        
-                        print("pageNumber: \(pageNumber)")
-                        //                                print(PhotoArray.photoIdArray.count)
-                        
-                        print("result[photo_id]: \(result[pageNumber]["photo_id"])")
-                        
-                        print("result[picture_id]: \(result[pageNumber]["picture_id"])")
-                        
                         
                         let data = CellData(photoId: result[pageNumber]["photo_id"].rawValue as! Int, comment: "\(result[pageNumber]["comment"].rawValue as! String)", pictureId: result[pageNumber]["picture_id"].rawValue as! Int, galleryId: result[pageNumber]["gallery_id"].rawValue as! Int)
                         
