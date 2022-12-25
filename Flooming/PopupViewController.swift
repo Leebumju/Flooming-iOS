@@ -41,6 +41,8 @@ class PopupViewController: UIViewController {
         
         detail = self.detailsTextField.text
         
+        print("\(gallery_id) detail은 \(detail)")
+        
         AF.request(
             floomingUrl, // [주소]
             method: .post, // [전송 타입]

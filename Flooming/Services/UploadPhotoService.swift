@@ -32,9 +32,7 @@ struct UploadPhotoService {
             switch Response.result {
             case .success(let value):
                 let json = JSON(value)
-                
                 guard let statusCode = Response.response?.statusCode else {return}
-                guard let value = Response.value else {return}
                 let networkResult = judgeStatus(by: statusCode, json)
                 completion(networkResult)
                 
@@ -49,8 +47,7 @@ struct UploadPhotoService {
 // 서버에서 주는 값중에서 message만 빼서 밖으로 전달
 func judgeStatus(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
     
-    guard let decodedData = try? json
-    else { return .pathErr}
+    let decodedData = json
     
     switch statusCode {
         //kor name말고 전체를 보내고 싶으면 decodedData하면 될라나

@@ -12,6 +12,7 @@
 		AD1379F828A23F08002D68E9 /* OnBoardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */; };
 		AD1379FE28A25CF7002D68E9 /* CustomLoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */; };
 		AD15BE9B28A3BCB6006DF88C /* OnBoarding.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */; };
+		AD1ADDDB29581E9100545DB7 /* .swiftlint.yml in Resources */ = {isa = PBXBuildFile; fileRef = AD1ADDDA29581E9100545DB7 /* .swiftlint.yml */; };
 		AD346B1D28A641970060C7BB /* ModifyImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD346B1C28A641970060C7BB /* ModifyImage.swift */; };
 		AD3501CC286D9C1100B4398D /* PhotoAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CB286D9C1100B4398D /* PhotoAuth.swift */; };
 		AD3501CE286D9C6F00B4398D /* SimpleAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */; };
@@ -57,6 +58,7 @@
 		AD1379F728A23F08002D68E9 /* OnBoardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnBoardingViewController.swift; sourceTree = "<group>"; };
 		AD1379FD28A25CF7002D68E9 /* CustomLoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLoadingView.swift; sourceTree = "<group>"; };
 		AD15BE9A28A3BCB6006DF88C /* OnBoarding.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = OnBoarding.storyboard; sourceTree = "<group>"; };
+		AD1ADDDA29581E9100545DB7 /* .swiftlint.yml */ = {isa = PBXFileReference; lastKnownFileType = text.yaml; path = .swiftlint.yml; sourceTree = "<group>"; };
 		AD346B1C28A641970060C7BB /* ModifyImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModifyImage.swift; sourceTree = "<group>"; };
 		AD3501CB286D9C1100B4398D /* PhotoAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoAuth.swift; sourceTree = "<group>"; };
 		AD3501CD286D9C6F00B4398D /* SimpleAlert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SimpleAlert.swift; sourceTree = "<group>"; };
@@ -208,6 +210,7 @@
 		D870DE112861DAE30096CC57 = {
 			isa = PBXGroup;
 			children = (
+				AD1ADDDA29581E9100545DB7 /* .swiftlint.yml */,
 				D870DE1C2861DAE30096CC57 /* Flooming */,
 				D870DE1B2861DAE30096CC57 /* Products */,
 				28D422F330856BD245635499 /* Pods */,
@@ -267,6 +270,7 @@
 			buildConfigurationList = D870DE2E2861DAE70096CC57 /* Build configuration list for PBXNativeTarget "Flooming" */;
 			buildPhases = (
 				DDD052192E87372F5CC6C89D /* [CP] Check Pods Manifest.lock */,
+				AD1ADDD929581E4100545DB7 /* SwiftLint Script */,
 				D870DE162861DAE30096CC57 /* Sources */,
 				D870DE172861DAE30096CC57 /* Frameworks */,
 				D870DE182861DAE30096CC57 /* Resources */,
@@ -329,6 +333,7 @@
 				AD7E998A2875836100B5CCEF /* LeferiBaseRegular.otf in Resources */,
 				AD7E998E2875836A00B5CCEF /* LeferiPointSpecialItalic.otf in Resources */,
 				AD7E998B2875836300B5CCEF /* LeferiPointBlack.otf in Resources */,
+				AD1ADDDB29581E9100545DB7 /* .swiftlint.yml in Resources */,
 				AD7E99912875837000B5CCEF /* SimKyungha.otf in Resources */,
 				AD7E998D2875836800B5CCEF /* LeferiPointSpecial.otf in Resources */,
 				AD7E998F2875836C00B5CCEF /* LeferiPointWhite.otf in Resources */,
@@ -338,6 +343,24 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		AD1ADDD929581E4100545DB7 /* SwiftLint Script */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "SwiftLint Script";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "export PATH=\"$PATH:/opt/homebrew/bin\"\nif which swiftlint > /dev/null; then\n  swiftlint\nelse\n  echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\nfi\n";
+		};
 		DDD052192E87372F5CC6C89D /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
