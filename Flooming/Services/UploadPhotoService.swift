@@ -12,7 +12,6 @@ import SwiftyJSON
 struct UploadPhotoService {
     // static을 활용해서 shared라는 이름으로 LoginService 싱글턴 인스턴스 선언
     static let shared = UploadPhotoService()
-    
     // login 메서드: @escape 키워드를 사용해 escape closure 형태로 completion 정의
     // 해당 네트워크 작업이 끝날 때 -> completion closure에 네트워크의 결과를 담아서 호출
     func updatePhoto(selectedImage: UIImage, completion: @escaping (NetworkResult<Any>) -> Void) {
@@ -35,26 +34,20 @@ struct UploadPhotoService {
                 guard let statusCode = Response.response?.statusCode else {return}
                 let networkResult = judgeStatus(by: statusCode, json)
                 completion(networkResult)
-                
             case .failure: completion(.pathErr)
-                
             }
         }
     }
-    
 }
 
 // 서버에서 주는 값중에서 message만 빼서 밖으로 전달
 func judgeStatus(by statusCode: Int, _ json: JSON) -> NetworkResult<Any> {
-    
     let decodedData = json
-    
     switch statusCode {
-        //kor name말고 전체를 보내고 싶으면 decodedData하면 될라나
+    // kor name말고 전체를 보내고 싶으면 decodedData하면 될라나
     case 200: return .success(decodedData)
     case 400: return .requestErr(decodedData)
     case 500: return .serverErr
-    default: return .networkFail
-        
+    default: return .networkFail 
     }
 }

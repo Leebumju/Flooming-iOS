@@ -73,18 +73,16 @@ class ResultPhotoViewController: UIViewController {
                 let urlString = APIConstants.shared.flowerURL+"/\(kor_name)"
                 print(urlString)
                 let encodedStr = urlString.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)!
-                
                 let photo_id = tempPhotoId.rawValue as! Int
                 let flowerKorName = kor_name.rawValue as! String
                 let flowerEngName = eng_name.rawValue as! String
                 let flowerProbability = probability.rawValue as! Int
                 let flowerLanguage = flower_language.rawValue as! String
-                
                 self.photoId = photo_id
                 self.flowerEnglishName.text = flowerKorName + "[" + flowerEngName + "]"
                 self.percent.text = String(flowerProbability)
                 self.flowerMeaning.text = flowerLanguage
-                //이미지 업데이트 함수 호출
+                // 이미지 업데이트 함수 호출
                 updateImageFromUrl(encodedStr: encodedStr, imageView: self.kindOfFlowerImage)
             case .requestErr(let message):
                 print("requestErr")
@@ -106,4 +104,3 @@ class ResultPhotoViewController: UIViewController {
         }
     }
 }
-
